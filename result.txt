@@ -1,781 +1,226 @@
-<div class="slpc-hide-asterisk" ng-class="{'padding-h-32': vm.$mdMedia('gt-xs'),'padding-h-16': !vm.$mdMedia('gt-xs')}"
-    ng-model-options="{allowInvalid: true}" activity-data-auto-save readonly-form>
-    <form name="switchFrDesignation2nd">
-        <div class="margin-top-48" layout-gt-xs="row" layout-align="space-between center">
-            <span></span>
-            <!--<p class="font-size-fixed-16 italic_font_slpc margin-0 margin-bottom-8">
-                <span  ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.MANDATORY_FIELD"></span>
-                <span  class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.MANDATORY_FIELD_LOCAL"></span>
-            </p>-->
-        </div>
-        <div class="md-whiteframe-1dp margin-bottom-16" palette-background="swiss-life-bordeaux:50" bg-only>
-            <div class="padding-v-15" palette-background="white:A700" bg-only ng-class="{'padding-h-24': vm.$mdMedia('gt-xs'),'padding-h-8': !vm.$mdMedia('gt-xs')}">
-                <h2 ng-if="vm.workflowName==='Application Process'" class="margin-0 line-height-fixed-26 font-size-fixed-20" palette-background="swiss-life-grey:500"
-                    fg-only>
-                    <md-icon md-font-icon="icon-description" class="line-height-fixed-20 font-size-fixed-20">
-                    </md-icon>
-                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FORM_TITLE"></span>
-                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FORM_TITLE_LOCAL"></span>
-                </h2>
-                <h2 ng-if="vm.workflowName==='Switch'" class="italic_font_slpc margin-0 margin-0 line-height-fixed-26 font-size-fixed-24"
-                    palette-background="swiss-life-grey:400" fg-only>
-                    <md-icon md-font-icon="icon-description" class="line-height-fixed-20 font-size-fixed-20">
-                    </md-icon>
-                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REINVESTMENT_INCOMING_SWITCH"></span>
-                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.SWITCH_REINVESTMENT_INCOMING_SWITCH.REINVESTMENT_INCOMING_SWITCH_LOCAL"></span>
-                </h2>
-                <!-- <h2 ng-if="vm.workflowName==='Additional Premium'" class="italic_font_slpc margin-0 margin-0 line-height-fixed-26 font-size-fixed-24"
-                    palette-background="swiss-life-grey:400" fg-only>
-                    <md-icon md-font-icon="icon-description" class="line-height-fixed-20 font-size-fixed-20">
-                    </md-icon>
-                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.DESIGNATION_ALLOCATION"></span>
-                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.DESIGNATION_ALLOCATION_LOCAL"></span>
-                </h2> -->
-                <h2 ng-if="vm.workflowName==='Additional Premium'" class="italic_font_slpc margin-0 margin-0 line-height-fixed-26 font-size-fixed-24"
-                palette-background="swiss-life-grey:400" fg-only>
-                    <md-icon md-font-icon="icon-description" class="line-height-fixed-20 font-size-fixed-20">
-                    </md-icon>
-                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FORM_TITLE_NEW"></span>
-                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FORM_TITLE_LOCAL"></span>
-                </h2>
-                <h2 ng-if="vm.workflowName==='Assignment,Donation and Pledge Individual'" class="italic_font_slpc margin-0 margin-0 line-height-fixed-26 font-size-fixed-24"
-                    palette-background="swiss-life-grey:400" fg-only>
-                    <md-icon md-font-icon="icon-description" class="line-height-fixed-20 font-size-fixed-20">
-                    </md-icon>
-                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FORM_TITLE_NEW"></span>
-                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FORM_TITLE_LOCAL"></span>
-                </h2>
-            </div>
+(function (angular, appSuite) {
+    "use strict";
 
-            <div layout="column" class="padding-top-24 padding-bottom-50" ng-class="{'padding-h-24': vm.$mdMedia('gt-xs'),'padding-h-8': !vm.$mdMedia('gt-xs')}">
+    function constructor($scope, $http, $mdMedia, $location, SLPCConfig, shellInfrastructure, workflowService, WorkflowConfig, $state, policyformService, $mdDialog, shellView, slpcSlpcConfigUtilService, slpcConfigWorkflowService) {
 
-                <!-- <div ng-if="vm.market === 'Spain' && (vm.formData.PAOneOrMoreDedicatedFundStatus == true || vm.formData.PAExternalAndInternalFundStatus == true)"> -->
-                <div ng-if="vm.market === 'Spain'">
-                    <p class="font-size-fixed-18  margin-0 margin-bottom-8" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.THE_POLICYHOLDER_MAY_CHOOSE_ES"></p>
+        var vm = this;
+        shellView.appendViewHelper(vm);
+        vm.formData = {};
+        vm.currency = [];
+        vm.$mdMedia = $mdMedia;
+        vm.market = $location.search().market;
+        // vm.formData.PAOneOrMoreDedicatedFundPercentOrAmount = 'AMOUNT';
+        vm.pattern = SLPCConfig.InputValidationPattern;
+        // vm.anotherDedicatedFund = ($location.search().ActivityId === 'AppProcessAllocation2') || ($location.search().ActivityId === 'AppProcessAllocation3') || ($location.search().ActivityId === 'AppProcessAllocation4');
 
-                    <div>
-                        <md-checkbox aria-label="vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TO_BE_ABLE_TO_ES" ng-model="vm.formData.PAPoderRealizerSpainTwo"
-                            class="md-primary">
-                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TO_BE_ABLE_TO_ES"></span>
-                        </md-checkbox>
-                    </div>
-                    <div>
-                        <md-checkbox aria-label="vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TO_WAIVE_FOREGOING_ES"
-                            ng-model="vm.formData.PAWaiveForeignSpainTwo" class="md-primary">
-                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TO_WAIVE_FOREGOING_ES"></span>
-                        </md-checkbox>
-                    </div>
-                    <p class="font-size-fixed-18  margin-0 margin-bottom-8" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.PARTICULAR_CONDITION_ES"></p>
-                </div>
+        var entityObj = {
+            activityId: "AppProcessInvestmentOfContract",
+            workflowInstanceId: $location.search().workflowInstanceId,
+            itemId: null,
+            entityName: null,
+            fields: [
+                "AmountOrPercentReinvestment",
+                "FirstDedicatedFundPercentValue",
+                "FirstDedicatedFundAmountValue"
+            ]
+        };
 
-                <!-- <div ng-if="vm.formData.PAOneOrMoreDedicatedFundStatus"> -->
-                <div>
-                    <h3 class="font-weight-500 font-size-fixed-18" palette-background="swiss-life-grey:500" fg-only>
-                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.SUB_TITLE_PART_OF_THE_PREMIUM"></span>
-                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.SUB_TITLE_PART_OF_THE_PREMIUM_LOCAL"></span>
-                    </h3>
+        var modelTree = {
+            "PAFirstDedicatedFundValue": "",
+            "PASelfManagementPolicyHolderTwo#value=false": {
+                "PAFinancialManagerNameTwo": "",
+                "PAFinancialManagerStreetNameAndNumberTwo": "",
+                "PAFinancialManagerPostCodeAndTownTwo": "",
+                "PACountryTwo": ""
+            },
+            "PAFinancialManagerContactPersonNameTwo": "",
+            "PAFinancialManagerContactPersonFirstNameApplicableTwo#value=false": {
+                "PAFinancialManagerContactPersonFirstNameTwo": ""
+            },
+            "IsContractTelephoneAvailableTwo#value=false": {
+                "PAFinancialManagerContactPersonTelephoneTwo": "",
+            },
+            "PAFinancialManagerContactPersonMobileNotApplicableTwo#value=false": {
+                "PAFinancialManagerContactPersonMobileTwo": "",
+            },
+            "PAFinancialManagerContactPersonEmailNotApplicableTwo#value=false": {
+                "PAFinancialManagerContactPersonEmailTwo": "",
+            },
+            "FirstContactPersonFaxNotAvailableTwo#value=false": {
+                "PAFinancialManagerContactPersonFaxTwo": ""
+            },
+            "PACustodianBankNameTwo": "",
+            "PACustodianBankStreetNameAndNumberTwo": "",
+            "PACustodianBankPostCodeAndTownTwo": "",
+            "PACustodyCountryTwo": "",
+            "PACustodianBankContactPersonNameTwo": "",
+            "PACustodianBankContactPersonFirstNameApplicableTwo#value=false": {
+                "PACustodianBankContactPersonFirstNameTwo": ""
+            },
+            "IsContractSecondTelephoneAvailableTwo#value=false": {
+                "PACustodianBankContactPersonTelephoneTwo": "",
+            },
+            "PACustodianBankContactPersonMobileNotApplicableTwo#value=false": {
+                "PACustodianBankContactPersonMobileTwo": "",
+            },
+            "PACustodianBankContactPersonEmailNotApplicableTwo#value=false": {
+                "PACustodianBankContactPersonEmailTwo": "",
+            },
+            "SecondContactPersonFaxNotAvailableTwo#value=false": {
+                "PACustodianBankContactPersonFaxTwo": ""
+            }
+        }
 
-                    <div ng-if = "vm.checkAmount" layout="row">
-                        <h4 class="font-size-fixed-18 text-bold">
-                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.DEDICATED_FUND_AMOUNT"
-                                palette-background="swiss-life-grey:400" fg-only></span>
-                            <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.DEDICATED_FUND_AMOUNT_LOCAL"></span>
-                        </h4>
-                        <h4 class="font-size-fixed-18 padding-left-8 text-bold">
-                            {{vm.firstDedicatedFundAmountValue}}
-                        </h4>
-                    </div>
+        function onInitFormData() {
+            vm.formData.PASelfManagementPolicyHolderTwo = false;
+            vm.formData.FirstContactPersonFaxNotAvailableTwo = false;
+            vm.formData.SecondContactPersonFaxNotAvailableTwo = false;
+            vm.formData.PAFinancialManagerContactPersonFirstNameApplicableTwo = false;
+            vm.formData.PACustodianBankContactPersonFirstNameApplicableTwo = false;
+            vm.formData.PAFinancialManagerContactPersonMobileNotApplicableTwo = false;
+            vm.formData.PAFinancialManagerContactPersonEmailNotApplicableTwo = false;
+            vm.formData.PACustodianBankContactPersonMobileNotApplicableTwo = false;
+            vm.formData.PACustodianBankContactPersonEmailNotApplicableTwo = false;
+            vm.formData.IsContractTelephoneAvailableTwo = false;
+            vm.formData.IsContractSecondTelephoneAvailableTwo = false;
+        }
 
-                    <div ng-if = "vm.checkPercent" layout="row">
-                        <h4 class="font-size-fixed-18 text-bold">
-                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.DEDICATED_FUND_PERCENT"
-                                palette-background="swiss-life-grey:400" fg-only></span>
-                            <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.DEDICATED_FUND_PERCENT_LOCAL"></span>
-                        </h4>
-                        <h4 class="font-size-fixed-18 padding-left-8 text-bold">
-                            {{vm.firstDedicatedFundPercentValue}}
-                        </h4>
-                    </div>
+        function executeWorkflowForm(data) {
+            if (data) {
+                onInitFormData();
+                vm.formData = JSON.parse(data.Entities[0].JsonString);
+            } else {
+                // delete vm.formData.IsContractTelephoneAvailableTwo;
+                // delete vm.formData.IsContractSecondTelephoneAvailableTwo;
+                $scope.switchFrDesignation2nd.$submitted = true;
+                slpcSlpcConfigUtilService.cleanupModel(vm.formData, modelTree);
+                if (!$scope.switchFrDesignation2nd.$invalid) {
+                    vm.formData.RequestPayload = { itemId: $state.params.slpcworkflowId }
+                    vm.formData["Tags"] = ["Is-A-AppProcessAllocation"];
+                    workflowService.eventBroadcast(WorkflowConfig.registerCallBackFromChild, _.clone(vm.formData));
+                }
+            }
+        }
 
-
-                    <div ng-if="vm.formData.PAOneOrMoreDedicatedFundPercentOrAmount === 'AMOUNT'" layout="row"
-                        layout-wrap>
-                        <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50">
-
-                        </div>
-                    </div>
-
-                    <div ng-if="vm.formData.PAOneOrMoreDedicatedFundPercentOrAmount === 'PERCENT'" layout="row"
-                        layout-wrap>
-                        <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50">
-                            <md-input-container class="full-width margin-bottom-0">
-                                <label class="margin-left-32">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_DF1"></span>
-                                </label>
-                                <input type="number" class="font-size-fixed-16 margin-left-32" name="PAFirstDedicatedFundPercentValueTwo"
-                                    ng-model="vm.formData.PAFirstDedicatedFundPercentValueTwo" min="0" max="100"
-                                    ng-maxlength="15" required>
-                                <div ng-messages="switchFrDesignation2nd.PAFirstDedicatedFundPercentValueTwo.$error">
-                                    <div ng-message="maxlength">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.NUMBER_LENGTH_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="min">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.PERCENTAGE_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="max">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.PERCENTAGE_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-                        </div>
-                    </div>
+        function getOtherCountryNationalityList() {
+            var language = $location.search().language;
+            policyformService.getCountryList(language, vm.countriesOfResidence).then(function (responseCountries) {
+                vm.countriesOfResidence = responseCountries.otherCountry;
+                // other country of residence
+                vm.otherCountriesOfResidence = _.map(responseCountries.responseCountryList, "Name");
+                vm.otherCountriesOfResidence = vm.otherCountriesOfResidence.filter(function (el) {
+                    return !vm.countriesOfResidence.includes(el);
+                });
+            });
+        }
 
 
 
-                    <!--Prospectus/Investment strategy of the dedicated fund-->
-                    <!--Designation of the investment manager and the custodian bank-->
-                    <h3 class="font-weight-500 font-size-fixed-18 margin-top-32" palette-background="swiss-life-grey:500"
-                        fg-only>
-                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.DESIGNATION"></span>
-                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.DESIGNATION_LOCAL"></span>
-                    </h3>
-                    <h4 class="font-size-fixed-18 text-bold margin-top-16 margin-bottom-0" palette-background="swiss-life-grey:400"
-                        fg-only>
-                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.SWISS_LIFE"></span>
-                    </h4>
-                    <h4 ng-if="vm.market==='Sweden' || vm.market==='Finland'" class="font-size-fixed-18 text-bold margin-top-16 margin-bottom-16">
-                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.SWISS_LIFE_LOCAL"></span>
-                    </h4>
-                    <md-checkbox ng-if="vm.market==='Sweden' || vm.market==='Finland'" aria-label="vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.CB_ONE"
-                        ng-model="vm.formData.PASelfManagementPolicyHolderTwo" class="md-primary">
-                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.CB_SELF_MANAGEMENT"></span>
-                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.CB_SELF_MANAGEMENT_LOCAL"></span>
-                    </md-checkbox>
+        function resetAmountOrPercentField(property) {
+            vm.formData[property] = '';
+        }
 
-                    <div layout="row" layout-wrap>
-                        <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50">
-                            <div ng-if='!vm.formData.PASelfManagementPolicyHolderTwo'>
-                                <h4 class="font-size-fixed-18 margin-top-24 text-bold">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_INVEST_MANAGER"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_INVEST_MANAGER_LOCAL"></span>
-                                </h4>
-                                <md-input-container class="full-width margin-bottom-20">
-                                    <label>
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_CORPORATE_NAME"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_CORPORATE_NAME_LOCAL"></span>
-                                    </label>
-                                    <input type="text" class="font-size-fixed-16" name="PAFinancialManagerNameTwo"
-                                        ng-model="vm.formData.PAFinancialManagerNameTwo" ng-maxlength="250" required>
-                                    <div ng-messages="switchFrDesignation2nd.PAFinancialManagerNameTwo.$error">
-                                        <div ng-message="maxlength">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                </md-input-container>
-                                <md-input-container class="full-width margin-top-0 margin-bottom-20">
-                                    <label>
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_STREET_NAME_AND_NUMBER"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_STREET_NAME_AND_NUMBER_LOCAL"></span>
-                                        <md-tooltip md-direction="top">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_STREET_NAME_AND_NUMBER"></span>
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_STREET_NAME_AND_NUMBER_LOCAL"></span>
-                                        </md-tooltip>
-                                    </label>
-                                    <input type="text" class="font-size-fixed-16" name="PAFinancialManagerStreetNameAndNumberTwo"
-                                        ng-model="vm.formData.PAFinancialManagerStreetNameAndNumberTwo" ng-maxlength="250"
-                                        required>
-                                    <div ng-messages="switchFrDesignation2nd.PAFinancialManagerStreetNameAndNumberTwo.$error">
-                                        <div ng-message="maxlength">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                </md-input-container>
-                                <md-input-container class="full-width margin-top-0 margin-bottom-20">
-                                    <md-tooltip md-direction="top">{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_POSTCODE}}{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_POSTCODE_LOCAL}}</md-tooltip>
-                                    <label>
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_POSTCODE"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_POSTCODE_LOCAL"></span>
-                                    </label>
-                                    <input type="text" class="font-size-fixed-16" name="PAFinancialManagerPostCodeAndTownTwo"
-                                        ng-model="vm.formData.PAFinancialManagerPostCodeAndTownTwo" ng-maxlength="250"
-                                        required>
-                                    <div ng-messages="switchFrDesignation2nd.PAFinancialManagerPostCodeAndTownTwo.$error">
-                                        <div ng-message="maxlength">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                    <div ng-messages="projectForm.entrustsPostcode.$error"></div>
-                                </md-input-container>
-                                <md-input-container class="full-width margin-top-0 margin-bottom-20">
-                                    <label>
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_LOCAL"></span>
-                                    </label>
-                                    <md-select placeholder="{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY}}{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_LOCAL}}"
-                                        ng-model="vm.formData.PACountryTwo" layout="row" name="PACountryTwo" ng-required="true">
-                                        <md-option id="appProcessCountryOption" ng-repeat="country in vm.countryList"
-                                            ng-value="country">
-                                            {{country}}
-                                        </md-option>
-                                    </md-select>
-                                    <div ng-messages="switchFrDesignation2nd.PACountryTwo.$error">
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                </md-input-container>
+        var showInfoModal = function ($event) {
+            $mdDialog.show({
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-designation-2nd/view/switch-fr-designation-2nd.info.modal.view.html",
+                targetEvent: $event,
+                controller: "slpcSwitchDesignation2ndInfoModalController",
+                controllerAs: "vm",
+                clickOutsideToClose: false,
+                escapeToClose: false,
+                locals: {
+                    localizationObj: vm.localizationObj,
+                    market: vm.market
+                }
+            }).then(function (answer) {
+                vm.formData.PAThePolicyholder = answer;
+            }, function () {
+            });
+        }
 
-                                <md-input-container ng-if="vm.formData.PACountryTwo && vm.formData.PACountryTwo === 'Other'"
-                                    class="full-width margin-top-0  margin-bottom-50">
-                                    <label>
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_OF_RESIDENCE_OTHER"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_OF_RESIDENCE_OTHER_LOCAL"></span>
-                                    </label>
-                                    <md-select placeholder="{{::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_OF_RESIDENCE_OTHER}}{{::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_OF_RESIDENCE_OTHER_LOCAL}}"
-                                        name="PAOtherCountryTwo" ng-required="true" ng-model="vm.formData.PAOtherCountryTwo"
-                                        aria-label="vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_OF_RESIDENCE">
-                                        <md-option id="appProcessPAOtherCountryTwoOption" value="{{othercountryname}}"
-                                            ng-repeat="othercountryname in vm.otherCountriesOfResidence">
-                                            {{ othercountryname }}
-                                        </md-option>
-                                    </md-select>
-                                    <div ng-messages="switchFrDesignation2nd.PAOtherCountryTwo.$error">
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                </md-input-container>
-                            </div>
+        vm.showInfoModal2 = function ($event) {
+            $mdDialog.show({
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-designation-2nd/view/switch-fr-designation-2nd.info.modal2.view.html",
+                targetEvent: $event,
+                controller: "slpcAppProcessAllocationSwitchInfoModal2Controller",
+                controllerAs: "vm",
+                clickOutsideToClose: false,
+                escapeToClose: false,
+                locals: {
+                    localizationObj: vm.localizationObj
+                }
+            }).then(function (answer) {
+                vm.formData.PAThePolicyholder = answer;
+            }, function () {
+            });
+        }
 
+        function getCommonData(getData) {
+            getData.commonData().then(function (responseCommonData) {
+                if (responseCommonData) {
 
+                }
+            });
+            getData.processStatus().then(function (responseStatus) {
+                vm.isFormReadonly = responseStatus;
+            });
+            getData.commonLanguage().then(function (responseLanguage) {
+                vm.localizationObj = responseLanguage.data;
+                vm.ohetrCountriesValue = vm.localizationObj.APP_PROCESS_ALLOCATION_SWITCH.APP_PROCESS_ALLOCATION_V2.COUNTRY_LIST.OTHER;
+                // if (vm.market !== 'Spain' && vm.market !== 'Italy' && vm.market !== 'Portugal') {
+                //     showInfoModal();
+                // }
+            });
+            // getData.activityData(entityObj.activityId, entityObj.workflowInstanceId).then(function (response) {
+            //     var appProcessInvestmentOfContract = JSON.parse(response.Entities[0].JsonString);
+            //     vm.firstDedicatedFundPercentValue = appProcessInvestmentOfContract.FirstDedicatedFundPercentValue;
+            //     vm.firstDedicatedFundAmountValue = appProcessInvestmentOfContract.FirstDedicatedFundAmountValue;
+            //     if(Number.isInteger(vm.firstDedicatedFundPercentValue) === false){
+            //         vm.firstDedicatedFundPercentValue = vm.firstDedicatedFundPercentValue.toFixed(2);
+            //     }
+            //     if(Number.isInteger(vm.firstDedicatedFundAmountValue === false)){
+            //         vm.firstDedicatedFundAmountValue = vm.firstDedicatedFundAmountValue.toFixed(2);
+            //     }
+            //     // vm.firstDedicatedFundPercentValue = vm.firstDedicatedFundPercentValue.toFixed(2);
+            //     // vm.firstDedicatedFundAmountValue = vm.firstDedicatedFundAmountValue.toFixed(2);
+            // });
+            var workflowInstanceId = $location.search().workflowInstanceId;
+            slpcConfigWorkflowService.getEntityDataByWorkflowInstanceId(workflowInstanceId, entityObj.fields).then(function (responseFieldsData) {
+                    var appProcessInvestmentOfContract = responseFieldsData;
+                    vm.workflowName = responseFieldsData.WorkflowName;
+                    vm.firstDedicatedFundPercentValue = appProcessInvestmentOfContract.FirstDedicatedFundPercentValue;
+                    vm.firstDedicatedFundAmountValue = appProcessInvestmentOfContract.FirstDedicatedFundAmountValue;
+                    if(appProcessInvestmentOfContract.AmountOrPercentReinvestment == 'AMOUNT'){
+                          vm.checkAmount = true;                        
+                    }
+                     if(appProcessInvestmentOfContract.AmountOrPercentReinvestment == 'PERCENT'){
+                        vm.checkPercent = true;
+                  }
+                  
+              
+            });
 
+        }
 
-                            <div ng-if='!vm.formData.PASelfManagementPolicyHolderTwo'>
-                                <h4 class="font-size-fixed-18 margin-top-24 text-bold">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.CONTACT_PERSON"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.CONTACT_PERSON_LOCAL"></span>
-                                </h4>
-                                <md-input-container class="full-width margin-bottom-20">
-                                    <label>
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_SURNAME"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_SURNAME_LOCAL"></span>
-                                    </label>
-                                    <input type="text" class="font-size-fixed-16" name="PAFinancialManagerContactPersonNameTwo"
-                                        ng-model="vm.formData.PAFinancialManagerContactPersonNameTwo" ng-maxlength="250"
-                                        required>
-                                    <div ng-messages="switchFrDesignation2nd.PAFinancialManagerContactPersonNameTwo.$error">
-                                        <div ng-message="maxlength">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                    <div ng-messages="projectForm.surname.$error"></div>
-                                </md-input-container>
-                                <md-input-container ng-if="!vm.formData.PAFinancialManagerContactPersonFirstNameApplicableTwo"
-                                    class="full-width margin-top-0 margin-bottom-0">
-                                    <label ng-if="vm.market!=='Italy'" class="">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FIRST_NAME"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FIRST_NAME_LOCAL"></span>
-                                    </label>
-                                    <label ng-if="vm.market==='Italy'" class="" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_FIRST_NAME_2"></label>
-                                    <input type="text" class="font-size-fixed-16" name="PAFinancialManagerContactPersonFirstNameTwo"
-                                        ng-model="vm.formData.PAFinancialManagerContactPersonFirstNameTwo" ng-maxlength="250"
-                                        required>
-                                    <div ng-messages="switchFrDesignation2nd.PAFinancialManagerContactPersonFirstNameTwo.$error">
-                                        <div ng-message="maxlength">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                </md-input-container>
-                                <md-checkbox ng-if="!vm.formData.PAFinancialManagerContactPersonFirstNameTwo" class="md-primary margin-bottom-32" ng-model="vm.formData.PAFinancialManagerContactPersonFirstNameApplicableTwo"
-                                    aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.NOT_APPLICABLE">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.NOT_APPLICABLE"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.NOT_APPLICABLE_LOCAL"></span>
-                                </md-checkbox>
+        function getCountryList() {
+            policyformService.getCountryName().then(function (response) {
+                vm.countryList = response;
+            });
+        }
 
-                                <md-input-container class="full-width margin-top-20 margin-bottom-0" ng-if="!vm.formData.IsContractTelephoneAvailableTwo">
-                                    <md-tooltip md-direction="top">{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE}}{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE_LOCAL}}</md-tooltip>
-                                    <label ng-if="vm.market==='Italy'" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE_2"
-                                        class=""></label>
-                                    <label ng-if="vm.market!=='Italy'">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE_LOCAL"></span>
-                                    </label>
-                                    <input type="tel" class="font-size-fixed-16" name="PAFinancialManagerContactPersonTelephoneTwo"
-                                        ng-pattern="vm.pattern.phone" ng-model="vm.formData.PAFinancialManagerContactPersonTelephoneTwo"
-                                        ng-maxlength="50" required>
-                                    <div ng-messages="switchFrDesignation2nd.PAFinancialManagerContactPersonTelephoneTwo.$error">
-                                        <div ng-message="maxlength">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="pattern">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.ERROR_INVALID_TEL"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                </md-input-container>
+        vm.$onInit = function () {
+            onInitFormData();
+            vm.countriesOfResidence = SLPCConfig.AppProcessAllocationCountryOfResidenceCustodianBank;
+            getCountryList();
+            getOtherCountryNationalityList();
+            workflowService.eventRegister(WorkflowConfig.eventForDataTransition, getCommonData, 'switch-fr-designation-2nd');
+            workflowService.eventRegister(WorkflowConfig.registerWorkflowExecuteCommand, executeWorkflowForm, 'switch-fr-designation-2nd');
 
-                                <div flex class="padding-right-16 margin-bottom-10" ng-if="!vm.formData.PAFinancialManagerContactPersonTelephoneTwo">
-                                    <md-checkbox class="md-primary" ng-model="vm.formData.IsContractTelephoneAvailableTwo"
-                                        aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TELEPHONE_NOT_APPLICABLE">
+        };
 
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TELEPHONE_NOT_APPLICABLE"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TELEPHONE_NOT_APPLICABLE_LOCAL"></span>
-                                    </md-checkbox>
-                                </div>
+        vm.resetAmountOrPercentField = resetAmountOrPercentField;
+    }
 
-
-
-                                <md-input-container ng-if="!vm.formData.PAFinancialManagerContactPersonMobileNotApplicableTwo"
-                                    class="full-width margin-top-20 margin-bottom-0">
-                                    <md-tooltip md-direction="top">{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_MOBILE}}{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_MOBILE_LOCAL}}</md-tooltip>
-                                    <label>
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_MOBILE"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_MOBILE_LOCAL"></span>
-                                    </label>
-                                    <input type="tel" class="font-size-fixed-16" name="PAFinancialManagerContactPersonMobileTwo"
-                                        ng-pattern="vm.pattern.phone" ng-model="vm.formData.PAFinancialManagerContactPersonMobileTwo"
-                                        ng-maxlength="50" required>
-                                    <div ng-messages="switchFrDesignation2nd.PAFinancialManagerContactPersonMobileTwo.$error">
-                                        <div ng-message="maxlength">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="pattern">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.ERROR_INVALID_TEL"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                </md-input-container>
-
-                                <div flex ng-if="!vm.formData.PAFinancialManagerContactPersonMobileTwo">
-                                    <md-checkbox class="md-primary margin-bottom-32" ng-model="vm.formData.PAFinancialManagerContactPersonMobileNotApplicableTwo"
-                                        aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.MOBILE_NOT_AVAILABLE">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.MOBILE_NOT_AVAILABLE"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.MOBILE_NOT_AVAILABLE_LOCAL"></span>
-                                    </md-checkbox>
-                                </div>
-
-                                <md-input-container ng-if="!vm.formData.PAFinancialManagerContactPersonEmailNotApplicableTwo"
-                                    class="full-width margin-top-20 margin-bottom-0">
-                                    <label ng-if="vm.market!=='Italy' && vm.market!=='United Kingdom'" class="">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_E_MAIL_2"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_E_MAIL_LOCAL"></span>
-                                        <span ng-bind="vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_OPTIONAL"></span>
-                                    </label>
-                                    <label ng-if="vm.market==='Italy'||vm.market==='United Kingdom'" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_E_MAIL_2"
-                                        class=""></label>
-                                    <input type="email" class="font-size-fixed-16" name="PAFinancialManagerContactPersonEmailTwo"
-                                        ng-pattern="vm.pattern.email" ng-model="vm.formData.PAFinancialManagerContactPersonEmailTwo"
-                                        ng-maxlength="50" required>
-                                    <div ng-messages="switchFrDesignation2nd.PAFinancialManagerContactPersonEmailTwo.$error">
-                                        <div ng-message="maxlength">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="pattern">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.ERROR_INVALID_EMAIL"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                </md-input-container>
-
-                                <div flex ng-if="!vm.formData.PAFinancialManagerContactPersonEmailTwo">
-                                    <md-checkbox class="md-primary margin-bottom-32" ng-model="vm.formData.PAFinancialManagerContactPersonEmailNotApplicableTwo"
-                                        aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.EMAIL_NOT_AVAILABLE">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.EMAIL_NOT_AVAILABLE"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.EMAIL_NOT_AVAILABLE_LOCAL"></span>
-                                    </md-checkbox>
-                                </div>
-
-                                <md-input-container class="full-width margin-top-20 margin-bottom-0" ng-if="!vm.formData.FirstContactPersonFaxNotAvailableTwo">
-                                    <label>
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_FAX"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_FAX_LOCAL"></span>
-                                    </label>
-                                    <input type="tel" class="font-size-fixed-16" name="PAFinancialManagerContactPersonFaxTwo"
-                                        ng-pattern="vm.pattern.phone" ng-model="vm.formData.PAFinancialManagerContactPersonFaxTwo"
-                                        ng-maxlength="50" required>
-                                    <div ng-messages="switchFrDesignation2nd.PAFinancialManagerContactPersonFaxTwo.$error">
-                                        <div ng-message="maxlength">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="pattern">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.ERROR_INVALID_FAX"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                        <div ng-message="required">
-                                            <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                                theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                        </div>
-                                    </div>
-                                </md-input-container>
-
-                                <div flex ng-if="!vm.formData.PAFinancialManagerContactPersonFaxTwo">
-                                    <md-checkbox class="md-primary" ng-model="vm.formData.FirstContactPersonFaxNotAvailableTwo"
-                                        aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FAX_NOT_AVAILABLE">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FAX_NOT_AVAILABLE"></span>
-                                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FAX_NOT_AVAILABLE_LOCAL"></span>
-                                    </md-checkbox>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-
-                    <!--Swiss Life entrusts the custody of the underlying assets to-->
-                    <h3 class="font-weight-500 font-size-fixed-18 margin-top-0">
-                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.SWISS_LIFE_UNDERLYING"></span>
-                        <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.SWISS_LIFE_UNDERLYING_LOCAL"></span>
-                    </h3>
-                    <div layout="row">
-                        <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50">
-                            <md-input-container class="full-width margin-bottom-20">
-                                <label>
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_CORPORATE_NAME"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_CORPORATE_NAME_LOCAL"></span>
-                                </label>
-                                <input type="text" class="font-size-fixed-16" name="PACustodianBankNameTwo" ng-model="vm.formData.PACustodianBankNameTwo"
-                                    ng-maxlength="250" required>
-                                <div ng-messages="switchFrDesignation2nd.PACustodianBankNameTwo.$error">
-                                    <div ng-message="maxlength">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-                            <md-input-container class="full-width margin-top-0 margin-bottom-20">
-                                <label>
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_STREET_NAME_AND_NUMBER"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_STREET_NAME_AND_NUMBER_LOCAL"></span>
-                                    <md-tooltip md-direction="top">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_STREET_NAME_AND_NUMBER"></span>
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_STREET_NAME_AND_NUMBER_LOCAL"></span>
-                                    </md-tooltip>
-                                </label>
-                                <input type="text" class="font-size-fixed-16" name="PACustodianBankStreetNameAndNumberTwo"
-                                    ng-model="vm.formData.PACustodianBankStreetNameAndNumberTwo" ng-maxlength="250"
-                                    required>
-                                <div ng-messages="switchFrDesignation2nd.PACustodianBankStreetNameAndNumberTwo.$error">
-                                    <div ng-message="maxlength">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-                            <md-input-container class="full-width margin-top-0 margin-bottom-20">
-                                <md-tooltip md-direction="top">{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_POSTCODE}}{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_POSTCODE_LOCAL}}</md-tooltip>
-                                <label>
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_POSTCODE"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_POSTCODE_LOCAL"></span>
-                                </label>
-                                <input type="text" class="font-size-fixed-16" name="PACustodianBankPostCodeAndTownTwo"
-                                    ng-model="vm.formData.PACustodianBankPostCodeAndTownTwo" ng-maxlength="250" required>
-                                <div ng-messages="switchFrDesignation2nd.PACustodianBankPostCodeAndTownTwo.$error">
-                                    <div ng-message="maxlength">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-
-
-                            <md-input-container class="full-width margin-top-0 margin-bottom-45">
-                                <label>
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_LOCAL"></span>
-                                </label>
-                                <md-select placeholder="{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY}}{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_LOCAL}}"
-                                    ng-model="vm.formData.PACustodyCountryTwo" layout="row" name="PACustodyCountryTwo"
-                                    ng-required="true">
-                                    <md-option id="appProcessCountryOfResidenceOption" ng-repeat="country in vm.countriesOfResidence"
-                                        ng-value="country">
-                                        {{ country == 'Other' ? vm.ohetrCountriesValue: country }}
-                                    </md-option>
-                                </md-select>
-                                <div ng-messages="switchFrDesignation2nd.PACustodyCountryTwo.$error">
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-
-
-                            <md-input-container ng-if="vm.formData.PACustodyCountryTwo && vm.formData.PACustodyCountryTwo === 'Other'"
-                                class="full-width margin-top-0  margin-bottom-50">
-                                <label>
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_OF_RESIDENCE_OTHER"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_OF_RESIDENCE_OTHER_LOCAL"></span>
-                                </label>
-                                <md-select placeholder="{{::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_OF_RESIDENCE_OTHER}}{{::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_OF_RESIDENCE_OTHER_LOCAL}}"
-                                    name="PACustodyCountryOtherTwo" ng-model="vm.formData.PACustodyCountryOtherTwo"
-                                    aria-label="vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_COUNTRY_OF_RESIDENCE"
-                                    ng-required="true">
-                                    <md-option id="appProcessOtherCountryOption" value="{{othercountryname}}" ng-repeat="othercountryname in vm.otherCountriesOfResidence">
-                                        {{ othercountryname }}
-                                    </md-option>
-                                </md-select>
-                                <div ng-messages="switchFrDesignation2nd.PACustodyCountryOtherTwo.$error">
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-
-                            <h4 class="font-size-fixed-18 margin-top-0 text-bold">
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.CONTACT_PERSON"></span>
-                                <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.CONTACT_PERSON_LOCAL"></span>
-                            </h4>
-                            <md-input-container class="full-width margin-bottom-20">
-                                <label>
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_SURNAME"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_SURNAME_LOCAL"></span>
-                                </label>
-                                <input type="text" class="font-size-fixed-16" name="PACustodianBankContactPersonNameTwo"
-                                    ng-model="vm.formData.PACustodianBankContactPersonNameTwo" ng-maxlength="250" required>
-                                <div ng-messages="switchFrDesignation2nd.PACustodianBankContactPersonNameTwo.$error">
-                                    <div ng-message="maxlength">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-                            <md-input-container ng-if="!vm.formData.PACustodianBankContactPersonFirstNameApplicableTwo"
-                                class="full-width margin-top-0 margin-bottom-0">
-                                <label ng-if="vm.market!=='Italy'" class="">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FIRST_NAME"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FIRST_NAME_LOCAL"></span>
-                                    <span ng-bind="vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_OPTIONAL"></span>
-                                </label>
-                                <label ng-if="vm.market==='Italy'" class="" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_FIRST_NAME_2"></label>
-                                <input type="text" class="font-size-fixed-16" name="PACustodianBankContactPersonFirstNameTwo"
-                                    ng-model="vm.formData.PACustodianBankContactPersonFirstNameTwo" ng-maxlength="250"
-                                    required>
-                                <div ng-messages="switchFrDesignation2nd.PACustodianBankContactPersonFirstNameTwo.$error">
-                                    <div ng-message="maxlength">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-                            <md-checkbox ng-if="!vm.formData.PACustodianBankContactPersonFirstNameTwo" class="md-primary margin-bottom-32" ng-model="vm.formData.PACustodianBankContactPersonFirstNameApplicableTwo"
-                                aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.NOT_APPLICABLE">
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.NOT_APPLICABLE"></span>
-                                <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.NOT_APPLICABLE_LOCAL"></span>
-                            </md-checkbox>
-                            <md-input-container class="full-width margin-top-20 margin-bottom-0" ng-if="!vm.formData.IsContractSecondTelephoneAvailableTwo">
-                                <md-tooltip md-direction="top">{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE}}{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE_LOCAL}}</md-tooltip>
-                                <label ng-if="vm.market==='Italy'" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE_2"
-                                    class=""></label>
-                                <label ng-if="vm.market!=='Italy'">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE_LOCAL"></span>
-                                </label>
-                                <input type="tel" class="font-size-fixed-16" name="PACustodianBankContactPersonTelephoneTwo"
-                                    ng-pattern="vm.pattern.phone" ng-model="vm.formData.PACustodianBankContactPersonTelephoneTwo"
-                                    ng-maxlength="50" required>
-                                <div ng-messages="switchFrDesignation2nd.PACustodianBankContactPersonTelephoneTwo.$error">
-                                    <div ng-message="maxlength">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="pattern">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.ERROR_INVALID_TEL"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-
-                            <div flex class="padding-right-16 margin-bottom-10" ng-if="!vm.formData.PACustodianBankContactPersonTelephoneTwo">
-                                <md-checkbox class="md-primary" ng-model="vm.formData.IsContractSecondTelephoneAvailableTwo"
-                                    aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.MOBILE_NOT_AVAILABLE">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TELEPHONE_NOT_APPLICABLE"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TELEPHONE_NOT_APPLICABLE_LOCAL"></span>
-                                </md-checkbox>
-                            </div>
-
-
-                            <md-input-container ng-if="!vm.formData.PACustodianBankContactPersonMobileNotApplicableTwo"
-                                class="full-width margin-top-20 margin-bottom-0">
-                                <md-tooltip md-direction="top">{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_MOBILE}}{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_MOBILE_LOCAL}}</md-tooltip>
-                                <label>
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_MOBILE"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_MOBILE_LOCAL"></span>
-                                    <span ng-bind="vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_OPTIONAL"></span>
-                                </label>
-                                <input type="tel" class="font-size-fixed-16" name="PACustodianBankContactPersonMobileTwo"
-                                    ng-pattern="vm.pattern.phone" ng-model="vm.formData.PACustodianBankContactPersonMobileTwo"
-                                    ng-maxlength="50" required>
-                                <div ng-messages="switchFrDesignation2nd.PACustodianBankContactPersonMobileTwo.$error">
-                                    <div ng-message="maxlength">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="pattern">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.ERROR_INVALID_TEL"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-
-                            <div flex ng-if="!vm.formData.PACustodianBankContactPersonMobileTwo">
-                                <md-checkbox class="md-primary margin-bottom-32" ng-model="vm.formData.PACustodianBankContactPersonMobileNotApplicableTwo"
-                                    aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.MOBILE_NOT_AVAILABLE">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.MOBILE_NOT_AVAILABLE"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.MOBILE_NOT_AVAILABLE_LOCAL"></span>
-                                </md-checkbox>
-                            </div>
-
-                            <md-input-container ng-if="!vm.formData.PACustodianBankContactPersonEmailNotApplicableTwo"
-                                class="full-width margin-top-20 margin-bottom-0">
-                                <label ng-if="vm.market!=='Italy' && vm.market!=='United Kingdom'" class="">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_E_MAIL_2"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_E_MAIL_LOCAL"></span>
-                                    <span ng-bind="vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_OPTIONAL"></span>
-                                </label>
-                                <label ng-if="vm.market==='Italy'||vm.market==='United Kingdom'" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_E_MAIL_2"
-                                    class="" required></label>
-                                <input type="email" class="font-size-fixed-16" name="PACustodianBankContactPersonEmailTwo"
-                                    ng-pattern="vm.pattern.email" ng-model="vm.formData.PACustodianBankContactPersonEmailTwo"
-                                    ng-maxlength="50" required>
-                                <div ng-messages="switchFrDesignation2nd.PACustodianBankContactPersonEmailTwo.$error">
-                                    <div ng-message="maxlength">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="pattern">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.ERROR_INVALID_EMAIL"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-
-                            <div flex ng-if="!vm.formData.PACustodianBankContactPersonEmailTwo">
-                                <md-checkbox class="md-primary margin-bottom-32" ng-model="vm.formData.PACustodianBankContactPersonEmailNotApplicableTwo"
-                                    aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.EMAIL_NOT_AVAILABLE">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.EMAIL_NOT_AVAILABLE"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.EMAIL_NOT_AVAILABLE_LOCAL"></span>
-                                </md-checkbox>
-                            </div>
-
-                            <md-input-container class="full-width margin-top-20 margin-bottom-0" ng-if="!vm.formData.SecondContactPersonFaxNotAvailableTwo">
-                                <label>
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_FAX"></span>
-                                    <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_FAX_LOCAL"></span>
-                                </label>
-                                <input type="tel" class="font-size-fixed-16" name="PACustodianBankContactPersonFaxTwo"
-                                    ng-pattern="vm.pattern.phone" ng-model="vm.formData.PACustodianBankContactPersonFaxTwo"
-                                    ng-maxlength="50" required>
-                                <div ng-messages="switchFrDesignation2nd.PACustodianBankContactPersonFaxTwo.$error">
-                                    <div ng-message="maxlength">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TEXT_LENGTH_VALIDATION"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="pattern">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.ERROR_INVALID_FAX"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                    <div ng-message="required">
-                                        <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.REQUIRED_MESSAGE"
-                                            theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                    </div>
-                                </div>
-                            </md-input-container>
-                            <md-checkbox ng-if="!vm.formData.PACustodianBankContactPersonFaxTwo" class="md-primary" ng-model="vm.formData.SecondContactPersonFaxNotAvailableTwo"
-                                aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FAX_NOT_AVAILABLE">
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FAX_NOT_AVAILABLE"></span>
-                                <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FAX_NOT_AVAILABLE_LOCAL"></span>
-                            </md-checkbox>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </form>
-</div>
+    constructor.$inject = ["$scope", "$http", "$mdMedia", "$location", "SLPCConfig", "shellInfrastructure", "workflowService", "WorkflowConfig", "$state", "policyformService", "$mdDialog", "shellView", "slpcSlpcConfigUtilService", "slpcConfigWorkflowService"];
+    angular.module("slpc.switch-fr-designation-2nd").controller('slpcSwitchFrDesignation2ndController', constructor);
+})(window.angular, window.appSuite);
