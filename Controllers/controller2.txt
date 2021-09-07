@@ -57,7 +57,7 @@
             "PACustodianBankContactPersonFirstNameApplicableTwo#value=false": {
                 "PACustodianBankContactPersonFirstNameTwo": ""
             },
-            "IsContractSecondTelephoneAvailableTwo#value=false": {
+            "IsContractTwoTelephoneAvailableTwo#value=false": {
                 "PACustodianBankContactPersonTelephoneTwo": "",
             },
             "PACustodianBankContactPersonMobileNotApplicableTwo#value=false": {
@@ -66,7 +66,7 @@
             "PACustodianBankContactPersonEmailNotApplicableTwo#value=false": {
                 "PACustodianBankContactPersonEmailTwo": "",
             },
-            "SecondContactPersonFaxNotAvailableTwo#value=false": {
+            "TwoContactPersonFaxNotAvailableTwo#value=false": {
                 "PACustodianBankContactPersonFaxTwo": ""
             }
         }
@@ -74,7 +74,7 @@
         function onInitFormData() {
             vm.formData.PASelfManagementPolicyHolderTwo = false;
             vm.formData.FirstContactPersonFaxNotAvailableTwo = false;
-            vm.formData.SecondContactPersonFaxNotAvailableTwo = false;
+            vm.formData.TwoContactPersonFaxNotAvailableTwo = false;
             vm.formData.PAFinancialManagerContactPersonFirstNameApplicableTwo = false;
             vm.formData.PACustodianBankContactPersonFirstNameApplicableTwo = false;
             vm.formData.PAFinancialManagerContactPersonMobileNotApplicableTwo = false;
@@ -82,7 +82,7 @@
             vm.formData.PACustodianBankContactPersonMobileNotApplicableTwo = false;
             vm.formData.PACustodianBankContactPersonEmailNotApplicableTwo = false;
             vm.formData.IsContractTelephoneAvailableTwo = false;
-            vm.formData.IsContractSecondTelephoneAvailableTwo = false;
+            vm.formData.IsContractTwoTelephoneAvailableTwo = false;
         }
 
         function executeWorkflowForm(data) {
@@ -91,7 +91,7 @@
                 vm.formData = JSON.parse(data.Entities[0].JsonString);
             } else {
                 // delete vm.formData.IsContractTelephoneAvailableTwo;
-                // delete vm.formData.IsContractSecondTelephoneAvailableTwo;
+                // delete vm.formData.IsContractTwoTelephoneAvailableTwo;
                 $scope.switchFrDesignation2nd.$submitted = true;
                 slpcSlpcConfigUtilService.cleanupModel(vm.formData, modelTree);
                 if (!$scope.switchFrDesignation2nd.$invalid) {

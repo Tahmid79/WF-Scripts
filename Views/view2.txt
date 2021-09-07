@@ -636,7 +636,7 @@
                                 <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.NOT_APPLICABLE"></span>
                                 <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.NOT_APPLICABLE_LOCAL"></span>
                             </md-checkbox>
-                            <md-input-container class="full-width margin-top-20 margin-bottom-0" ng-if="!vm.formData.IsContractSecondTelephoneAvailableTwo">
+                            <md-input-container class="full-width margin-top-20 margin-bottom-0" ng-if="!vm.formData.IsContractTwoTelephoneAvailableTwo">
                                 <md-tooltip md-direction="top">{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE}}{{vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE_LOCAL}}</md-tooltip>
                                 <label ng-if="vm.market==='Italy'" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_TELEPHONE_2"
                                     class=""></label>
@@ -664,7 +664,7 @@
                             </md-input-container>
 
                             <div flex class="padding-right-16 margin-bottom-10" ng-if="!vm.formData.PACustodianBankContactPersonTelephoneTwo">
-                                <md-checkbox class="md-primary" ng-model="vm.formData.IsContractSecondTelephoneAvailableTwo"
+                                <md-checkbox class="md-primary" ng-model="vm.formData.IsContractTwoTelephoneAvailableTwo"
                                     aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.MOBILE_NOT_AVAILABLE">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TELEPHONE_NOT_APPLICABLE"></span>
                                     <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.TELEPHONE_NOT_APPLICABLE_LOCAL"></span>
@@ -743,7 +743,7 @@
                                 </md-checkbox>
                             </div>
 
-                            <md-input-container class="full-width margin-top-20 margin-bottom-0" ng-if="!vm.formData.SecondContactPersonFaxNotAvailableTwo">
+                            <md-input-container class="full-width margin-top-20 margin-bottom-0" ng-if="!vm.formData.TwoContactPersonFaxNotAvailableTwo">
                                 <label>
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_FAX"></span>
                                     <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.LABEL_FAX_LOCAL"></span>
@@ -766,7 +766,7 @@
                                     </div>
                                 </div>
                             </md-input-container>
-                            <md-checkbox ng-if="!vm.formData.PACustodianBankContactPersonFaxTwo" class="md-primary" ng-model="vm.formData.SecondContactPersonFaxNotAvailableTwo"
+                            <md-checkbox ng-if="!vm.formData.PACustodianBankContactPersonFaxTwo" class="md-primary" ng-model="vm.formData.TwoContactPersonFaxNotAvailableTwo"
                                 aria-label="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FAX_NOT_AVAILABLE">
                                 <span ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FAX_NOT_AVAILABLE"></span>
                                 <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_DESIGNATION_2ND.APP_PROCESS_ALLOCATION_V2.NEW.FAX_NOT_AVAILABLE_LOCAL"></span>
