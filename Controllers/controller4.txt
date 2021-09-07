@@ -20,69 +20,69 @@
             entityName: null,
             fields: [
                 "AmountOrPercentReinvestment",
-                "FirstDedicatedFundPercentValue",
-                "FirstDedicatedFundAmountValue"
+                "SecondDedicatedFundPercentValue",
+                "SecondDedicatedFundAmountValue"
             ]
         };
 
         var modelTree = {
             "PAFirstDedicatedFundValue": "",
-            "PASelfManagementPolicyHolder#value=false": {
-                "PAFinancialManagerName": "",
-                "PAFinancialManagerStreetNameAndNumber": "",
-                "PAFinancialManagerPostCodeAndTown": "",
-                "PAcountry": ""
+            "PASelfManagementPolicyHolderFour#value=false": {
+                "PAFinancialManagerNameFour": "",
+                "PAFinancialManagerStreetNameAndNumberFour": "",
+                "PAFinancialManagerPostCodeAndTownFour": "",
+                "PACountryFour": ""
             },
-            "PAFinancialManagerContactPersonName": "",
-            "PAFinancialManagerContactPersonFirstNameAppliacble#value=false": {
-                "PAFinancialManagerContactPersonFirstName": ""
+            "PAFinancialManagerContactPersonNameFour": "",
+            "PAFinancialManagerContactPersonFirstNameApplicableFour#value=false": {
+                "PAFinancialManagerContactPersonFirstNameFour": ""
             },
-            "IsContractTelephoneAvailable#value=false": {
-                "PAFinancialManagerContactPersonTelephone": "",
+            "IsContractTelephoneAvailableFour#value=false": {
+                "PAFinancialManagerContactPersonTelephoneFour": "",
             },
-            "PAFinancialManagerContactPersonMobileNotApplicable#value=false": {
-                "PAFinancialManagerContactPersonMobile": "",
+            "PAFinancialManagerContactPersonMobileNotApplicableFour#value=false": {
+                "PAFinancialManagerContactPersonMobileFour": "",
             },
-            "PAFinancialManagerContactPersonEmailNotApplicable#value=false": {
-                "PAFinancialManagerContactPersonEmail": "",
+            "PAFinancialManagerContactPersonEmailNotApplicableFour#value=false": {
+                "PAFinancialManagerContactPersonEmailFour": "",
             },
-            "FirstContactPersonFaxNotAvailable#value=false": {
-                "PAFinancialManagerContactPersonFax": ""
+            "FirstContactPersonFaxNotAvailableFour#value=false": {
+                "PAFinancialManagerContactPersonFaxFour": ""
             },
-            "PACustodianBankName": "",
-            "PACustodianBankStreetNameAndNumber": "",
-            "PACustodianBankPostCodeAndTown": "",
-            "PAcustodyCountry": "",
-            "PACustodianBankContactPersonName": "",
-            "PACustodianBankContactPersonFirstNameApplicable#value=false": {
-                "PACustodianBankContactPersonFirstName": ""
+            "PACustodianBankNameFour": "",
+            "PACustodianBankStreetNameAndNumberFour": "",
+            "PACustodianBankPostCodeAndTownFour": "",
+            "PACustodyCountryFour": "",
+            "PACustodianBankContactPersonNameFour": "",
+            "PACustodianBankContactPersonFirstNameApplicableFour#value=false": {
+                "PACustodianBankContactPersonFirstNameFour": ""
             },
-            "IsContractSecondTelephoneAvailable#value=false": {
-                "PACustodianBankContactPersonTelephone": "",
+            "IsContractSecondTelephoneAvailableFour#value=false": {
+                "PACustodianBankContactPersonTelephoneFour": "",
             },
-            "PACustodianBankContactPersonMobileNotApplicable#value=false": {
-                "PACustodianBankContactPersonMobile": "",
+            "PACustodianBankContactPersonMobileNotApplicableFour#value=false": {
+                "PACustodianBankContactPersonMobileFour": "",
             },
-            "PACustodianBankContactPersonEmailNotApplicable#value=false": {
-                "PACustodianBankContactPersonEmail": "",
+            "PACustodianBankContactPersonEmailNotApplicableFour#value=false": {
+                "PACustodianBankContactPersonEmailFour": "",
             },
-            "SecondContactPersonFaxNotAvailable#value=false": {
-                "PACustodianBankContactPersonFax": ""
+            "SecondContactPersonFaxNotAvailableFour#value=false": {
+                "PACustodianBankContactPersonFaxFour": ""
             }
         }
 
         function onInitFormData() {
-            vm.formData.PASelfManagementPolicyHolder = false;
-            vm.formData.FirstContactPersonFaxNotAvailable = false;
-            vm.formData.SecondContactPersonFaxNotAvailable = false;
-            vm.formData.PAFinancialManagerContactPersonFirstNameAppliacble = false;
-            vm.formData.PACustodianBankContactPersonFirstNameApplicable = false;
-            vm.formData.PAFinancialManagerContactPersonMobileNotApplicable = false;
-            vm.formData.PAFinancialManagerContactPersonEmailNotApplicable = false;
-            vm.formData.PACustodianBankContactPersonMobileNotApplicable = false;
-            vm.formData.PACustodianBankContactPersonEmailNotApplicable = false;
-            vm.formData.IsContractTelephoneAvailable = false;
-            vm.formData.IsContractSecondTelephoneAvailable = false;
+            vm.formData.PASelfManagementPolicyHolderFour = false;
+            vm.formData.FirstContactPersonFaxNotAvailableFour = false;
+            vm.formData.SecondContactPersonFaxNotAvailableFour = false;
+            vm.formData.PAFinancialManagerContactPersonFirstNameApplicableFour = false;
+            vm.formData.PACustodianBankContactPersonFirstNameApplicableFour = false;
+            vm.formData.PAFinancialManagerContactPersonMobileNotApplicableFour = false;
+            vm.formData.PAFinancialManagerContactPersonEmailNotApplicableFour = false;
+            vm.formData.PACustodianBankContactPersonMobileNotApplicableFour = false;
+            vm.formData.PACustodianBankContactPersonEmailNotApplicableFour = false;
+            vm.formData.IsContractTelephoneAvailableFour = false;
+            vm.formData.IsContractSecondTelephoneAvailableFour = false;
         }
 
         function executeWorkflowForm(data) {
@@ -90,8 +90,8 @@
                 onInitFormData();
                 vm.formData = JSON.parse(data.Entities[0].JsonString);
             } else {
-                // delete vm.formData.IsContractTelephoneAvailable;
-                // delete vm.formData.IsContractSecondTelephoneAvailable;
+                // delete vm.formData.IsContractTelephoneAvailableFour;
+                // delete vm.formData.IsContractSecondTelephoneAvailableFour;
                 $scope.switchFrDesignation4th.$submitted = true;
                 slpcSlpcConfigUtilService.cleanupModel(vm.formData, modelTree);
                 if (!$scope.switchFrDesignation4th.$invalid) {
@@ -173,8 +173,8 @@
             });
             // getData.activityData(entityObj.activityId, entityObj.workflowInstanceId).then(function (response) {
             //     var appProcessInvestmentOfContract = JSON.parse(response.Entities[0].JsonString);
-            //     vm.firstDedicatedFundPercentValue = appProcessInvestmentOfContract.FirstDedicatedFundPercentValue;
-            //     vm.firstDedicatedFundAmountValue = appProcessInvestmentOfContract.FirstDedicatedFundAmountValue;
+            //     vm.firstDedicatedFundPercentValue = appProcessInvestmentOfContract.SecondDedicatedFundPercentValue;
+            //     vm.firstDedicatedFundAmountValue = appProcessInvestmentOfContract.SecondDedicatedFundAmountValue;
             //     if(Number.isInteger(vm.firstDedicatedFundPercentValue) === false){
             //         vm.firstDedicatedFundPercentValue = vm.firstDedicatedFundPercentValue.toFixed(2);
             //     }
@@ -188,8 +188,8 @@
             slpcConfigWorkflowService.getEntityDataByWorkflowInstanceId(workflowInstanceId, entityObj.fields).then(function (responseFieldsData) {
                     var appProcessInvestmentOfContract = responseFieldsData;
                     vm.workflowName = responseFieldsData.WorkflowName;
-                    vm.firstDedicatedFundPercentValue = appProcessInvestmentOfContract.FirstDedicatedFundPercentValue;
-                    vm.firstDedicatedFundAmountValue = appProcessInvestmentOfContract.FirstDedicatedFundAmountValue;
+                    vm.firstDedicatedFundPercentValue = appProcessInvestmentOfContract.SecondDedicatedFundPercentValue;
+                    vm.firstDedicatedFundAmountValue = appProcessInvestmentOfContract.SecondDedicatedFundAmountValue;
                     if(appProcessInvestmentOfContract.AmountOrPercentReinvestment == 'AMOUNT'){
                           vm.checkAmount = true;
                     }
