@@ -11,9 +11,9 @@ words = content.split(" ")
 
 for word in words:
     if substring in word:
-        word = word.replace('\n' , '')
+        word = word.replace('\n', '')
         word = word.replace(substring, '')
-        word = word.replace('"' , '')
+        word = word.replace('"', '')
         model.append(word)
 
 
