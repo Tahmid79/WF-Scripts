@@ -15,8 +15,8 @@ def replace(o1 , o2, view='view.txt', result='result.txt'):
         f.write(content)
 
 
-replace('output.txt', 'output3.txt')
-replace('NA/current3.txt' , 'Na/na3.txt' , 'result.txt')
+replace('output.txt', 'output2.txt')
+replace('NA/current2.txt' , 'Na/na2.txt' , 'result.txt')
 
 
 

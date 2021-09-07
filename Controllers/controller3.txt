@@ -20,69 +20,69 @@
             entityName: null,
             fields: [
                 "AmountOrPercentReinvestment",
-                "SecondDedicatedFundPercentValue",
-                "SecondDedicatedFundAmountValue"
+                "FirstDedicatedFundPercentValue",
+                "FirstDedicatedFundAmountValue"
             ]
         };
 
         var modelTree = {
             "PAFirstDedicatedFundValue": "",
-            "PASelfManagementPolicyHolderTwo#value=false": {
-                "PAFinancialManagerNameTwo": "",
-                "PAFinancialManagerStreetNameAndNumberTwo": "",
-                "PAFinancialManagerPostCodeAndTownTwo": "",
-                "PACountryTwo": ""
+            "PASelfManagementPolicyHolder#value=false": {
+                "PAFinancialManagerName": "",
+                "PAFinancialManagerStreetNameAndNumber": "",
+                "PAFinancialManagerPostCodeAndTown": "",
+                "PAcountry": ""
             },
-            "PAFinancialManagerContactPersonNameTwo": "",
-            "PAFinancialManagerContactPersonFirstNameApplicableTwo#value=false": {
-                "PAFinancialManagerContactPersonFirstNameTwo": ""
+            "PAFinancialManagerContactPersonName": "",
+            "PAFinancialManagerContactPersonFirstNameAppliacble#value=false": {
+                "PAFinancialManagerContactPersonFirstName": ""
             },
-            "IsContractTelephoneAvailableTwo#value=false": {
-                "PAFinancialManagerContactPersonTelephoneTwo": "",
+            "IsContractTelephoneAvailable#value=false": {
+                "PAFinancialManagerContactPersonTelephone": "",
             },
-            "PAFinancialManagerContactPersonMobileNotApplicableTwo#value=false": {
-                "PAFinancialManagerContactPersonMobileTwo": "",
+            "PAFinancialManagerContactPersonMobileNotApplicable#value=false": {
+                "PAFinancialManagerContactPersonMobile": "",
             },
-            "PAFinancialManagerContactPersonEmailNotApplicableTwo#value=false": {
-                "PAFinancialManagerContactPersonEmailTwo": "",
+            "PAFinancialManagerContactPersonEmailNotApplicable#value=false": {
+                "PAFinancialManagerContactPersonEmail": "",
             },
-            "FirstContactPersonFaxNotAvailableTwo#value=false": {
-                "PAFinancialManagerContactPersonFaxTwo": ""
+            "FirstContactPersonFaxNotAvailable#value=false": {
+                "PAFinancialManagerContactPersonFax": ""
             },
-            "PACustodianBankNameTwo": "",
-            "PACustodianBankStreetNameAndNumberTwo": "",
-            "PACustodianBankPostCodeAndTownTwo": "",
-            "PACustodyCountryTwo": "",
-            "PACustodianBankContactPersonNameTwo": "",
-            "PACustodianBankContactPersonFirstNameApplicableTwo#value=false": {
-                "PACustodianBankContactPersonFirstNameTwo": ""
+            "PACustodianBankName": "",
+            "PACustodianBankStreetNameAndNumber": "",
+            "PACustodianBankPostCodeAndTown": "",
+            "PAcustodyCountry": "",
+            "PACustodianBankContactPersonName": "",
+            "PACustodianBankContactPersonFirstNameApplicable#value=false": {
+                "PACustodianBankContactPersonFirstName": ""
             },
-            "IsContractSecondTelephoneAvailableTwo#value=false": {
-                "PACustodianBankContactPersonTelephoneTwo": "",
+            "IsContractSecondTelephoneAvailable#value=false": {
+                "PACustodianBankContactPersonTelephone": "",
             },
-            "PACustodianBankContactPersonMobileNotApplicableTwo#value=false": {
-                "PACustodianBankContactPersonMobileTwo": "",
+            "PACustodianBankContactPersonMobileNotApplicable#value=false": {
+                "PACustodianBankContactPersonMobile": "",
             },
-            "PACustodianBankContactPersonEmailNotApplicableTwo#value=false": {
-                "PACustodianBankContactPersonEmailTwo": "",
+            "PACustodianBankContactPersonEmailNotApplicable#value=false": {
+                "PACustodianBankContactPersonEmail": "",
             },
-            "SecondContactPersonFaxNotAvailableTwo#value=false": {
-                "PACustodianBankContactPersonFaxTwo": ""
+            "SecondContactPersonFaxNotAvailable#value=false": {
+                "PACustodianBankContactPersonFax": ""
             }
         }
 
         function onInitFormData() {
-            vm.formData.PASelfManagementPolicyHolderTwo = false;
-            vm.formData.FirstContactPersonFaxNotAvailableTwo = false;
-            vm.formData.SecondContactPersonFaxNotAvailableTwo = false;
-            vm.formData.PAFinancialManagerContactPersonFirstNameApplicableTwo = false;
-            vm.formData.PACustodianBankContactPersonFirstNameApplicableTwo = false;
-            vm.formData.PAFinancialManagerContactPersonMobileNotApplicableTwo = false;
-            vm.formData.PAFinancialManagerContactPersonEmailNotApplicableTwo = false;
-            vm.formData.PACustodianBankContactPersonMobileNotApplicableTwo = false;
-            vm.formData.PACustodianBankContactPersonEmailNotApplicableTwo = false;
-            vm.formData.IsContractTelephoneAvailableTwo = false;
-            vm.formData.IsContractSecondTelephoneAvailableTwo = false;
+            vm.formData.PASelfManagementPolicyHolder = false;
+            vm.formData.FirstContactPersonFaxNotAvailable = false;
+            vm.formData.SecondContactPersonFaxNotAvailable = false;
+            vm.formData.PAFinancialManagerContactPersonFirstNameAppliacble = false;
+            vm.formData.PACustodianBankContactPersonFirstNameApplicable = false;
+            vm.formData.PAFinancialManagerContactPersonMobileNotApplicable = false;
+            vm.formData.PAFinancialManagerContactPersonEmailNotApplicable = false;
+            vm.formData.PACustodianBankContactPersonMobileNotApplicable = false;
+            vm.formData.PACustodianBankContactPersonEmailNotApplicable = false;
+            vm.formData.IsContractTelephoneAvailable = false;
+            vm.formData.IsContractSecondTelephoneAvailable = false;
         }
 
         function executeWorkflowForm(data) {
@@ -90,11 +90,11 @@
                 onInitFormData();
                 vm.formData = JSON.parse(data.Entities[0].JsonString);
             } else {
-                // delete vm.formData.IsContractTelephoneAvailableTwo;
-                // delete vm.formData.IsContractSecondTelephoneAvailableTwo;
-                $scope.switchFrDesignation2nd.$submitted = true;
+                // delete vm.formData.IsContractTelephoneAvailable;
+                // delete vm.formData.IsContractSecondTelephoneAvailable;
+                $scope.switchFrDesignation3rd.$submitted = true;
                 slpcSlpcConfigUtilService.cleanupModel(vm.formData, modelTree);
-                if (!$scope.switchFrDesignation2nd.$invalid) {
+                if (!$scope.switchFrDesignation3rd.$invalid) {
                     vm.formData.RequestPayload = { itemId: $state.params.slpcworkflowId }
                     vm.formData["Tags"] = ["Is-A-AppProcessAllocation"];
                     workflowService.eventBroadcast(WorkflowConfig.registerCallBackFromChild, _.clone(vm.formData));
@@ -122,9 +122,9 @@
 
         var showInfoModal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-designation-2nd/view/switch-fr-designation-2nd.info.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-designation-3rd/view/switch-fr-designation-3rd.info.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcSwitchDesignation2ndInfoModalController",
+                controller: "slpcSwitchDesignation3rdInfoModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: false,
                 escapeToClose: false,
@@ -140,7 +140,7 @@
 
         vm.showInfoModal2 = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-designation-2nd/view/switch-fr-designation-2nd.info.modal2.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-designation-3rd/view/switch-fr-designation-3rd.info.modal2.view.html",
                 targetEvent: $event,
                 controller: "slpcAppProcessAllocationSwitchInfoModal2Controller",
                 controllerAs: "vm",
@@ -173,8 +173,8 @@
             });
             // getData.activityData(entityObj.activityId, entityObj.workflowInstanceId).then(function (response) {
             //     var appProcessInvestmentOfContract = JSON.parse(response.Entities[0].JsonString);
-            //     vm.firstDedicatedFundPercentValue = appProcessInvestmentOfContract.SecondDedicatedFundPercentValue;
-            //     vm.firstDedicatedFundAmountValue = appProcessInvestmentOfContract.SecondDedicatedFundAmountValue;
+            //     vm.firstDedicatedFundPercentValue = appProcessInvestmentOfContract.FirstDedicatedFundPercentValue;
+            //     vm.firstDedicatedFundAmountValue = appProcessInvestmentOfContract.FirstDedicatedFundAmountValue;
             //     if(Number.isInteger(vm.firstDedicatedFundPercentValue) === false){
             //         vm.firstDedicatedFundPercentValue = vm.firstDedicatedFundPercentValue.toFixed(2);
             //     }
@@ -188,8 +188,8 @@
             slpcConfigWorkflowService.getEntityDataByWorkflowInstanceId(workflowInstanceId, entityObj.fields).then(function (responseFieldsData) {
                     var appProcessInvestmentOfContract = responseFieldsData;
                     vm.workflowName = responseFieldsData.WorkflowName;
-                    vm.firstDedicatedFundPercentValue = appProcessInvestmentOfContract.SecondDedicatedFundPercentValue;
-                    vm.firstDedicatedFundAmountValue = appProcessInvestmentOfContract.SecondDedicatedFundAmountValue;
+                    vm.firstDedicatedFundPercentValue = appProcessInvestmentOfContract.FirstDedicatedFundPercentValue;
+                    vm.firstDedicatedFundAmountValue = appProcessInvestmentOfContract.FirstDedicatedFundAmountValue;
                     if(appProcessInvestmentOfContract.AmountOrPercentReinvestment == 'AMOUNT'){
                           vm.checkAmount = true;
                     }
@@ -213,8 +213,8 @@
             vm.countriesOfResidence = SLPCConfig.AppProcessAllocationCountryOfResidenceCustodianBank;
             getCountryList();
             getOtherCountryNationalityList();
-            workflowService.eventRegister(WorkflowConfig.eventForDataTransition, getCommonData, 'switch-fr-designation-2nd');
-            workflowService.eventRegister(WorkflowConfig.registerWorkflowExecuteCommand, executeWorkflowForm, 'switch-fr-designation-2nd');
+            workflowService.eventRegister(WorkflowConfig.eventForDataTransition, getCommonData, 'switch-fr-designation-3rd');
+            workflowService.eventRegister(WorkflowConfig.registerWorkflowExecuteCommand, executeWorkflowForm, 'switch-fr-designation-3rd');
 
         };
 
@@ -222,5 +222,5 @@
     }
 
     constructor.$inject = ["$scope", "$http", "$mdMedia", "$location", "SLPCConfig", "shellInfrastructure", "workflowService", "WorkflowConfig", "$state", "policyformService", "$mdDialog", "shellView", "slpcSlpcConfigUtilService", "slpcConfigWorkflowService"];
-    angular.module("slpc.switch-fr-designation-2nd").controller('slpcSwitchFrDesignation2ndController', constructor);
+    angular.module("slpc.switch-fr-designation-3rd").controller('slpcSwitchFrDesignation3rdController', constructor);
 })(window.angular, window.appSuite);
