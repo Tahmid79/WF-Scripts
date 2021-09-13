@@ -1,14 +1,18 @@
 import os
 
-files = os.listdir('./switch-fr-charges-1st')
+folderStr = './switch-fr-charges-1st'
+folder = os.listdir(folderStr)
 
 chargesStr = 'app-process-charges-v2'
 newStr = 'switch-fr-charges-1st'
 
-for file in files:
+for file in folder:
     if chargesStr in file:
-        newStr = file.replace(chargesStr, newStr)
-        os.rename(file, newStr)
+        source = folderStr + '/' + file
+        destination = source.replace(chargesStr, newStr)
+        os.rename(source, destination)
+
+
 
 
 
