@@ -12,6 +12,28 @@ for file in folder:
         destination = source.replace(chargesStr, newStr)
         os.rename(source, destination)
 
+controllerStr = folderStr + '/controller'
+controllerFolder = os.listdir(controllerStr)
+
+for file in controllerFolder:
+    if chargesStr in file:
+        source = controllerStr + '/' + file
+        destination = source.replace(chargesStr , newStr)
+        os.rename(source, destination)
+
+viewStr = folderStr + '/view'
+viewFolder = os.listdir(viewStr)
+
+for file in viewFolder:
+    if chargesStr in file:
+        source =  viewStr + '/' + file
+        destination = source.replace(chargesStr, newStr)
+        os.rename(source, destination)
+
+
+
+
+
 
 
 
