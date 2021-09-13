@@ -1,6 +1,6 @@
 from pathlib import Path
 
-def replace(o1 , o2, view='view.txt', result='result.txt'):
+def replace(o1 , o2, view='source.txt', result='result.txt'):
     o1 = Path(o1).read_text()
     o2 = Path(o2).read_text()
     content = Path(view).read_text()
