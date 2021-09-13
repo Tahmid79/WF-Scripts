@@ -1,10 +1,12 @@
 import os
 
-list = os.listdir('./switch-fr-charges-1st')
-print(list)
+files = os.listdir('./switch-fr-charges-1st')
 
-old_name = 'hello.txt'
-new_name = 'hello_tahmid.txt'
+chargesStr = 'app-process-charges-v2'
+newStr = 'app-process-charges-v2'
 
-os.rename(new_name, old_name)
+for file in files:
+    if chargesStr in file:
+        print(file)
+
 
