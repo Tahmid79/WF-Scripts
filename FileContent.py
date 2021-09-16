@@ -10,7 +10,7 @@ def ReplaceStringInAllFiles(folderPath, oldString, newString):
     for file in folder:
         pth = folderPath + '/' + file
         if os.path.isfile(pth):
-            content = Path(pth).read_text(encoding='utf8')
+            content = Path(pth).read_text()
             content = content.replace(oldString, newString)
             WriteStringToFile(pth, content)
 
@@ -29,13 +29,13 @@ langPath = folderPath + '/i18n'
 ReplaceStringInAllFiles(folderPath , oldAppName , newAppName)
 ReplaceStringInAllFiles(controllerPath , oldAppName , newAppName)
 ReplaceStringInAllFiles(viewPath , oldAppName , newAppName)
-ReplaceStringInAllFiles(langPath , oldAppName , newAppName)
+# ReplaceStringInAllFiles(langPath , oldAppName , newAppName)
 
 # This is for replacing the language
 ReplaceStringInAllFiles(folderPath , oldLang , newLang)
 ReplaceStringInAllFiles(controllerPath , oldLang , newLang)
 ReplaceStringInAllFiles(viewPath , oldLang , newLang)
-ReplaceStringInAllFiles(langPath , oldLang , newLang)
+# ReplaceStringInAllFiles(langPath , oldLang , newLang)
 
 
 
