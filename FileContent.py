@@ -39,16 +39,23 @@ langPath = folderPath + '/i18n'
 
 
 controllerName = 'slpcAppProcessChargesInfoModalController'
-nameSplit = ['slpcAppProcessChargesInfo' , 'ModalController']
-
-names = []
-names.append(controllerName)
-
-for i in range(2, 15 ):
-    name = nameSplit[0] + str(i) + nameSplit[1]
-    names.append(name)
+nameSplit = ['slpcAppProcessChargesInfo', 'ModalController']
+names = [ nameSplit[0] + str(i) + nameSplit[1] for i in range(2, 15 ) ]
+names.insert(0, controllerName)
 
 print(names)
+
+newControllerName = 'slpcSwitchCharges1stInfoModalController'
+newNameSplit = ['slpcSwitchCharges1stInfo' , 'ModalController' ]
+newNames = [ newNameSplit[0] + str(i) + newNameSplit[1] for i in range(2, 15) ]
+newNames.insert(0, newControllerName)
+
+print(newNames)
+
+for i in range(len(newNames)):
+    oldstr = names[i]
+    newstr = newNames[i]
+    ReplaceStringInAllFiles(controllerPath, oldstr, newstr)
 
 
 
