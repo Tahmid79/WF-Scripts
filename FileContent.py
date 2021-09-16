@@ -8,8 +8,8 @@ def WriteStringToFile(path , str):
 def ReplaceStringInAllFiles(folderPath, oldString, newString):
     folder = os.listdir(folderPath)
     for file in folder:
-        if newAppName in file:
-            pth = folderPath + '/' + file
+        pth = folderPath + '/' + file
+        if os.path.isfile(pth):
             content = Path(pth).read_text()
             content = content.replace(oldString, newString)
             WriteStringToFile(pth, content)
@@ -36,6 +36,7 @@ ReplaceStringInAllFiles(folderPath , oldLang , newLang)
 ReplaceStringInAllFiles(controllerPath , oldLang , newLang)
 ReplaceStringInAllFiles(viewPath , oldLang , newLang)
 ReplaceStringInAllFiles(langPath , oldLang , newLang)
+
 
 
 
