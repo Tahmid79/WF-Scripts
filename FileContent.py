@@ -29,13 +29,13 @@ langPath = folderPath + '/i18n'
 ReplaceStringInAllFiles(folderPath , oldAppName , newAppName)
 ReplaceStringInAllFiles(controllerPath , oldAppName , newAppName)
 ReplaceStringInAllFiles(viewPath , oldAppName , newAppName)
-ReplaceStringInAllFiles(langPath , oldAppName , newAppName)
+# ReplaceStringInAllFiles(langPath , oldAppName , newAppName)
 
 # This is for replacing the language
 ReplaceStringInAllFiles(folderPath , oldLang , newLang)
 ReplaceStringInAllFiles(controllerPath , oldLang , newLang)
 ReplaceStringInAllFiles(viewPath , oldLang , newLang)
-ReplaceStringInAllFiles(langPath , oldLang , newLang)
+# ReplaceStringInAllFiles(langPath , oldLang , newLang)
 
 
 
