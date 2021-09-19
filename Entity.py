@@ -1,4 +1,5 @@
 import os
+import re
 from pathlib import Path
 
 def findCharacterIndices(s, ch):
@@ -29,6 +30,11 @@ for type in types:
 
 content = content.replace('\n' , ',')
 content = content[1:]
+
+
+commaregex = r"(\,)\1\1"
+
+content = re.sub(commaregex, ',' , content)
 
 
 WriteStringToFile('./propCSV' , content)
