@@ -22,5 +22,12 @@ last = index[len(index) - 1]
 content = content[first:last]
 
 
-print(content)
+types = [ 'public', 'string' , 'bool' , 'int' , '?' , '{ get; set; }' , '\n' , ' ']
+
+for type in types:
+    content = content.replace(type , '')
+
+
+
+WriteStringToFile('./propCSV' , content)
 
