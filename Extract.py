@@ -1,6 +1,6 @@
 from pathlib import Path
 
-pth = 'view.txt'
+pth = 'source.txt'
 
 substring = 'ng-model="vm.formData.'
 model = []
