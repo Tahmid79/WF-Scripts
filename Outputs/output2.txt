@@ -7,7 +7,7 @@ PCAllInFee2nd
 ChargesSpecificInstruction2nd
 PCSpecificInstruction2nd
 PCcurrencyType2nd
-PCcurrencyType>2nd
+PCcurrencyType2nd
 PCother2nd
 PCMoney2nd
 PhTable2nd
