@@ -4,6 +4,10 @@ from pathlib import Path
 def findCharacterIndices(s, ch):
     return [i for i, ltr in enumerate(s) if ltr == ch]
 
+def WriteStringToFile(filepath , str):
+    with open(filepath, 'w') as f:
+        f.write(str)
+
 filepath = './entity.txt'
 
 content = Path(filepath).read_text()
