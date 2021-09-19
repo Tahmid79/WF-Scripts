@@ -38,26 +38,29 @@ langPath = folderPath + '/i18n'
 # ReplaceStringInAllFiles(langPath , oldLang , newLang)
 
 
-controllerName = 'slpcAppProcessChargesInfoModalController'
-nameSplit = ['slpcAppProcessChargesInfo', 'ModalController']
-names = [ nameSplit[0] + str(i) + nameSplit[1] for i in range(2, 15 ) ]
-names.insert(0, controllerName)
 
-print(names)
+def changeControllerName():
+    controllerName = 'slpcAppProcessChargesInfoModalController'
+    nameSplit = ['slpcAppProcessChargesInfo', 'ModalController']
+    names = [nameSplit[0] + str(i) + nameSplit[1] for i in range(2, 15)]
+    names.insert(0, controllerName)
 
-newControllerName = 'slpcSwitchCharges1stInfoModalController'
-newNameSplit = ['slpcSwitchCharges1stInfo' , 'ModalController' ]
-newNames = [ newNameSplit[0] + str(i) + newNameSplit[1] for i in range(2, 15) ]
-newNames.insert(0, newControllerName)
+    print(names)
 
-print(newNames)
+    newControllerName = 'slpcSwitchCharges1stInfoModalController'
+    newNameSplit = ['slpcSwitchCharges1stInfo', 'ModalController']
+    newNames = [newNameSplit[0] + str(i) + newNameSplit[1] for i in range(2, 15)]
+    newNames.insert(0, newControllerName)
 
-for i in range(len(newNames)):
-    oldstr = names[i]
-    newstr = newNames[i]
-    ReplaceStringInAllFiles(controllerPath, oldstr, newstr)
+    print(newNames)
+
+    for i in range(len(newNames)):
+        oldstr = names[i]
+        newstr = newNames[i]
+        ReplaceStringInAllFiles(controllerPath, oldstr, newstr)
 
 
+changeControllerName()
 
 
 
