@@ -47,5 +47,7 @@ for com in commas:
     content = content.replace(com , ',')
 
 
-# WriteStringToFile('./propCSV' , content)
+WriteStringToFile('./propCSV' , content)
+
+#PCCashMaxPercentageSpecialised4th
 
