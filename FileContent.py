@@ -47,8 +47,8 @@ def changeControllerName():
 
     # print(names)
 
-    newControllerName = 'slpcSwitchCharges2ndInfoModalController'
-    newNameSplit = ['slpcSwitchCharges2ndInfo', 'ModalController']
+    newControllerName = 'slpcSwitchFrCharges2ndInfoModalController'
+    newNameSplit = ['slpcSwitchFrCharges2ndInfo', 'ModalController']
     newNames = [newNameSplit[0] + str(i) + newNameSplit[1] for i in range(2, 15)]
     newNames.insert(0, newControllerName)
 
