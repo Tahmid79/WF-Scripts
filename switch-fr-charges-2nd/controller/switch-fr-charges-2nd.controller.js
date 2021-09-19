@@ -913,5 +913,5 @@
     }
 
     constructor.$inject = ["$q", "$scope", "$http", "$mdMedia", "shellInfrastructure", "workflowService", "WorkflowConfig", "$state", "$mdDialog", "$location", "policyformService", "SLPCConfig", "slpcSlpcConfigUtilService", "slpcConfigWorkflowService"];
-    angular.module("slpc.switch-fr-charges-2nd").controller('slpcAppProcessChargesV2Controller', constructor);
+    angular.module("slpc.switch-fr-charges-2nd").controller('slpcSwitchFrCharges2ndController', constructor);
 })(window.angular, window.appSuite);
