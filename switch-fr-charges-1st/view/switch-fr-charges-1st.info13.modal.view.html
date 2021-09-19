@@ -1,24 +1,24 @@
 <md-dialog class="mobile-fullwidth-dialog" ng-class="{'width-700': vm.$mdMedia('gt-xs')}">
         <md-dialog-content class="padding-24">
             <ul class="slpc-unorder-list padding-top-12">
-                <li ng-repeat="item in vm.localizationObj.APP_PROCESS_CHARGES_V2.NEW.SELF_MANAGEMENT_POLICY_CONFIRMS" ng-if="item!=''">
+                <li ng-repeat="item in vm.localizationObj.SWITCH_FR_CHARGES_1ST.NEW.SELF_MANAGEMENT_POLICY_CONFIRMS" ng-if="item!=''">
                     <span ng-bind="item"></span>
                 </li>
             </ul>
 
             <!-- <md-checkbox class="md-primary display-block" palette-background="swiss-life-grey:400" fg-only ng-click="vm.close()" ng-model="vm.formData.PCSelfManagementPolicyHolderConfirms"
-                         aria-label="{{vm.localizationObj.APP_PROCESS_CHARGES_V2.NEW.CB_SELF_MANAGEMENT_CONFIRMS}}">
+                         aria-label="{{vm.localizationObj.SWITCH_FR_CHARGES_1ST.NEW.CB_SELF_MANAGEMENT_CONFIRMS}}">
             </md-checkbox> -->
             <ul class="slpc-unorder-list padding-top-12">
-                <li ng-repeat="item in vm.localizationObj.APP_PROCESS_CHARGES_V2.NEW.SELF_MANAGEMENT_POLICY_CONFIRMS_LOCAL" ng-if="item!=''">
+                <li ng-repeat="item in vm.localizationObj.SWITCH_FR_CHARGES_1ST.NEW.SELF_MANAGEMENT_POLICY_CONFIRMS_LOCAL" ng-if="item!=''">
                     <span class="slpc-workflow-dual-language" ng-bind="item"></span>
                 </li>
             </ul>
 
             <md-checkbox class="md-primary display-block" ng-click="vm.close()" ng-model="vm.formData.PCSelfManagementPolicyHolderConfirms"
-                         aria-label="{{vm.localizationObj.APP_PROCESS_CHARGES_V2.NEW.CB_SELF_MANAGEMENT_CONFIRMS_LOCAL}}">
-                         <span class="text-bold" ng-bind="::vm.localizationObj.APP_PROCESS_CHARGES_V2.NEW.CB_SELF_MANAGEMENT_CONFIRMS"></span>              
-                         <span class="slpc-workflow-dual-language text-bold" ng-bind="::vm.localizationObj.APP_PROCESS_CHARGES_V2.NEW.CB_SELF_MANAGEMENT_CONFIRMS_LOCAL"></span>
+                         aria-label="{{vm.localizationObj.SWITCH_FR_CHARGES_1ST.NEW.CB_SELF_MANAGEMENT_CONFIRMS_LOCAL}}">
+                         <span class="text-bold" ng-bind="::vm.localizationObj.SWITCH_FR_CHARGES_1ST.NEW.CB_SELF_MANAGEMENT_CONFIRMS"></span>              
+                         <span class="slpc-workflow-dual-language text-bold" ng-bind="::vm.localizationObj.SWITCH_FR_CHARGES_1ST.NEW.CB_SELF_MANAGEMENT_CONFIRMS_LOCAL"></span>
             </md-checkbox>
         </md-dialog-content>
 </md-dialog> 
