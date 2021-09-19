@@ -15,12 +15,12 @@ def ReplaceStringInAllFiles(folderPath, oldString, newString):
             WriteStringToFile(pth, content)
 
 oldAppName = 'app-process-charges-v2'
-newAppName = 'switch-fr-charges-1st'
+newAppName = 'switch-fr-charges-2nd'
 
 oldLang = 'APP_PROCESS_CHARGES_V2'
-newLang = 'SWITCH_FR_CHARGES_1ST'
+newLang = 'SWITCH_FR_CHARGES_2ND'
 
-folderPath = './switch-fr-charges-1st'
+folderPath = './switch-fr-charges-2nd'
 controllerPath = folderPath + '/controller'
 viewPath = folderPath + '/view'
 langPath = folderPath + '/i18n'
@@ -47,8 +47,8 @@ def changeControllerName():
 
     # print(names)
 
-    newControllerName = 'slpcSwitchCharges1stInfoModalController'
-    newNameSplit = ['slpcSwitchCharges1stInfo', 'ModalController']
+    newControllerName = 'slpcSwitchCharges2ndInfoModalController'
+    newNameSplit = ['slpcSwitchCharges2ndInfo', 'ModalController']
     newNames = [newNameSplit[0] + str(i) + newNameSplit[1] for i in range(2, 15)]
     newNames.insert(0, newControllerName)
 
