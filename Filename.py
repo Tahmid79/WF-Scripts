@@ -1,7 +1,7 @@
 import os
 
-chargesStr = 'app-process-charges-v2'
-newStr = 'switch-fr-charges-1st'
+oldname = 'app-process-charges-v2'
+newname = 'switch-fr-charges-1st'
 
 folderStr = './switch-fr-charges-1st'
 controllerStr = folderStr + '/controller'
@@ -17,9 +17,9 @@ def changeFileName(folderPath, oldname , newname):
             os.rename(source, destination)
     
 
-changeFileName(folderStr, chargesStr , newStr)
-changeFileName(controllerStr,chargesStr , newStr)
-changeFileName(viewStr,chargesStr , newStr)
+changeFileName(folderStr, oldname, newname)
+changeFileName(controllerStr, oldname, newname)
+changeFileName(viewStr, oldname, newname)
 
 
 
