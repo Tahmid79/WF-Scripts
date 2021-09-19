@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
 
-    var module = angular.module('slpc.app-process-charges-v2', ['pascalprecht.translate']);
+    var module = angular.module('slpc.switch-fr-charges-2nd', ['pascalprecht.translate']);
 
     function config() {}
 
@@ -9,7 +9,7 @@
     module.config(config);
 
     function run($translate, $translatePartialLoader) {
-        //$translatePartialLoader.addPart('app/workflows/slpc/app-process-charges-v2/i18n');
+        //$translatePartialLoader.addPart('app/workflows/slpc/switch-fr-charges-2nd/i18n');
     }
     run.$inject = ['$translate', '$translatePartialLoader'];
     module.run(run);

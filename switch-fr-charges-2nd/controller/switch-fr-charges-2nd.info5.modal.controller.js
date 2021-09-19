@@ -16,5 +16,5 @@
     }
 
     constructor.$inject = ['$mdDialog', "locals", "$mdMedia"];
-    angular.module("slpc.app-process-charges-v2").controller('slpcAppProcessChargesInfo5ModalController', constructor);
+    angular.module("slpc.switch-fr-charges-2nd").controller('slpcSwitchFrCharges2ndInfo5ModalController', constructor);
 })(window.angular);
