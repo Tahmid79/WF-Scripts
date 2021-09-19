@@ -49,157 +49,157 @@
         vm.checkboxFlag = null;
 
         var percentMinFields = [
-            "PCBondMinPercentage",
-            "PCEquitiesMinPercentage",
-            "PCBondsFundMinPercentage",
-            "PCEquityFundMinPercentage",
-            "PCMoneyMarketFundMinPercentage",
-            "PCHedgeFundMinPercentage",
-            "PCCommodityFundMinPercentage",
-            "PCPrivateEquityFundMinPercentage",
-            "PCRealStateFundMinPercentage",
-            "PCCashMinPercentage"
+            "PCBondMinPercentage3rd",
+            "PCEquitiesMinPercentage3rd",
+            "PCBondsFundMinPercentage3rd",
+            "PCEquityFundMinPercentage3rd",
+            "PCMoneyMarketFundMinPercentage3rd",
+            "PCHedgeFundMinPercentage3rd",
+            "PCCommodityFundMinPercentage3rd",
+            "PCPrivateEquityFundMinPercentage3rd",
+            "PCRealStateFundMinPercentage3rd",
+            "PCCashMinPercentage3rd"
         ];
 
         var percentMaxFields = [
-            "PCBondMaxPercentage",
-            "PCEquitiesMaxPercentage",
-            "PCBondsFundMaxPercentage",
-            "PCEquityFundMaxPercentage",
-            "PCMoneyMarketFundMaxPercentage",
-            "PCHedgeFundMaxPercentage",
-            "PCCommodityFundMaxPercentage",
-            "PCPrivateEquityFundMaxPercentage",
-            "PCRealStateFundMaxPercentage",
-            "PCCashMaxPercentage"
+            "PCBondMaxPercentage3rd",
+            "PCEquitiesMaxPercentage3rd",
+            "PCBondsFundMaxPercentage3rd",
+            "PCEquityFundMaxPercentage3rd",
+            "PCMoneyMarketFundMaxPercentage3rd",
+            "PCHedgeFundMaxPercentage3rd",
+            "PCCommodityFundMaxPercentage3rd",
+            "PCPrivateEquityFundMaxPercentage3rd",
+            "PCRealStateFundMaxPercentage3rd",
+            "PCCashMaxPercentage3rd"
         ];
 
         var modelTree = {
-            "IsInvestmentManagement#value=true": {
-                "PCFinancialManagementChargePercentage": NaN,
+            "IsInvestmentManagement3rd#value=true": {
+                "PCFinancialManagementChargePercentage3rd": NaN,
             },
-            "IsCustodyCharges#value=true": {
-                "PCCustodyChargePercentage": NaN,
+            "IsCustodyCharges3rd#value=true": {
+                "PCCustodyChargePercentage3rd": NaN,
             },
-            "IsAllFees#value=true": {
-                "PCAllInFee": "",
+            "IsAllFees3rd#value=true": {
+                "PCAllInFee3rd": "",
             },
-            "ChargesSpecificInstruction#value=YES": {
-                "PCSpecificInstruction": ""
+            "ChargesSpecificInstruction3rd#value=YES": {
+                "PCSpecificInstruction3rd": ""
             },
-            "IsFixedIncomeBond#value=true": {
-                "PCBondMinPercentage": NaN,
-                "PCBondMaxPercentage": NaN
+            "IsFixedIncomeBond3rd#value=true": {
+                "PCBondMinPercentage3rd": NaN,
+                "PCBondMaxPercentage3rd": NaN
             },
-            "IsEquitiesEquities#value=true": {
-                "PCEquitiesMinPercentage": NaN,
-                "PCEquitiesMaxPercentage": NaN
+            "IsEquitiesEquities3rd#value=true": {
+                "PCEquitiesMinPercentage3rd": NaN,
+                "PCEquitiesMaxPercentage3rd": NaN
             },
-            "IsInvestmenetFundBonds#value=true": {
-                "PCBondsFundMinPercentage": NaN,
-                "PCBondsFundMaxPercentage": NaN
+            "IsInvestmenetFundBonds3rd#value=true": {
+                "PCBondsFundMinPercentage3rd": NaN,
+                "PCBondsFundMaxPercentage3rd": NaN
             },
-            "IsInvestmenetFundEquities#value=true": {
-                "PCEquityFundMinPercentage": NaN,
-                "PCEquityFundMaxPercentage": NaN
+            "IsInvestmenetFundEquities3rd#value=true": {
+                "PCEquityFundMinPercentage3rd": NaN,
+                "PCEquityFundMaxPercentage3rd": NaN
             },
-            "IsInvestmenetFundMoneyMarket#value=true": {
-                "PCMoneyMarketFundMinPercentage": NaN,
-                "PCMoneyMarketFundMaxPercentage": NaN
+            "IsInvestmenetFundMoneyMarket3rd#value=true": {
+                "PCMoneyMarketFundMinPercentage3rd": NaN,
+                "PCMoneyMarketFundMaxPercentage3rd": NaN
             },
-            "IsAlternativeHedgeFunds#value=true": {
-                "PCHedgeFundMinPercentage": NaN,
-                "PCHedgeFundMaxPercentage": NaN
+            "IsAlternativeHedgeFunds3rd#value=true": {
+                "PCHedgeFundMinPercentage3rd": NaN,
+                "PCHedgeFundMaxPercentage3rd": NaN
             },
-            "IsAlternativeCommodity#value=true": {
-                "PCCommodityFundMinPercentage": NaN,
-                "PCCommodityFundMaxPercentage": NaN
+            "IsAlternativeCommodity3rd#value=true": {
+                "PCCommodityFundMinPercentage3rd": NaN,
+                "PCCommodityFundMaxPercentage3rd": NaN
             },
-            "IsAlternativePrivate#value=true": {
-                "PCPrivateEquityFundMinPercentage": NaN,
-                "PCPrivateEquityFundMaxPercentage": NaN
+            "IsAlternativePrivate3rd#value=true": {
+                "PCPrivateEquityFundMinPercentage3rd": NaN,
+                "PCPrivateEquityFundMaxPercentage3rd": NaN
             },
-            "IsAlternativeRealEstate#value=true": {
-                "PCRealStateFundMinPercentage": NaN,
-                "PCRealStateFundMaxPercentage": NaN
+            "IsAlternativeRealEstate3rd#value=true": {
+                "PCRealStateFundMinPercentage3rd": NaN,
+                "PCRealStateFundMaxPercentage3rd": NaN
             },
-            "IsCashCurrent#value=true": {
-                "PCCashMinPercentage": NaN,
-                "PCCashMaxPercentage": NaN
+            "IsCashCurrent3rd#value=true": {
+                "PCCashMinPercentage3rd": NaN,
+                "PCCashMaxPercentage3rd": NaN
             },
-            "AddAnotherDedicatedFund#value=NO": {
-                "PCDoesTheInvestment": ""
+            "AddAnotherDedicatedFund3rd#value=NO": {
+                "PCDoesTheInvestment3rd": ""
             },
-            "PCSelfManagementPolicyHolderMail#value=true": {
-                "PCSelfManagementPolicyHolderMail1stAddress": false,
-                "PCSelfManagementPolicyHolderMailCorrespondenceAddress": false,
-                "PCSelfManagementPolicyHolderMailFollowingAddress#value=true#default=false": {
-                    "PCSelfManagementPolicyHolderMailFollowingAddressValue": ""
+            "PCSelfManagementPolicyHolderMail3rd#value=true": {
+                "PCSelfManagementPolicyHolderMail1stAddress3rd": false,
+                "PCSelfManagementPolicyHolderMailCorrespondenceAddress3rd": false,
+                "PCSelfManagementPolicyHolderMailFollowingAddress3rd#value=true#default=false": {
+                    "PCSelfManagementPolicyHolderMailFollowingAddressValue3rd": ""
                 }
             },
-            "PCSelfManagementPolicyHolderEmail#value=true": {
-                "PCSelfManagementPolicyHolderEmailValue": ""
+            "PCSelfManagementPolicyHolderEmail3rd#value=true": {
+                "PCSelfManagementPolicyHolderEmailValue3rd": ""
             },
-            "PCSelfManagementPolicyHolderTelephone#value=true": {
-                "PCSelfManagementPolicyHolderTelephoneValue": ""
+            "PCSelfManagementPolicyHolderTelephone3rd#value=true": {
+                "PCSelfManagementPolicyHolderTelephoneValue3rd": ""
             },
-            "PCSelfManagementPolicyHolderFax#value=true": {
-                "PCSelfManagementPolicyHolderFaxValue": ""
+            "PCSelfManagementPolicyHolderFax3rd#value=true": {
+                "PCSelfManagementPolicyHolderFaxValue3rd": ""
             },
-            "PCSelfManagementDifferentInvestmentStrategy#value=true": {
-                "IsDifferentInvestmentFixedIncomeBond#value=true#default=false": {
-                    "PCSelfManagementBondMinPercentage": -1,
-                    "PCSelfManagementBondMaxPercentage": -1
+            "PCSelfManagementDifferentInvestmentStrategy3rd#value=true": {
+                "IsDifferentInvestmentFixedIncomeBond3rd#value=true#default=false": {
+                    "PCSelfManagementBondMinPercentage3rd": -1,
+                    "PCSelfManagementBondMaxPercentage3rd": -1
                 },
-                "IsDifferentInvestmentEquities#value=true#default=false": {
-                    "PCSelfManagementEquitiesMinPercentage": -1,
-                    "PCSelfManagementEquitiesMaxPercentage": -1
+                "IsDifferentInvestmentEquities3rd#value=true#default=false": {
+                    "PCSelfManagementEquitiesMinPercentage3rd": -1,
+                    "PCSelfManagementEquitiesMaxPercentage3rd": -1
                 },
-                "IsDifferentInvestmentInvestmentFundsBond#value=true#default=false": {
-                    "PCSelfManagementBondsFundMinPercentage": -1,
-                    "PCSelfManagementBondsFundMaxPercentage": -1
+                "IsDifferentInvestmentInvestmentFundsBond3rd#value=true#default=false": {
+                    "PCSelfManagementBondsFundMinPercentage3rd": -1,
+                    "PCSelfManagementBondsFundMaxPercentage3rd": -1
                 },
-                "IsDifferentInvestmentInvestmentFundsEquity#value=true#default=false": {
-                    "PCSelfManagementEquityFundMinPercentage": -1,
-                    "PCSelfManagementEquityFundMaxPercentage": -1
+                "IsDifferentInvestmentInvestmentFundsEquity3rd#value=true#default=false": {
+                    "PCSelfManagementEquityFundMinPercentage3rd": -1,
+                    "PCSelfManagementEquityFundMaxPercentage3rd": -1
                 },
-                "IsDifferentInvestmentInvestmentFundsMoney#value=true#default=false": {
-                    "PCSelfManagementMoneyMarketFundMinPercentage": -1,
-                    "PCSelfManagementMoneyMarketFundMaxPercentage": -1
+                "IsDifferentInvestmentInvestmentFundsMoney3rd#value=true#default=false": {
+                    "PCSelfManagementMoneyMarketFundMinPercentage3rd": -1,
+                    "PCSelfManagementMoneyMarketFundMaxPercentage3rd": -1
                 },
-                "IsDifferentInvestmentAlternateHedge#value=true#default=false": {
-                    "PCSelfManagementHedgeFundMinPercentage": -1,
-                    "PCSelfManagementHedgeFundMaxPercentage": -1
+                "IsDifferentInvestmentAlternateHedge3rd#value=true#default=false": {
+                    "PCSelfManagementHedgeFundMinPercentage3rd": -1,
+                    "PCSelfManagementHedgeFundMaxPercentage3rd": -1
                 },
-                "IsDifferentInvestmentAlternateCommodity#value=true#default=false": {
-                    "PCSelfManagementCommodityFundMinPercentage": -1,
-                    "PCSelfManagementCommodityFundMaxPercentage": -1
+                "IsDifferentInvestmentAlternateCommodity3rd#value=true#default=false": {
+                    "PCSelfManagementCommodityFundMinPercentage3rd": -1,
+                    "PCSelfManagementCommodityFundMaxPercentage3rd": -1
                 },
-                "IsDifferentInvestmentAlternatePrivate#value=true#default=false": {
-                    "PCSelfManagementPrivateEquityFundMinPercentage": -1,
-                    "PCSelfManagementPrivateEquityFundMaxPercentage": -1
+                "IsDifferentInvestmentAlternatePrivate3rd#value=true#default=false": {
+                    "PCSelfManagementPrivateEquityFundMinPercentage3rd": -1,
+                    "PCSelfManagementPrivateEquityFundMaxPercentage3rd": -1
                 },
-                "IsDifferentInvestmentAlternateReal#value=true#default=false": {
-                    "PCSelfManagementRealStateFundMinPercentage": -1,
-                    "PCSelfManagementRealStateFundMaxPercentage": -1
+                "IsDifferentInvestmentAlternateReal3rd#value=true#default=false": {
+                    "PCSelfManagementRealStateFundMinPercentage3rd": -1,
+                    "PCSelfManagementRealStateFundMaxPercentage3rd": -1
                 },
-                "IsDifferentInvestmentOther": false,
-                "IsDifferentInvestmentCash#value=true#default=false": {
-                    "PCSelfManagementCashMinPercentage": -1,
-                    "PCSelfManagementCashMaxPercentage": -1
+                "IsDifferentInvestmentOther3rd": false,
+                "IsDifferentInvestmentCash3rd#value=true#default=false": {
+                    "PCSelfManagementCashMinPercentage3rd": -1,
+                    "PCSelfManagementCashMaxPercentage3rd": -1
                 }
             },
-            "PCSelfManagementContactPersonFirstNameNotApplicable#value=false": {
-                "PCSelfManagementContactPersonFirstName": ""
+            "PCSelfManagementContactPersonFirstNameNotApplicable3rd#value=false": {
+                "PCSelfManagementContactPersonFirstName3rd": ""
             },
-            "PCSelfManagementContactPersonMobileNotApplicable#value=false": {
-                "PCSelfManagementContactPersonMobile": ""
+            "PCSelfManagementContactPersonMobileNotApplicable3rd#value=false": {
+                "PCSelfManagementContactPersonMobile3rd": ""
             },
-            "PCSelfManagementContactPersonEmailNotApplicable#value=false": {
-                "PCSelfManagementContactPersonEmail": ""
+            "PCSelfManagementContactPersonEmailNotApplicable3rd#value=false": {
+                "PCSelfManagementContactPersonEmail3rd": ""
             },
-            "PCSelfManagementContactPersonFaxNotApplicable#value=false": {
-                "PCSelfManagementContactPersonFax": ""
+            "PCSelfManagementContactPersonFaxNotApplicable3rd#value=false": {
+                "PCSelfManagementContactPersonFax3rd": ""
             }
         }
 
@@ -265,11 +265,11 @@
         }
 
         function onInitFormData() {
-            vm.formData.PCSelfManagementContactPersonFirstNameNotApplicable = vm.formData.PCSelfManagementContactPersonFirstNameNotApplicable || false;
-            vm.formData.PCSelfManagementContactPersonMobileNotApplicable = vm.formData.PCSelfManagementContactPersonMobileNotApplicable || false;
-            vm.formData.PCSelfManagementContactPersonEmailNotApplicable = vm.formData.PCSelfManagementContactPersonEmailNotApplicable || false;
-            vm.formData.PCSelfManagementContactPersonFaxNotApplicable = vm.formData.PCSelfManagementContactPersonFaxNotApplicable || false;
-            vm.formData.IsSelfTelephoneAvailable = vm.formData.IsSelfTelephoneAvailable || false;
+            vm.formData.PCSelfManagementContactPersonFirstNameNotApplicable3rd = vm.formData.PCSelfManagementContactPersonFirstNameNotApplicable3rd || false;
+            vm.formData.PCSelfManagementContactPersonMobileNotApplicable3rd = vm.formData.PCSelfManagementContactPersonMobileNotApplicable3rd || false;
+            vm.formData.PCSelfManagementContactPersonEmailNotApplicable3rd = vm.formData.PCSelfManagementContactPersonEmailNotApplicable3rd || false;
+            vm.formData.PCSelfManagementContactPersonFaxNotApplicable3rd = vm.formData.PCSelfManagementContactPersonFaxNotApplicable3rd || false;
+            vm.formData.IsSelfTelephoneAvailable3rd = vm.formData.IsSelfTelephoneAvailable3rd || false;
 
             vm.IsFirstAdditionalInfoExpanded2 = vm.formData["IsFirstAdditionalInfoExpanded2"] || false;
             vm.IsFirstAdditionalInfoExpanded3 = vm.formData["IsFirstAdditionalInfoExpanded3"] || false;
@@ -279,26 +279,26 @@
 
         function doubleDefualtValue() {
             var doublePropertyArray = [
-                "PCSelfManagementBondMinPercentage",
-                "PCSelfManagementBondMaxPercentage",
-                "PCSelfManagementEquitiesMinPercentage",
-                "PCSelfManagementEquitiesMaxPercentage",
-                "PCSelfManagementBondsFundMinPercentage",
-                "PCSelfManagementBondsFundMaxPercentage",
-                "PCSelfManagementEquityFundMinPercentage",
-                "PCSelfManagementEquityFundMaxPercentage",
-                "PCSelfManagementMoneyMarketFundMinPercentage",
-                "PCSelfManagementMoneyMarketFundMaxPercentage",
-                "PCSelfManagementHedgeFundMinPercentage",
-                "PCSelfManagementHedgeFundMaxPercentage",
-                "PCSelfManagementCommodityFundMinPercentage",
-                "PCSelfManagementCommodityFundMaxPercentage",
-                "PCSelfManagementPrivateEquityFundMinPercentage",
-                "PCSelfManagementPrivateEquityFundMaxPercentage",
-                "PCSelfManagementRealStateFundMinPercentage",
-                "PCSelfManagementRealStateFundMaxPercentage",
-                "PCSelfManagementCashMinPercentage",
-                "PCSelfManagementCashMaxPercentage"
+                "PCSelfManagementBondMinPercentage3rd",
+                "PCSelfManagementBondMaxPercentage3rd",
+                "PCSelfManagementEquitiesMinPercentage3rd",
+                "PCSelfManagementEquitiesMaxPercentage3rd",
+                "PCSelfManagementBondsFundMinPercentage3rd",
+                "PCSelfManagementBondsFundMaxPercentage3rd",
+                "PCSelfManagementEquityFundMinPercentage3rd",
+                "PCSelfManagementEquityFundMaxPercentage3rd",
+                "PCSelfManagementMoneyMarketFundMinPercentage3rd",
+                "PCSelfManagementMoneyMarketFundMaxPercentage3rd",
+                "PCSelfManagementHedgeFundMinPercentage3rd",
+                "PCSelfManagementHedgeFundMaxPercentage3rd",
+                "PCSelfManagementCommodityFundMinPercentage3rd",
+                "PCSelfManagementCommodityFundMaxPercentage3rd",
+                "PCSelfManagementPrivateEquityFundMinPercentage3rd",
+                "PCSelfManagementPrivateEquityFundMaxPercentage3rd",
+                "PCSelfManagementRealStateFundMinPercentage3rd",
+                "PCSelfManagementRealStateFundMaxPercentage3rd",
+                "PCSelfManagementCashMinPercentage3rd",
+                "PCSelfManagementCashMaxPercentage3rd"
             ];
             _.forEach(doublePropertyArray, function (property) {
                 if (vm.formData[property] === -1) {
@@ -340,7 +340,7 @@
 
         var noProfileMsg = "No Profile";
 
-        function executeWorkflowForm(data) {           
+        function executeWorkflowForm(data) {
             if (data) {
                 vm.formData = JSON.parse(data.Entities[0].JsonString);
                 doubleDefualtValue();
@@ -382,30 +382,30 @@
             });
 
             // if (vm.workflowName === 'Additional Premium')
-            
-            //  { 
-                
+
+            //  {
+
             //      entityObj.activityId = 'AdditionalPremiumIdentityOfThePolicyholder';
             //      }
             //      else if(vm.workflowName === 'Switch'){
-                    
+
             //      entityObj.activityId = 'SwitchIdentityOfThePolicyHolder';
 
             //      }
 
-            getData.activityData(entityObj.activityId, entityObj.workflowInstanceId).then(function (response) {               
+            getData.activityData(entityObj.activityId, entityObj.workflowInstanceId).then(function (response) {
                 if (response.DataContext) {
                     var contextValue = response.DataContext[0].Value;
                     entityObj.itemId = contextValue.ItemId;
                     entityObj.entityName = contextValue.EntityName;
                     getData.entityData(entityObj.itemId, entityObj.fields, entityObj.entityName).then(function (responseData) {
-                        
+
                         vm.numberOfDedicatedFund = responseData.NumberOfDedicatedFund;
-                        
+
                         if (vm.numberOfDedicatedFund && vm.numberOfDedicatedFund > 1) {
-                            vm.formData.AddAnotherDedicatedFund = "YES";
+                            vm.formData.AddAnotherDedicatedFund3rd = "YES";
                         } else {
-                            vm.formData.AddAnotherDedicatedFund = "NO";
+                            vm.formData.AddAnotherDedicatedFund3rd = "NO";
                         }
                         if (responseData.PASelfManagementPolicyHolder) {
                             vm.showDeclarationSelfManagementPolicyHolder = true;
@@ -549,7 +549,7 @@
         }
 
         vm.showInfo4Modal = function ($event) {
-            if (vm.formData.PCDoesTheInvestment === 'NO') {
+            if (vm.formData.PCDoesTheInvestment3rd === 'NO') {
                 showInfo4Modal($event);
             }
         }
@@ -728,7 +728,7 @@
             });
         }
         /**
-         * Modal shows after "Does the investment strategy 
+         * Modal shows after "Does the investment strategy
          * fit the policyholder profile?"
          * Radiobutton is clicked no
          */
@@ -781,7 +781,7 @@
 
         function updateSelfInvestmentStrategy(key) {
 
-            var checkBoxs = ['PCSelfManagementSameInvestmentStrategy', 'PCSelfManagementDifferentInvestmentStrategy', 'PCSelfManagementUploadInvestmentStrategy'];
+            var checkBoxs = ['PCSelfManagementSameInvestmentStrategy3rd', 'PCSelfManagementDifferentInvestmentStrategy3rd', 'PCSelfManagementUploadInvestmentStrategy3rd'];
             for (var i = 0; i < checkBoxs.length; i++) {
                 if (checkBoxs[i] !== key) {
                     vm.formData[checkBoxs[i]] = false;
@@ -791,10 +791,10 @@
 
         function updateSelfInvestmentAdvice(key) {
             var options = [
-                'PCSelfManagementPolicyHolderMail',
-                'PCSelfManagementPolicyHolderEmail',
-                'PCSelfManagementPolicyHolderTelephone',
-                'PCSelfManagementPolicyHolderFax'
+                'PCSelfManagementPolicyHolderMail3rd',
+                'PCSelfManagementPolicyHolderEmail3rd',
+                'PCSelfManagementPolicyHolderTelephone3rd',
+                'PCSelfManagementPolicyHolderFax3rd'
             ];
             _.forEach(options, function (option) {
                 if (option != key) {
@@ -802,7 +802,7 @@
                 }
             });
 
-            // if( vm.formData.PCSelfManagementPolicyHolderMail == false || vm.formData.PCSelfManagementPolicyHolderEmail == false || vm.formData.PCSelfManagementPolicyHolderTelephone == false ||  vm.formData.PCSelfManagementPolicyHolderFax == false ){
+            // if( vm.formData.PCSelfManagementPolicyHolderMail3rd == false || vm.formData.PCSelfManagementPolicyHolderEmail3rd == false || vm.formData.PCSelfManagementPolicyHolderTelephone3rd == false ||  vm.formData.PCSelfManagementPolicyHolderFax3rd == false ){
             if (vm.formData[key] == false) {
                 showAsyncInfo13Modal().then(function () {
                     vm.formData.RequestPayload = { itemId: $state.params.slpcworkflowId }
@@ -816,9 +816,9 @@
 
         function updateSelfInvestmentAdviceEmail(key) {
             var options = [
-                'PCSelfManagementPolicyHolderMail1stAddress',
-                'PCSelfManagementPolicyHolderMailCorrespondenceAddress',
-                'PCSelfManagementPolicyHolderMailFollowingAddress'
+                'PCSelfManagementPolicyHolderMail1stAddress3rd',
+                'PCSelfManagementPolicyHolderMailCorrespondenceAddress3rd',
+                'PCSelfManagementPolicyHolderMailFollowingAddress3rd'
             ];
             _.forEach(options, function (option) {
                 if (option != key) {
@@ -868,30 +868,30 @@
         }
 
         function resetPCDoesTheInvestment() {
-            vm.formData.PCDoesTheInvestment = '';
+            vm.formData.PCDoesTheInvestment3rd = '';
         }
 
 
         // vm.checkboxMandatory = function () {
-        //     return (vm.formData.IsFixedIncomeBond || vm.formData.IsEquitiesEquities || vm.formData.IsInvestmenetFundBonds || vm.formData.IsInvestmenetFundEquities || vm.formData.IsInvestmenetFundMoneyMarket || vm.formData.IsAlternativeHedgeFunds || vm.formData.IsAlternativeCommodity || vm.formData.IsAlternativePrivate || vm.formData.IsAlternativeRealEstate || vm.formData.IsOtherAssetInfrastructure || vm.formData.IsCashCurrent) || false
+        //     return (vm.formData.IsFixedIncomeBond3rd || vm.formData.IsEquitiesEquities3rd || vm.formData.IsInvestmenetFundBonds3rd || vm.formData.IsInvestmenetFundEquities3rd || vm.formData.IsInvestmenetFundMoneyMarket3rd || vm.formData.IsAlternativeHedgeFunds3rd || vm.formData.IsAlternativeCommodity3rd || vm.formData.IsAlternativePrivate3rd || vm.formData.IsAlternativeRealEstate3rd || vm.formData.IsOtherAssetInfrastructure3rd || vm.formData.IsCashCurrent3rd) || false
         // }
 
         vm.checkboxMandatory = function () {
-            if(vm.formData.PhTable == "DEFINED"){
-                return (!vm.formData.IsFixedIncomeBond || !vm.formData.IsEquitiesEquities || !vm.formData.IsInvestmenetFundBonds || !vm.formData.IsInvestmenetFundEquities || !vm.formData.IsInvestmenetFundMoneyMarket || !vm.formData.IsAlternativeHedgeFunds || !vm.formData.IsAlternativeCommodity || !vm.formData.IsAlternativePrivate || !vm.formData.IsAlternativeRealEstate || !vm.formData.IsOtherAssetInfrastructure || !vm.formData.IsCashCurrent) || false
+            if(vm.formData.PhTable3rd == "DEFINED"){
+                return (!vm.formData.IsFixedIncomeBond3rd || !vm.formData.IsEquitiesEquities3rd || !vm.formData.IsInvestmenetFundBonds3rd || !vm.formData.IsInvestmenetFundEquities3rd || !vm.formData.IsInvestmenetFundMoneyMarket3rd || !vm.formData.IsAlternativeHedgeFunds3rd || !vm.formData.IsAlternativeCommodity3rd || !vm.formData.IsAlternativePrivate3rd || !vm.formData.IsAlternativeRealEstate3rd || !vm.formData.IsOtherAssetInfrastructure3rd || !vm.formData.IsCashCurrent3rd) || false
         }
         else{
-            return (vm.formData.IsFixedIncomeBond || vm.formData.IsEquitiesEquities || vm.formData.IsInvestmenetFundBonds || vm.formData.IsInvestmenetFundEquities || vm.formData.IsInvestmenetFundMoneyMarket || vm.formData.IsAlternativeHedgeFunds || vm.formData.IsAlternativeCommodity || vm.formData.IsAlternativePrivate || vm.formData.IsAlternativeRealEstate || vm.formData.IsOtherAssetInfrastructure || vm.formData.IsCashCurrent) || false
+            return (vm.formData.IsFixedIncomeBond3rd || vm.formData.IsEquitiesEquities3rd || vm.formData.IsInvestmenetFundBonds3rd || vm.formData.IsInvestmenetFundEquities3rd || vm.formData.IsInvestmenetFundMoneyMarket3rd || vm.formData.IsAlternativeHedgeFunds3rd || vm.formData.IsAlternativeCommodity3rd || vm.formData.IsAlternativePrivate3rd || vm.formData.IsAlternativeRealEstate3rd || vm.formData.IsOtherAssetInfrastructure3rd || vm.formData.IsCashCurrent3rd) || false
         }
-       
+
         }
 
         vm.$onInit = function () {
-            vm.formData.AddAnotherDedicatedFund = "";
-            vm.formData.PCSelfManagementPolicyHolderMail = false;
-            vm.formData.PCSelfManagementPolicyHolderEmail = false;
-            vm.formData.PCSelfManagementPolicyHolderTelephone = false;
-            vm.formData.PCSelfManagementPolicyHolderFax = false;
+            vm.formData.AddAnotherDedicatedFund3rd = "";
+            vm.formData.PCSelfManagementPolicyHolderMail3rd = false;
+            vm.formData.PCSelfManagementPolicyHolderEmail3rd = false;
+            vm.formData.PCSelfManagementPolicyHolderTelephone3rd = false;
+            vm.formData.PCSelfManagementPolicyHolderFax3rd = false;
             onInitFormData();
             getOtherCountryNationalityList();
             getCountryList();
