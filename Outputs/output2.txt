@@ -7,7 +7,6 @@ PCAllInFee2nd
 ChargesSpecificInstruction2nd
 PCSpecificInstruction2nd
 PCcurrencyType2nd
-PCcurrencyType2nd
 PCother2nd
 PCMoney2nd
 PhTable2nd
@@ -105,4 +104,4 @@ PCSelfManagementPolicyHolderTelephoneValue2nd
 PCSelfManagementPolicyHolderFax2nd
 PCSelfManagementPolicyHolderFaxValue2nd
 AddAnotherDedicatedFund2nd
-PCDoesTheInvestment
+PCDoesTheInvestment2nd
