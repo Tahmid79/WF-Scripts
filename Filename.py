@@ -1,10 +1,10 @@
 import os
 
-folderStr = './switch-fr-charges-1st'
+folderStr = './switch-fr-charges-2nd'
 folder = os.listdir(folderStr)
 
 chargesStr = 'app-process-charges-v2'
-newStr = 'switch-fr-charges-1st'
+newStr = 'switch-fr-charges-2nd'
 
 for file in folder:
     if chargesStr in file:
