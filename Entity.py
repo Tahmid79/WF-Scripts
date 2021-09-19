@@ -32,10 +32,20 @@ content = content.replace('\n' , ',')
 content = content[1:]
 
 
-commaregex = r"(\,)\1\1"
+# commaregex = r"(\,)\1\1"
+#
+# content = re.sub(commaregex, ',' , content)
 
-content = re.sub(commaregex, ',' , content)
+commas = []
+
+for i in range(2, 10):
+    comma = i * ','
+    commas.insert(0,comma)
 
 
-WriteStringToFile('./propCSV' , content)
+for com in commas:
+    content = content.replace(com , ',')
+
+
+# WriteStringToFile('./propCSV' , content)
 
