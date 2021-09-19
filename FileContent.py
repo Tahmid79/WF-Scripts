@@ -15,12 +15,12 @@ def ReplaceStringInAllFiles(folderPath, oldString, newString):
             WriteStringToFile(pth, content)
 
 oldAppName = 'app-process-charges-v2'
-newAppName = 'switch-fr-charges-2nd'
+newAppName = 'switch-fr-charges-3rd'
 
 oldLang = 'APP_PROCESS_CHARGES_V2'
-newLang = 'SWITCH_FR_CHARGES_2ND'
+newLang = 'SWITCH_FR_CHARGES_3RD'
 
-folderPath = './switch-fr-charges-2nd'
+folderPath = './switch-fr-charges-3rd'
 controllerPath = folderPath + '/controller'
 viewPath = folderPath + '/view'
 langPath = folderPath + '/i18n'
