@@ -40,17 +40,21 @@ ReplaceStringInAllFiles(viewPath , oldLang , newLang)
 
 
 def changeControllerName():
+    mainControllerName = 'slpcAppProcessChargesV2Controller'
     controllerName = 'slpcAppProcessChargesInfoModalController'
     nameSplit = ['slpcAppProcessChargesInfo', 'ModalController']
     names = [nameSplit[0] + str(i) + nameSplit[1] for i in range(2, 15)]
     names.insert(0, controllerName)
+    names.insert(0, mainControllerName)
 
     # print(names)
 
+    newMainControllerName = 'slpcSwitchFrCharges2ndController'
     newControllerName = 'slpcSwitchFrCharges2ndInfoModalController'
     newNameSplit = ['slpcSwitchFrCharges2ndInfo', 'ModalController']
     newNames = [newNameSplit[0] + str(i) + newNameSplit[1] for i in range(2, 15)]
     newNames.insert(0, newControllerName)
+    newNames.insert(0, newMainControllerName)
 
     # print(newNames)
 
