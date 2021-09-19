@@ -38,7 +38,7 @@ content = content[1:]
 
 commas = []
 
-for i in range(2, 10):
+for i in range(2, 30):
     comma = i * ','
     commas.insert(0,comma)
 
@@ -46,6 +46,7 @@ for i in range(2, 10):
 for com in commas:
     content = content.replace(com , ',')
 
+content = content.replace(' ' , '')
 
 WriteStringToFile('./propCSV' , content)
 
