@@ -27,6 +27,8 @@ types = [ 'public', 'string' , 'bool' , 'int' , '?' , '{ get; set; }' ,' ']
 for type in types:
     content = content.replace(type , '')
 
+content = content.replace('\n' , ',')
+content = content[1:]
 
 
 WriteStringToFile('./propCSV' , content)
