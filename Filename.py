@@ -1,9 +1,9 @@
 import os
 
-folderStr = './switch-fr-charges-3rd'
+folderStr = './switch-fr-charges-4th'
 
 oldname = 'app-process-charges-v2'
-newname = 'switch-fr-charges-3rd'
+newname = 'switch-fr-charges-4th'
 
 controllerStr = folderStr + '/controller'
 viewStr = folderStr + '/view'
