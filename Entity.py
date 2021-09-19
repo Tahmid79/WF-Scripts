@@ -22,7 +22,7 @@ last = index[len(index) - 1]
 content = content[first:last]
 
 
-types = [ 'public', 'string' , 'bool' , 'int' , '?' , '{ get; set; }' , '\n' , ' ']
+types = [ 'public', 'string' , 'bool' , 'int' , '?' , '{ get; set; }' ,' ']
 
 for type in types:
     content = content.replace(type , '')
