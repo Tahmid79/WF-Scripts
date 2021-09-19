@@ -469,9 +469,9 @@
 
         var showInfoModal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfoModalController",
+                controller: "slpcSwitchCharges1stInfoModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -490,9 +490,9 @@
 
         var showInfo2Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info2.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info2.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfo2ModalController",
+                controller: "slpcSwitchCharges1stInfo2ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -511,9 +511,9 @@
 
         var showInfo3Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info3.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info3.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfo3ModalController",
+                controller: "slpcSwitchCharges1stInfo3ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -532,9 +532,9 @@
 
         var showInfo4Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info4.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info4.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfo4ModalController",
+                controller: "slpcSwitchCharges1stInfo4ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -561,9 +561,9 @@
 
         var showInfo6Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info6.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info6.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfo6ModalController",
+                controller: "slpcSwitchCharges1stInfo6ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -582,9 +582,9 @@
 
         var showInfo12Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info12.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info12.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfo12ModalController",
+                controller: "slpcSwitchCharges1stInfo12ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -605,8 +605,8 @@
         var showAsyncInfo13Modal = function () {
             return $q(function (resolve, reject) {
                 $mdDialog.show({
-                    templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info13.modal.view.html",
-                    controller: "slpcAppProcessChargesInfo13ModalController",
+                    templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info13.modal.view.html",
+                    controller: "slpcSwitchCharges1stInfo13ModalController",
                     controllerAs: "vm",
                     clickOutsideToClose: false,
                     escapeToClose: false,
@@ -624,9 +624,9 @@
 
         vm.showInfo7Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info7.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info7.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfo7ModalController",
+                controller: "slpcSwitchCharges1stInfo7ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -641,9 +641,9 @@
 
         vm.showInfo8Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info8.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info8.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfo8ModalController",
+                controller: "slpcSwitchCharges1stInfo8ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -658,9 +658,9 @@
 
         vm.showInfo9Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info9.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info9.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfo9ModalController",
+                controller: "slpcSwitchCharges1stInfo9ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -675,9 +675,9 @@
 
         vm.showInfo10Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info10.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info10.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfo10ModalController",
+                controller: "slpcSwitchCharges1stInfo10ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -692,9 +692,9 @@
 
         vm.showInfo11Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info11.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info11.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessChargesInfo11ModalController",
+                controller: "slpcSwitchCharges1stInfo11ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -710,8 +710,8 @@
         function asyncShowModal() {
             return $q(function (resolve, reject) {
                 $mdDialog.show({
-                    templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info5.modal.view.html",
-                    controller: "slpcAppProcessChargesInfo5ModalController",
+                    templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info5.modal.view.html",
+                    controller: "slpcSwitchCharges1stInfo5ModalController",
                     controllerAs: "vm",
                     clickOutsideToClose: false,
                     escapeToClose: false,
@@ -736,8 +736,8 @@
         function ShowModalInvestmentStrategy() {
             return $q(function (resolve, reject) {
                 $mdDialog.show({
-                    templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-charges-v2/view/app-process-charges-v2.info14.modal.view.html",
-                    controller: "slpcAppProcessChargesInfo14ModalController",
+                    templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-charges-1st/view/switch-fr-charges-1st.info14.modal.view.html",
+                    controller: "slpcSwitchCharges1stInfo14ModalController",
                     controllerAs: "vm",
                     clickOutsideToClose: false,
                     escapeToClose: false,
@@ -895,8 +895,8 @@
             onInitFormData();
             getOtherCountryNationalityList();
             getCountryList();
-            workflowService.eventRegister(WorkflowConfig.eventForDataTransition, getCommonData, 'app-process-charges-v2');
-            workflowService.eventRegister(WorkflowConfig.registerWorkflowExecuteCommand, executeWorkflowForm, 'app-process-charges-v2');
+            workflowService.eventRegister(WorkflowConfig.eventForDataTransition, getCommonData, 'switch-fr-charges-1st');
+            workflowService.eventRegister(WorkflowConfig.registerWorkflowExecuteCommand, executeWorkflowForm, 'switch-fr-charges-1st');
             vm.countriesOfResidence = SLPCConfig.AppProcessCountryOfResidenceCustodianBank;
         };
 
@@ -913,5 +913,5 @@
     }
 
     constructor.$inject = ["$q", "$scope", "$http", "$mdMedia", "shellInfrastructure", "workflowService", "WorkflowConfig", "$state", "$mdDialog", "$location", "policyformService", "SLPCConfig", "slpcSlpcConfigUtilService", "slpcConfigWorkflowService"];
-    angular.module("slpc.app-process-charges-v2").controller('slpcAppProcessChargesV2Controller', constructor);
+    angular.module("slpc.switch-fr-charges-1st").controller('slpcAppProcessChargesV2Controller', constructor);
 })(window.angular, window.appSuite);
