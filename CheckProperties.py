@@ -20,4 +20,7 @@ for prop in propertyList:
    if string_found(prop, entity):
       matches += 1
 
-print(matches)
+print('Matches ' , matches)
+
+if len(propertyList) == matches:
+   print('All properties present')
