@@ -639,6 +639,7 @@ namespace Selise.Ecap.Entities.Workflow
         public bool IsFasTelephoneAvailable4th { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceMobile4th { get; set; }
         public bool? PAOneOrMoreSpecialisedInsuranceMobileNotApplicable4th { get; set; }
+        public string PAOneOrMoreSpecialisedInsurancetelephone4th { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceEmail4th { get; set; }
         public bool? PAOneOrMoreSpecialisedInsuranceEmailNotApplicable4th { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceFax4th { get; set; }
@@ -675,6 +676,7 @@ namespace Selise.Ecap.Entities.Workflow
         public bool IsFasTelephoneAvailable3rd { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceMobile3rd { get; set; }
         public bool? PAOneOrMoreSpecialisedInsuranceMobileNotApplicable3rd { get; set; }
+        public string PAOneOrMoreSpecialisedInsurancetelephone3rd { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceEmail3rd { get; set; }
         public bool? PAOneOrMoreSpecialisedInsuranceEmailNotApplicable3rd { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceFax3rd { get; set; }
@@ -711,6 +713,7 @@ namespace Selise.Ecap.Entities.Workflow
         public bool IsFasTelephoneAvailable2nd { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceMobile2nd { get; set; }
         public bool? PAOneOrMoreSpecialisedInsuranceMobileNotApplicable2nd { get; set; }
+        public string PAOneOrMoreSpecialisedInsurancetelephone2nd { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceEmail2nd { get; set; }
         public bool? PAOneOrMoreSpecialisedInsuranceEmailNotApplicable2nd { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceFax2nd { get; set; }
