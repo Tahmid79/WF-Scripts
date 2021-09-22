@@ -266,6 +266,7 @@ namespace Selise.Ecap.Entities.Workflow
         public bool IsFasTelephoneAvailable { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceMobile { get; set; }
         public bool? PAOneOrMoreSpecialisedInsuranceMobileNotApplicable { get; set; }
+        public string PAOneOrMoreSpecialisedInsurancetelephone { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceEmail { get; set; }
         public bool? PAOneOrMoreSpecialisedInsuranceEmailNotApplicable { get; set; }
         public string PAOneOrMoreSpecialisedInsuranceFax { get; set; }
@@ -1818,7 +1819,7 @@ namespace Selise.Ecap.Entities.Workflow
         public string PACustodianBankContactPersonFaxFour { get; set; }
         public bool SecondContactPersonFaxNotAvailableFour { get; set; }
 
-
+        public string PACustodianBankContactPersonFaxFour { get; set; }
 
 
 
