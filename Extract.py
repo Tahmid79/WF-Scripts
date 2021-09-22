@@ -24,7 +24,7 @@ for prop in model:
     propList += prop + '\n'
 
 
-with open('properties', 'w') as f:
+with open('properties.txt', 'w') as f:
     f.write(propList)
 
 
