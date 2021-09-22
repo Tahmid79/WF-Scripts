@@ -20,11 +20,19 @@ for word in words:
 propList = ''
 
 
-for prop in model:
-    propList += prop + '\n'
+# for prop in model:
+#     propList += prop + '\n'
+
+for i in range(len(model)):
+    prop = model[i]
+
+    if i == len(model) - 1:
+        propList += prop
+    else:
+        propList += prop + '\n'
 
 
-with open('properties', 'w') as f:
+with open('properties.txt', 'w') as f:
     f.write(propList)
 
 
