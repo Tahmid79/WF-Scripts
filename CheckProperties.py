@@ -16,11 +16,19 @@ propertyList = propertyList.split('\n')
 
 matches = 0
 
+didNotMatch = []
+
 for prop in propertyList:
    if string_found(prop, entity):
       matches += 1
+   else:
+      didNotMatch.append(prop)
+
 
 print('Matches ' , matches)
 
 if len(propertyList) == matches:
    print('All properties present')
+else:
+   print('Some properties not present in Entity')
+   print(didNotMatch)
