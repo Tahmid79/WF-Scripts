@@ -57,7 +57,7 @@
             });
             getData.commonLanguage().then(function (responseLanguage) {
                 vm.localizationObj = responseLanguage.data;
-                vm.ohetrCountriesValue = vm.localizationObj.APP_PROCESS_ALLOCATION_FAS_VTWO.COUNTRY_LIST.OTHER;
+                vm.ohetrCountriesValue = vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COUNTRY_LIST.OTHER;
                 findFASNumber();
             });
             var workflowInstanceId = $location.search().workflowInstanceId;
@@ -83,9 +83,9 @@
         }
 
         function findFASNumber() {
-            if (vm.ActivityIdNo === "2") vm.fas = vm.localizationObj.APP_PROCESS_ALLOCATION_FAS_VTWO.APP_PROCESS_ALLOCATION.FAS_2;
-            else if (vm.ActivityIdNo === "3") vm.fas = vm.localizationObj.APP_PROCESS_ALLOCATION_FAS_VTWO.APP_PROCESS_ALLOCATION.FAS_3;
-            else if (vm.ActivityIdNo === "4") vm.fas = vm.localizationObj.APP_PROCESS_ALLOCATION_FAS_VTWO.APP_PROCESS_ALLOCATION.FAS_4;
+            if (vm.ActivityIdNo === "2") vm.fas = vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.FAS_2;
+            else if (vm.ActivityIdNo === "3") vm.fas = vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.FAS_3;
+            else if (vm.ActivityIdNo === "4") vm.fas = vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.FAS_4;
         }
 
         function getOtherCountryNationalityList() {
@@ -108,8 +108,8 @@
 
         vm.$onInit = function () {
             onInitFormData();
-            workflowService.eventRegister(WorkflowConfig.eventForDataTransition, getCommonData, 'app-process-allocation-fas-vtwo');
-            workflowService.eventRegister(WorkflowConfig.registerWorkflowExecuteCommand, executeWorkflowForm, 'app-process-allocation-fas-vtwo');
+            workflowService.eventRegister(WorkflowConfig.eventForDataTransition, getCommonData, 'switch-fr-fas-designation-1st');
+            workflowService.eventRegister(WorkflowConfig.registerWorkflowExecuteCommand, executeWorkflowForm, 'switch-fr-fas-designation-1st');
 
             vm.countriesOfResidence = SLPCConfig.AppProcessAllocationCountryOfResidenceCustodianBank;
             getOtherCountryNationalityList();
@@ -117,5 +117,5 @@
     }
 
     constructor.$inject = ["$scope", "$http", "$mdMedia", "$location", "SLPCConfig", "shellInfrastructure", "workflowService", "WorkflowConfig", "$state", "policyformService", "$mdDialog", "shellView", "slpcConfigWorkflowService"];
-    angular.module("slpc.app-process-allocation-fas-vtwo").controller('slpcAppProcessAllocationFasVtwoController', constructor);
+    angular.module("slpc.switch-fr-fas-designation-1st").controller('slpcSwitchFrFASDesignation1stController', constructor);
 })(window.angular, window.appSuite);

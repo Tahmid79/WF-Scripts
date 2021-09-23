@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
 
-    var module = angular.module('slpc.app-process-allocation-fas-vtwo', ['pascalprecht.translate']);
+    var module = angular.module('slpc.switch-fr-fas-designation-1st', ['pascalprecht.translate']);
 
     function config() {}
 
@@ -9,7 +9,7 @@
     module.config(config);
 
     function run($translate, $translatePartialLoader) {
-        //$translatePartialLoader.addPart('app/workflows/slpc/app-process-allocation-fas-vtwo/i18n');
+        //$translatePartialLoader.addPart('app/workflows/slpc/switch-fr-fas-designation-1st/i18n');
     }
     run.$inject = ['$translate', '$translatePartialLoader'];
     module.run(run);

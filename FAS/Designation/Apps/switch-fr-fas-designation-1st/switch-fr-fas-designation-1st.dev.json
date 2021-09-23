@@ -1,7 +1,7 @@
 {
   "js": [
-    "app-process-allocation-fas-vtwo.config.js",
-    "controller/app-process-allocation-fas-vtwo.controller.js"
+    "switch-fr-fas-designation-1st.config.js",
+    "controller/switch-fr-fas-designation-1st.controller.js"
   ],
   "css": [ ],
   "dependencies": {
