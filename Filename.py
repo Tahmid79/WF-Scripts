@@ -1,6 +1,7 @@
 import os
 
-folderStr = './switch-fr-charges-4th'
+folderDir = './FAS/Designation/Apps/'
+folderStr = folderDir + 'switch-fr-charges-4th'
 
 oldname = 'app-process-charges-v2'
 newname = 'switch-fr-charges-4th'
