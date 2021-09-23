@@ -1,0 +1,57 @@
+{
+  "APP_PROCESS_ALLOCATION_FAS_VTWO": {
+    "COMMON_LOCALIZATION_DATA": {
+      "MANDATORY_FIELD": "Campos marcados com * são obrigatórios",
+      "MANDATORY_FIELD_LOCAL": "",
+      "SUB_TITLE_PART_OF_THE_PREMIUM": "Parte do prémio a ser atribuído (% ou montante na divisa de referência)",
+      "SUB_TITLE_PART_OF_THE_PREMIUM_LOCAL": "",
+      "REQUIRED_MESSAGE": "Isto é necessário.",
+      "TEXT_LENGTH_VALIDATION": "Valor máximo de caracteres excedido",
+      "LABEL_STREET_NAME_AND_NUMBER": "Domicílio/Sede:",
+      "CITY_POSTAL": "",
+      "LABEL_COUNTRY": "País:",
+      "LABEL_SURNAME_2": "Apelidos",
+      "LABEL_FIRST_NAME_2": "Nome próprio:",
+      "LABEL_OPTIONAL": "",
+      "LABEL_TELEPHONE": "Telefone (incluindo o código do país):",
+      "TELEPHONE_NOT_APPLICABLE": "Número de telefone não está disponível",
+      "TELEPHONE_NOT_APPLICABLE_LOCAL": "",
+      "LABEL_MOBILE": "Número de celular (incluindo o código do país) :",
+      "MOBILE_NOT_AVAILABLE": "Número de celular não está disponível",
+      "MOBILE_NOT_AVAILABLE_LOCAL": "",
+      "EMAIL_NOT_AVAILABLE": "Email não está disponível",
+      "EMAIL_NOT_AVAILABLE_LOCAL": "",
+      "FAX_NOT_AVAILABLE": "Fax não está disponível"
+    },
+    "COUNTRY_LIST": {
+      "OTHER": "Outras"
+    },
+    "APP_PROCESS_ALLOCATION": {
+      "FORM_TITLE": "SECÇÃO 5 – INVESTIMENTO DO CONTRATO",
+      "FORM_TITLE_LOCAL": "",
+      "FAS_FUND_AMOUNT": "FAS fund amount: ",
+      "FAS_FUND_AMOUNT_LOCAL": "",
+      "FAS_FUND_PERCENT": "FAS fund percent: ",
+      "FAS_FUND_PERCENT_LOCAL": "",
+      "DESIGNATION_CUSTODIAN_BANK": "",
+      "CURRENT_RELATION": "",
+      "CUSTODIAN_BANK": "",
+      "COMPANY_NAME": "",
+      "CONTACT_PERSON": "",
+      "LABEL_TELEPHONE": "",
+      "LABEL_EMAIL": "",
+      "LABEL_FAX": "",
+      "FAS_2": "",
+      "FAS_3": "",
+      "FAS_4": ""
+    },
+    "APP_PROCESS_POLICYHODER_DETAILS": {
+      "LABEL_COUNTRY_OF_RESIDENCE_OTHER": "De outros País: ",
+      "NOT_APPLICABLE": "Nome Próprio não aplicável",
+      "NOT_APPLICABLE_LOCAL": ""
+    },
+    "TELEPHONE_NOT_APPLICABLE": {
+      "MOBILE_NOT_AVAILABLE": ""
+    }
+  }
+}

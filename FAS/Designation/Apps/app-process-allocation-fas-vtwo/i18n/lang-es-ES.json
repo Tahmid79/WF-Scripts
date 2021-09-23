@@ -1,0 +1,57 @@
+{
+  "APP_PROCESS_ALLOCATION_FAS_VTWO": {
+    "COMMON_LOCALIZATION_DATA": {
+      "MANDATORY_FIELD": "Campos marcados con * son obligatorios",
+      "MANDATORY_FIELD_LOCAL": "",
+      "SUB_TITLE_PART_OF_THE_PREMIUM": "Parte de la Prima a asignar (% ó importe en la divisa de referencia)",
+      "SUB_TITLE_PART_OF_THE_PREMIUM_LOCAL": "",
+      "REQUIRED_MESSAGE": "Es obligatorio.",
+      "TEXT_LENGTH_VALIDATION": "Superado el número de caracteres máximo.",
+      "LABEL_STREET_NAME_AND_NUMBER": "Dirección de sede social:",
+      "CITY_POSTAL": "",
+      "LABEL_COUNTRY": "País:",
+      "LABEL_SURNAME_2": "Apellido:",
+      "LABEL_FIRST_NAME_2": "Nombre(s):",
+      "LABEL_OPTIONAL": "",
+      "LABEL_TELEPHONE": "Número de teléfono (incluido el indicativo de país) :",
+      "TELEPHONE_NOT_APPLICABLE": "Número de teléfono no disponible",
+      "TELEPHONE_NOT_APPLICABLE_LOCAL": "",
+      "LABEL_MOBILE": "Número de teléfono móvil:(incluido el indicativo de país)",
+      "MOBILE_NOT_AVAILABLE": "Número de teléfono móvil no disponible",
+      "MOBILE_NOT_AVAILABLE_LOCAL": "",
+      "EMAIL_NOT_AVAILABLE": "E-mail no disponible",
+      "EMAIL_NOT_AVAILABLE_LOCAL": "",
+      "FAX_NOT_AVAILABLE": "Fax no disponible"
+    },
+    "COUNTRY_LIST": {
+      "OTHER": ""
+    },
+    "APP_PROCESS_ALLOCATION": {
+      "FORM_TITLE": "SECCIÓN 5: INVERSIÓN DEL CONTRATO",
+      "FORM_TITLE_LOCAL": "",
+      "FAS_FUND_AMOUNT": "FAS fund amount: ",
+      "FAS_FUND_AMOUNT_LOCAL": "",
+      "FAS_FUND_PERCENT": "FAS fund percent: ",
+      "FAS_FUND_PERCENT_LOCAL": "",
+      "DESIGNATION_CUSTODIAN_BANK": "",
+      "CURRENT_RELATION": "",
+      "CUSTODIAN_BANK": "",
+      "COMPANY_NAME": "",
+      "CONTACT_PERSON": "",
+      "LABEL_TELEPHONE": "",
+      "LABEL_EMAIL": "",
+      "LABEL_FAX": "",
+      "FAS_2": "",
+      "FAS_3": "",
+      "FAS_4": ""
+    },
+    "APP_PROCESS_POLICYHODER_DETAILS": {
+      "LABEL_COUNTRY_OF_RESIDENCE_OTHER": "Otro país:",
+      "NOT_APPLICABLE": "Nombre no aplicable",
+      "NOT_APPLICABLE_LOCAL": ""
+    },
+    "TELEPHONE_NOT_APPLICABLE": {
+      "MOBILE_NOT_AVAILABLE": ""
+    }
+  }
+}

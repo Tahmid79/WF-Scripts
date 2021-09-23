@@ -1,0 +1,57 @@
+{
+  "APP_PROCESS_ALLOCATION_FAS_VTWO": {
+    "COMMON_LOCALIZATION_DATA": {
+      "MANDATORY_FIELD": "Les champs marqués d’un astérisque sont obligatoires",
+      "MANDATORY_FIELD_LOCAL": "",
+      "SUB_TITLE_PART_OF_THE_PREMIUM": "Part de la prime à attribuer (% ou montant en devise de référence)",
+      "SUB_TITLE_PART_OF_THE_PREMIUM_LOCAL": "",
+      "REQUIRED_MESSAGE": "Ce champ est obligatoire.",
+      "TEXT_LENGTH_VALIDATION": "Nombre maximum de chiffres a été excédé.",
+      "LABEL_STREET_NAME_AND_NUMBER": "Rue et numéro :",
+      "CITY_POSTAL": "Ville et code postal :",
+      "LABEL_COUNTRY": "Pays :",
+      "LABEL_SURNAME_2": "Nom :",
+      "LABEL_FIRST_NAME_2": "Prénom(s):",
+      "LABEL_OPTIONAL": "",
+      "LABEL_TELEPHONE": "Numéro de téléphone : (y compris le code du pays et de la région)",
+      "TELEPHONE_NOT_APPLICABLE": "Numéro de téléphone pas disponible",
+      "TELEPHONE_NOT_APPLICABLE_LOCAL": "",
+      "LABEL_MOBILE": "Numéro de GSM : (y compris le code du pays)",
+      "MOBILE_NOT_AVAILABLE": "Numéro de GSM pas disponible",
+      "MOBILE_NOT_AVAILABLE_LOCAL": "",
+      "EMAIL_NOT_AVAILABLE": "Adresse e-mail pas disponible",
+      "EMAIL_NOT_AVAILABLE_LOCAL": "",
+      "FAX_NOT_AVAILABLE": "Fax pas disponible"
+    },
+    "COUNTRY_LIST": {
+      "OTHER": "Autres"
+    },
+    "APP_PROCESS_ALLOCATION": {
+      "FORM_TITLE": "SECTION 5 – INVESTISSEMENT DANS LE CONTRAT",
+      "FORM_TITLE_LOCAL": "",
+      "FAS_FUND_AMOUNT": "Montant à investir dans le fonds d'assurance spécialisé:",
+      "FAS_FUND_AMOUNT_LOCAL": "",
+      "FAS_FUND_PERCENT": "Pourcentage à investir dans le fonds d'assurance spécialisé:",
+      "FAS_FUND_PERCENT_LOCAL": "",
+      "DESIGNATION_CUSTODIAN_BANK": "Désignation de la banque dépositaire",
+      "CURRENT_RELATION": "Les relations actuelles du souscripteur sont avec les parties détaillées ci-dessous. Swiss Life peut, sous réserve des accords conclus avec Swiss Life, désigner la banque dépositaire conformément aux relations en vigueur du souscripteur. Si cela n'est pas possible, Swiss Life informera le souscripteur de la banque dépositaire désignée.",
+      "CUSTODIAN_BANK": "Banque dépositaire",
+      "COMPANY_NAME": "Raison sociale :",
+      "CONTACT_PERSON": "Personne de contact",
+      "LABEL_TELEPHONE": "Téléphone :",
+      "LABEL_EMAIL": "Adresse e-mail :",
+      "LABEL_FAX": "Fax :",
+      "FAS_2": "FAS 2",
+      "FAS_3": "FAS 3",
+      "FAS_4": "FAS 4"
+    },
+    "APP_PROCESS_POLICYHODER_DETAILS": {
+      "LABEL_COUNTRY_OF_RESIDENCE_OTHER": "Autre pays:",
+      "NOT_APPLICABLE": "Prénom non applicable",
+      "NOT_APPLICABLE_LOCAL": ""
+    },
+    "TELEPHONE_NOT_APPLICABLE": {
+      "MOBILE_NOT_AVAILABLE": ""
+    }
+  }
+}

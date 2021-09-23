@@ -1,0 +1,17 @@
+{
+  "js": [
+    "app-process-allocation-fas-vtwo.config.js",
+    "controller/app-process-allocation-fas-vtwo.controller.js"
+  ],
+  "css": [ ],
+  "dependencies": {
+    "js": [ ],
+    "css": [ ],
+    "app": [
+      {
+        "id": "workflow",
+        "type": "component.com"
+      }
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "APP_PROCESS_ALLOCATION_FAS_VTWO": {
+    "COMMON_LOCALIZATION_DATA": {
+      "MANDATORY_FIELD": "Fields marked with a '*' are mandatory",
+      "MANDATORY_FIELD_LOCAL": "",
+      "SUB_TITLE_PART_OF_THE_PREMIUM": "Διατιθέμενο μέρος του ασφαλίστρου (% ή ποσό στο νόμισμα αναφοράς) - Part of the premium to be attributed (% or amount in reference currency)",
+      "SUB_TITLE_PART_OF_THE_PREMIUM_LOCAL": "",
+      "REQUIRED_MESSAGE": "Απαιτείται. - This is required.",
+      "TEXT_LENGTH_VALIDATION": "",
+      "LABEL_STREET_NAME_AND_NUMBER": "Οδός και αριθμός - Street name and number:",
+      "CITY_POSTAL": "",
+      "LABEL_COUNTRY": "Χώρα - Country:",
+      "LABEL_SURNAME_2": "Surname: GR",
+      "LABEL_FIRST_NAME_2": "Ονόματα - First name(s):",
+      "LABEL_OPTIONAL": "",
+      "LABEL_TELEPHONE": "Τηλέφωνο - Telephone:",
+      "TELEPHONE_NOT_APPLICABLE": "αριθμός δεν είναι διαθέσιμη τηλεφώνου",
+      "TELEPHONE_NOT_APPLICABLE_LOCAL": "",
+      "LABEL_MOBILE": "Mobile number (including country code): GR",
+      "MOBILE_NOT_AVAILABLE": "Mobile number not available GR",
+      "MOBILE_NOT_AVAILABLE_LOCAL": "",
+      "EMAIL_NOT_AVAILABLE": "Email not available GR",
+      "EMAIL_NOT_AVAILABLE_LOCAL": "",
+      "FAX_NOT_AVAILABLE": "Fax not available GR"
+    },
+    "COUNTRY_LIST": {
+      "OTHER": "Other"
+    },
+    "APP_PROCESS_ALLOCATION": {
+      "FORM_TITLE": "SECTION 5 – INVESTMENT OF THE CONTRACT",
+      "FORM_TITLE_LOCAL": "",
+      "FAS_FUND_AMOUNT": "FAS fund amount: ",
+      "FAS_FUND_AMOUNT_LOCAL": "",
+      "FAS_FUND_PERCENT": "FAS fund percent: ",
+      "FAS_FUND_PERCENT_LOCAL": "",
+      "DESIGNATION_CUSTODIAN_BANK": "",
+      "CURRENT_RELATION": "",
+      "CUSTODIAN_BANK": "",
+      "COMPANY_NAME": "",
+      "CONTACT_PERSON": "",
+      "LABEL_TELEPHONE": "",
+      "LABEL_EMAIL": "",
+      "LABEL_FAX": "",
+      "FAS_2": "",
+      "FAS_3": "",
+      "FAS_4": ""
+    },
+    "APP_PROCESS_POLICYHODER_DETAILS": {
+      "LABEL_COUNTRY_OF_RESIDENCE_OTHER": "Other Country:",
+      "NOT_APPLICABLE": "",
+      "NOT_APPLICABLE_LOCAL": ""
+    },
+    "TELEPHONE_NOT_APPLICABLE": {
+      "MOBILE_NOT_AVAILABLE": ""
+    }
+  }
+}
