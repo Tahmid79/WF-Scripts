@@ -1,5 +1,5 @@
 <div class="slpc-hide-asterisk" ng-class="{'padding-h-32': vm.$mdMedia('gt-xs'),'padding-h-16': !vm.$mdMedia('gt-xs')}" ng-model-options="{allowInvalid: true}" activity-data-auto-save readonly-form>
-    <form name="appProcessAllocationFas">
+    <form name="switchFrFasDesignation1st">
         <div class="margin-top-48" layout-gt-xs="row" layout-align="space-between center">
             <span></span>
             <!--<p class="font-size-fixed-16 italic_font_slpc margin-0 margin-bottom-8">
@@ -54,7 +54,7 @@
                             <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.COMPANY_NAME"></label>
                             <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceCompanyName" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceCompanyName"
                                 ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceCompanyName.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsuranceCompanyName.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
                                 </div>
@@ -67,7 +67,7 @@
                             <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_STREET_NAME_AND_NUMBER"></label>
                             <input type="text" class="font-size-fixed-16" name="companyName" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceStreet"
                                 ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceStreet.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsuranceStreet.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
                                 </div>
@@ -80,7 +80,7 @@
                             <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.CITY_POSTAL"></label>
                             <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsurancePostcode" ng-model="vm.formData.PAOneOrMoreSpecialisedInsurancePostcode"
                                 ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsurancePostcode.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsurancePostcode.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
                                 </div>
@@ -97,7 +97,7 @@
                                     {{ country == 'Other' ? vm.ohetrCountriesValue: country }}
                                 </md-option>
                             </md-select>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceCountry.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsuranceCountry.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
                                 </div>
@@ -111,7 +111,7 @@
                                     {{country}}
                                 </md-option>
                             </md-select>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceOtherCountry.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsuranceOtherCountry.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only
                                         class="font-size-fixed-12"></span>
@@ -128,7 +128,7 @@
                             <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_SURNAME_2"></label>
                             <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceSurname" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceSurname"
                                 ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceSurname.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsuranceSurname.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
                                 </div>
@@ -144,7 +144,7 @@
                             </label>
                             <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceFirstname" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceFirstname"
                                 ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceFirstname.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsuranceFirstname.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
                                 </div>
@@ -166,7 +166,7 @@
                             <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_TELEPHONE"></label>
                             <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceTelephoneCode" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceTelephoneCode"
                                 ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceTelephoneCode.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsuranceTelephoneCode.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
                                 </div>
@@ -189,7 +189,7 @@
                             </label>
                             <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceMobile" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceMobile"
                                 ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceMobile.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsuranceMobile.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
                                 </div>
@@ -218,7 +218,7 @@
                             </label>
                             <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceEmail" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceEmail"
                                 ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceEmail.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsuranceEmail.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
                                 </div>
@@ -241,7 +241,7 @@
                             </label>
                             <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceFax" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceFax"
                                 ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceFax.$error">
+                            <div ng-messages="switchFrFasDesignation1st.PAOneOrMoreSpecialisedInsuranceFax.$error">
                                 <div ng-message="required">
                                     <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
                                 </div>

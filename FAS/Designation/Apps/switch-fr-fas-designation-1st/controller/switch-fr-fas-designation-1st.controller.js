@@ -37,8 +37,8 @@
                 onInitFormData();
                 //vm.formData = _.merge(initValueOb,JSON.parse(data.RequestPayload));
             } else {
-                $scope.appProcessAllocationFas.$submitted = true;
-                if (!$scope.appProcessAllocationFas.$invalid) {
+                $scope.switchFrFasDesignation1st.$submitted = true;
+                if (!$scope.switchFrFasDesignation1st.$invalid) {
                     vm.formData.RequestPayload = angular.copy(vm.formData);
                     vm.formData.RequestPayload.slpcworkflowId= $state.params.slpcworkflowId;
                     workflowService.eventBroadcast(WorkflowConfig.registerCallBackFromChild, _.clone(vm.formData));
