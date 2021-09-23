@@ -14,13 +14,14 @@ def ReplaceStringInAllFiles(folderPath, oldString, newString):
             content = content.replace(oldString, newString)
             WriteStringToFile(pth, content)
 
-oldAppName = 'app-process-charges-v2'
-newAppName = 'switch-fr-charges-4th'
+oldAppName = 'app-process-allocation-fas-vtwo'
+newAppName = 'switch-fr-fas-designation-1st'
 
-oldLang = 'APP_PROCESS_CHARGES_V2'
-newLang = 'SWITCH_FR_CHARGES_4TH'
+oldLang = 'APP_PROCESS_ALLOCATION_FAS_VTWO'
+newLang = 'SWITCH_FR_FAS_DESIGNATION_1ST'
 
-folderPath = './switch-fr-charges-4th'
+folderDir = './FAS/Designation/Apps/'
+folderPath = folderDir + 'switch-fr-fas-designation-1st'
 controllerPath = folderPath + '/controller'
 viewPath = folderPath + '/view'
 langPath = folderPath + '/i18n'
@@ -40,7 +41,7 @@ ReplaceStringInAllFiles(viewPath , oldLang , newLang)
 
 
 def changeControllerName():
-    mainControllerName = 'slpcAppProcessChargesV2Controller'
+    mainControllerName = 'slpcAppProcessAllocationFasVtwoController'
     controllerName = 'slpcAppProcessChargesInfoModalController'
     nameSplit = ['slpcAppProcessChargesInfo', 'ModalController']
     names = [nameSplit[0] + str(i) + nameSplit[1] for i in range(2, 15)]
@@ -49,7 +50,7 @@ def changeControllerName():
 
     # print(names)
 
-    newMainControllerName = 'slpcSwitchFrCharges4thController'
+    newMainControllerName = 'slpcSwitchFrFASDesignation1stController'
     newControllerName = 'slpcSwitchFrCharges4thInfoModalController'
     newNameSplit = ['slpcSwitchFrCharges4thInfo', 'ModalController']
     newNames = [newNameSplit[0] + str(i) + newNameSplit[1] for i in range(2, 15)]
