@@ -1822,9 +1822,6 @@ namespace Selise.Ecap.Entities.Workflow
         public string PACustodianBankContactPersonFaxFour { get; set; }
         public bool SecondContactPersonFaxNotAvailableFour { get; set; }
 
-        public string PACustodianBankContactPersonFaxFour { get; set; }
-
-
 
 
 

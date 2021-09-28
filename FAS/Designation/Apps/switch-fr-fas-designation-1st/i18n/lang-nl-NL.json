@@ -1,0 +1,57 @@
+{
+  "SWITCH_FR_FAS_DESIGNATION_1ST": {
+    "COMMON_LOCALIZATION_DATA": {
+      "MANDATORY_FIELD": "Fields marked with a '*' are mandatory NL",
+      "MANDATORY_FIELD_LOCAL": "",
+      "SUB_TITLE_PART_OF_THE_PREMIUM": "Part of the premium to be allocated (% or amount in reference currency) NL",
+      "SUB_TITLE_PART_OF_THE_PREMIUM_LOCAL": "",
+      "REQUIRED_MESSAGE": "Dit veld is vereist",
+      "TEXT_LENGTH_VALIDATION": "Maximaal aantal tekens overschreden",
+      "LABEL_STREET_NAME_AND_NUMBER": "Straat en huisnummer:",
+      "CITY_POSTAL": "",
+      "LABEL_COUNTRY": "Land:",
+      "LABEL_SURNAME_2": "Surname: NL",
+      "LABEL_FIRST_NAME_2": "First name(s): NL",
+      "LABEL_OPTIONAL": "",
+      "LABEL_TELEPHONE": "Telefoon:",
+      "TELEPHONE_NOT_APPLICABLE": "Telefoonnummer niet beschikbaar",
+      "TELEPHONE_NOT_APPLICABLE_LOCAL": "",
+      "LABEL_MOBILE": "Mobile number (including country code): NL",
+      "MOBILE_NOT_AVAILABLE": "Mobile number not available NL",
+      "MOBILE_NOT_AVAILABLE_LOCAL": "",
+      "EMAIL_NOT_AVAILABLE": "Email not available NL",
+      "EMAIL_NOT_AVAILABLE_LOCAL": "",
+      "FAX_NOT_AVAILABLE": "Fax not available NL"
+    },
+    "COUNTRY_LIST": {
+      "OTHER": "Other"
+    },
+    "APP_PROCESS_ALLOCATION": {
+      "FORM_TITLE": "SECTION 5 – INVESTMENT OF THE CONTRACT NL",
+      "FORM_TITLE_LOCAL": "",
+      "FAS_FUND_AMOUNT": "",
+      "FAS_FUND_AMOUNT_LOCAL": "",
+      "FAS_FUND_PERCENT": "",
+      "FAS_FUND_PERCENT_LOCAL": "",
+      "DESIGNATION_CUSTODIAN_BANK": "",
+      "CURRENT_RELATION": "",
+      "CUSTODIAN_BANK": "",
+      "COMPANY_NAME": "",
+      "CONTACT_PERSON": "",
+      "LABEL_TELEPHONE": "",
+      "LABEL_EMAIL": "",
+      "LABEL_FAX": "",
+      "FAS_2": "",
+      "FAS_3": "",
+      "FAS_4": ""
+    },
+    "APP_PROCESS_POLICYHODER_DETAILS": {
+      "LABEL_COUNTRY_OF_RESIDENCE_OTHER": "Other Country: NL",
+      "NOT_APPLICABLE": "",
+      "NOT_APPLICABLE_LOCAL": ""
+    },
+    "TELEPHONE_NOT_APPLICABLE": {
+      "MOBILE_NOT_AVAILABLE": ""
+    }
+  }
+}

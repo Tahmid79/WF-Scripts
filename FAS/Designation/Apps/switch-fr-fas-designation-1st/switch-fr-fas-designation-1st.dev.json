@@ -1,0 +1,17 @@
+{
+  "js": [
+    "switch-fr-fas-designation-1st.config.js",
+    "controller/switch-fr-fas-designation-1st.controller.js"
+  ],
+  "css": [ ],
+  "dependencies": {
+    "js": [ ],
+    "css": [ ],
+    "app": [
+      {
+        "id": "workflow",
+        "type": "component.com"
+      }
+    ]
+  }
+}

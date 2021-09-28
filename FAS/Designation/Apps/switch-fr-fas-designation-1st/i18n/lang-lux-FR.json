@@ -1,0 +1,57 @@
+{
+  "SWITCH_FR_FAS_DESIGNATION_1ST": {
+    "COMMON_LOCALIZATION_DATA": {
+      "MANDATORY_FIELD": "Les champs marqués d’un astérisque sont obligatoires",
+      "MANDATORY_FIELD_LOCAL": "",
+      "SUB_TITLE_PART_OF_THE_PREMIUM": "Part de la prime à attribuer (% ou montant en devise de référence)",
+      "SUB_TITLE_PART_OF_THE_PREMIUM_LOCAL": "",
+      "REQUIRED_MESSAGE": "Ce champ est obligatoire.",
+      "TEXT_LENGTH_VALIDATION": "Nombre maximum de chiffres a été excédé.",
+      "LABEL_STREET_NAME_AND_NUMBER": "Rue et numéro :",
+      "CITY_POSTAL": "",
+      "LABEL_COUNTRY": "Pays:",
+      "LABEL_SURNAME_2": "Nom :",
+      "LABEL_FIRST_NAME_2": "Prénom(s):",
+      "LABEL_OPTIONAL": "",
+      "LABEL_TELEPHONE": "Numéro de téléphone (y compris le code du pays et de la région):",
+      "TELEPHONE_NOT_APPLICABLE": "Numéro de téléphone pas disponible",
+      "TELEPHONE_NOT_APPLICABLE_LOCAL": "",
+      "LABEL_MOBILE": "Numéro de GSM (y compris le code du pays):",
+      "MOBILE_NOT_AVAILABLE": "Numéro de GSM pas disponible",
+      "MOBILE_NOT_AVAILABLE_LOCAL": "",
+      "EMAIL_NOT_AVAILABLE": "Adresse e-mail pas disponible",
+      "EMAIL_NOT_AVAILABLE_LOCAL": "",
+      "FAX_NOT_AVAILABLE": "Fax pas disponible"
+    },
+    "COUNTRY_LIST": {
+      "OTHER": "Autres"
+    },
+    "APP_PROCESS_ALLOCATION": {
+      "FORM_TITLE": "SECTION 5 – INVESTISSEMENT DANS LE CONTRAT",
+      "FORM_TITLE_LOCAL": "",
+      "FAS_FUND_AMOUNT": "FAS fund amount: ",
+      "FAS_FUND_AMOUNT_LOCAL": "",
+      "FAS_FUND_PERCENT": "FAS fund percent: ",
+      "FAS_FUND_PERCENT_LOCAL": "",
+      "DESIGNATION_CUSTODIAN_BANK": "",
+      "CURRENT_RELATION": "",
+      "CUSTODIAN_BANK": "",
+      "COMPANY_NAME": "",
+      "CONTACT_PERSON": "",
+      "LABEL_TELEPHONE": "",
+      "LABEL_EMAIL": "",
+      "LABEL_FAX": "",
+      "FAS_2": "",
+      "FAS_3": "",
+      "FAS_4": ""
+    },
+    "APP_PROCESS_POLICYHODER_DETAILS": {
+      "LABEL_COUNTRY_OF_RESIDENCE_OTHER": "Autre pays:",
+      "NOT_APPLICABLE": "Prénom non applicable",
+      "NOT_APPLICABLE_LOCAL": ""
+    },
+    "TELEPHONE_NOT_APPLICABLE": {
+      "MOBILE_NOT_AVAILABLE": ""
+    }
+  }
+}

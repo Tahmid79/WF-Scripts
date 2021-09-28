@@ -1,0 +1,57 @@
+{
+  "SWITCH_FR_FAS_DESIGNATION_1ST": {
+    "COMMON_LOCALIZATION_DATA": {
+      "MANDATORY_FIELD": "Fields marked with a '*' are mandatory IT",
+      "MANDATORY_FIELD_LOCAL": "",
+      "SUB_TITLE_PART_OF_THE_PREMIUM": "Parte del Premio da attribuire (% o importo nella valuta di riferimento)",
+      "SUB_TITLE_PART_OF_THE_PREMIUM_LOCAL": "",
+      "REQUIRED_MESSAGE": "Questo è richiesta",
+      "TEXT_LENGTH_VALIDATION": "Lunghezza caratteri superata.",
+      "LABEL_STREET_NAME_AND_NUMBER": "Via e numero:",
+      "CITY_POSTAL": "",
+      "LABEL_COUNTRY": "Paese di residenza:",
+      "LABEL_SURNAME_2": "Cognome",
+      "LABEL_FIRST_NAME_2": "Cognome/Ragione sociale:",
+      "LABEL_OPTIONAL": "",
+      "LABEL_TELEPHONE": "Telefono n°:",
+      "TELEPHONE_NOT_APPLICABLE": "Numero di telefono non disponibile",
+      "TELEPHONE_NOT_APPLICABLE_LOCAL": "",
+      "LABEL_MOBILE": "N° di cellulare: (incluso il prefisso nazionale)",
+      "MOBILE_NOT_AVAILABLE": "N° di cellulare non disponibile",
+      "MOBILE_NOT_AVAILABLE_LOCAL": "",
+      "EMAIL_NOT_AVAILABLE": "Indirizzo E-mail non disponibile",
+      "EMAIL_NOT_AVAILABLE_LOCAL": "",
+      "FAX_NOT_AVAILABLE": "Fax non disponibile"
+    },
+    "COUNTRY_LIST": {
+      "OTHER": ""
+    },
+    "APP_PROCESS_ALLOCATION": {
+      "FORM_TITLE": "SEZIONE 5 – FONDI COLLEGATI ALLA POLIZZA",
+      "FORM_TITLE_LOCAL": "",
+      "FAS_FUND_AMOUNT": "FAS fund amount: ",
+      "FAS_FUND_AMOUNT_LOCAL": "",
+      "FAS_FUND_PERCENT": "FAS fund percent: ",
+      "FAS_FUND_PERCENT_LOCAL": "",
+      "DESIGNATION_CUSTODIAN_BANK": "",
+      "CURRENT_RELATION": "",
+      "CUSTODIAN_BANK": "",
+      "COMPANY_NAME": "",
+      "CONTACT_PERSON": "",
+      "LABEL_TELEPHONE": "",
+      "LABEL_EMAIL": "",
+      "LABEL_FAX": "",
+      "FAS_2": "",
+      "FAS_3": "",
+      "FAS_4": ""
+    },
+    "APP_PROCESS_POLICYHODER_DETAILS": {
+      "LABEL_COUNTRY_OF_RESIDENCE_OTHER": "altro paese",
+      "NOT_APPLICABLE": "Nome non applicabile",
+      "NOT_APPLICABLE_LOCAL": ""
+    },
+    "TELEPHONE_NOT_APPLICABLE": {
+      "MOBILE_NOT_AVAILABLE": ""
+    }
+  }
+}
