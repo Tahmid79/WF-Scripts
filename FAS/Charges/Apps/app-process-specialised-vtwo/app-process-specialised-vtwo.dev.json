@@ -1,0 +1,21 @@
+{
+  "js": [
+    "app-process-specialised-vtwo.config.js",
+    "controller/app-process-specialised-vtwo.controller.js",
+    "controller/app-process-specialised-vtwo.common.modal.controller.js",
+    "controller/app-process-specialised-vtwo.additional-notes.modal.controller.js",
+    "controller/app-process-specialised-vtwo.investor.modal.controller.js",
+    "controller/app-process-specialised-vtwo.info12.modal.controller.js",
+    "controller/app-process-specialised-vtwo.info.modal.controller.js"
+  ],
+    "css": [
+    ],
+    "dependencies": {
+        "js": [
+        ],
+        "css": [
+        ],
+        "app": [
+        ]
+    }
+}

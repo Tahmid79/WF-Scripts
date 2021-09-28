@@ -1,0 +1,13 @@
+{
+    "name": "A_101.TITLE",
+    "desc": "A_101.DESC",
+    "icon": "icon-home",
+    "featureMap": { },
+    "dependencies": {
+        "js": [
+        ],
+        "css": [
+        ],
+        "app": [ ]
+    }
+}

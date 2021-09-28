@@ -1,0 +1,47 @@
+<md-dialog class="mobile-fullwidth-dialog" ng-class="{'width-700': vm.$mdMedia('gt-xs')}">
+    <md-dialog-content class="padding-24">
+        <h4 class="font-size-fixed-18 margin-bottom-16 margin-bottom-24 text-bold">
+            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_ADDITIONAL"></span>
+        </h4>
+
+        <div class="margin-left-16">
+            <!-- <p class="margin-0 margin-bottom-16">
+                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.DIRECT_INVESTMENTS"></span>
+            </p> -->
+            <!-- <p class="margin-0 margin-bottom-16">
+                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.ALTERNATIVE_INVESTMENTS"></span>
+            </p> -->
+            <p class="margin-0 margin-bottom-16">
+                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.OBLIGATION"></span>
+            </p>
+
+            <p class="margin-0 margin-bottom-16">
+                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.VENTES"></span>
+            </p>
+
+            <p class="margin-0 margin-bottom-16">
+                <span ng-if="!(vm.market==='France')" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.FUTURES_OPTIONS"></span>
+                <span ng-if="vm.market==='France'" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.FUTURES_OPTIONS_FAS"></span>
+            </p>
+            <!-- <p ng-if="vm.market==='France'" class="margin-0 margin-bottom-16">
+                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.FUTURES_OPTIONS_FAS"></span>
+            </p> -->
+            <p ng-if="vm.market==='France'">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.ANY_EVENT"></span>
+            </p>
+            <p class="margin-0 margin-bottom-16">
+                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.ALL_PORTFOLIO_FAS"></span>
+            </p>
+        </div>
+
+        <div class="md-block">
+            <md-checkbox ng-change="vm.checkConfirm()"
+                         name="THE_POLICYHOLDER_CONFIRMS_THAT_HE_ACCEPTS" ng-model="vm.confirm"
+                         class="md-warn text-bold" palette-background="swiss-life-grey:900" fg-only
+                         aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_THE_POLICYHOLDER_CONFIRMS">
+                <span ng-if="!(vm.market==='France')" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_THE_POLICYHOLDER_CONFIRMS"></span>
+                <span ng-if="vm.market==='France'" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_THE_POLICYHOLDER_CONFIRMS_FAS"></span>
+            </md-checkbox>
+        </div>  
+    </md-dialog-content>
+</md-dialog>
