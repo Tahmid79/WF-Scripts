@@ -1,263 +1,1271 @@
-<div class="slpc-hide-asterisk" ng-class="{'padding-h-32': vm.$mdMedia('gt-xs'),'padding-h-16': !vm.$mdMedia('gt-xs')}" ng-model-options="{allowInvalid: true}" activity-data-auto-save readonly-form>
-    <form name="appProcessAllocationFas">
+<div class="slpc-hide-asterisk" ng-class="{'padding-h-32': vm.$mdMedia('gt-xs'),'padding-h-16': !vm.$mdMedia('gt-xs')}" ng-model-options="{allowInvalid: true}"
+    activity-data-auto-save readonly-form>
+    <form name="appProcessSpecialised">
         <div class="margin-top-48" layout-gt-xs="row" layout-align="space-between center">
             <span></span>
-            <!--<p class="font-size-fixed-16 italic_font_slpc margin-0 margin-bottom-8">
-                <span  ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.MANDATORY_FIELD"></span><span  class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.MANDATORY_FIELD_LOCAL"></span>
+            <!--<p class="font-size-fixed-16 italic_font_slpc margin-0 margin-bottom-8" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.MANDATORY_FIELD">
             </p>-->
         </div>
         <div class="md-whiteframe-1dp margin-bottom-16" palette-background="swiss-life-bordeaux:50" bg-only>
             <div class="padding-v-15" palette-background="white:A700" bg-only ng-class="{'padding-h-24': vm.$mdMedia('gt-xs'),'padding-h-8': !vm.$mdMedia('gt-xs')}">
-                <h2 class="margin-0 line-height-fixed-26 font-size-fixed-20" palette-background="swiss-life-grey:500" fg-only>
+                <h2 class="margin-0 line-height-fixed-26 font-size-fixed-20" palette-background="swiss-life-grey:400" fg-only>
                     <md-icon md-font-icon="icon-description" class="line-height-fixed-20 font-size-fixed-20">
                     </md-icon>
-                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.FORM_TITLE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.FORM_TITLE_LOCAL"></span>
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.FORM_TITLE"></span>
                 </h2>
             </div>
 
-            <div layout="column" class="padding-top-24 padding-bottom-50" ng-class="{'padding-h-24': vm.$mdMedia('gt-xs'),'padding-h-8': !vm.$mdMedia('gt-xs')}">
+            <div ng-class="{'padding-h-24': vm.$mdMedia('gt-xs'),'padding-h-8': !vm.$mdMedia('gt-xs')}" class="padding-top-24 padding-bottom-50">
+                <h3 class="font-weight-500 font-size-fixed-18">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.APPLICABLE_FEE"></span>
+                </h3>
+
+                <md-checkbox ng-if="vm.market!=='France'" class="md-primary" ng-model="vm.formData.SpecialisedIsApplicableFee" aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.APPLICABLE_FEE"></span>
+                </md-checkbox>
+
+
+                <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50">
+                    <md-input-container class="full-width margin-bottom-0" ng-if="vm.formData.SpecialisedIsApplicableFee">
+                        <!--<label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.FILLING_FEE"></label>-->
+                        <input type="number" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedFillingFee" ng-model="vm.formData.PAOneOrMoreSpecialisedFillingFee"
+                            min="0" max="100" ng-maxlength="15" required>
+                        <md-icon>&percnt;</md-icon>
+                        <div ng-messages="appProcessSpecialised.PAOneOrMoreSpecialisedFillingFee.$error">
+                            <div ng-message="required">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                            </div>
+                            <div ng-message="maxlength">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <p class="font-size-fixed-18 margin-top-0" ng-if="vm.formData.SpecialisedIsApplicableFee">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.P_A_OF_THE_VALUE_OF_DEDICATED"></span>
+                </p>
+
+                <md-checkbox class="md-primary" ng-model="vm.formData.SpecialisedIsFillingFee" aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.FILLING_FEE"></span>
+                </md-checkbox>
+
+
+                <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50" ng-if="vm.formData.SpecialisedIsFillingFee">
+                    <md-input-container class="full-width margin-bottom-0">
+                        <!-- <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.TRANSACTION_FEE"></label>-->
+                        <input type="number" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedTransactionFee" ng-model="vm.formData.PAOneOrMoreSpecialisedTransactionFee"
+                            min="0" max="100" ng-maxlength="15" required>
+                        <md-icon>&percnt;</md-icon>
+                        <div ng-messages="appProcessSpecialised.PAOneOrMoreSpecialisedTransactionFee.$error">
+                            <div ng-message="required">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                            </div>
+                            <div ng-message="maxlength">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <p class="font-size-fixed-18 margin-top-0" ng-if="vm.formData.SpecialisedIsFillingFee">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.P_A_OF_THE_VALUE_OF_DEDICATED"></span>
+                </p>
+
+                <p class="font-size-fixed-18 margin-top-0" palette-background="swiss-life-black:500" fg-only>
+                    <span class='text-bold' ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.TRANSACTION_FEE"></span><span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.FEE_DEPENDS"></span>
+                </p>
+
+                <md-checkbox ng-if="vm.market!=='France'" class="md-primary" ng-model="vm.formData.SpecialisedIsAllFee" aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.ALL_IN"></span>
+                </md-checkbox>
+
+                <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50" ng-if="vm.formData.SpecialisedIsAllFee">
+                    <md-input-container class="full-width margin-bottom-0">
+                        <!-- <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.TRANSACTION_FEE"></label>-->
+                        <input type="number" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedAllFee" ng-model="vm.formData.PAOneOrMoreSpecialisedAllFee"
+                            min="0" max="100" ng-maxlength="15" required>
+                        <md-icon>&percnt;</md-icon>
+                        <div ng-messages="appProcessSpecialised.PAOneOrMoreSpecialisedAllFee.$error">
+                            <div ng-message="required">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                            </div>
+                            <div ng-message="maxlength">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <p class="font-size-fixed-18 margin-top-0">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.SPECIFIC_INSTURCTION"></span>
+                </p>
+
+                <div layout="row">
+                    <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50">
+                        <md-radio-group ng-model="vm.SpecialisedSpecificInstruction" name="SpecialisedSpecificInstruction" class="md-primary" layout-gt-sm="row"
+                            required>
+                            <md-radio-button class="margin-bottom-16" value="YES" aria-label="{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_YES}}">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_YES"></span>
+                            </md-radio-button>
+                            <md-radio-button class="margin-bottom-20" value="NO" aria-label="{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_NO}}">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_NO"></span>
+                            </md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <div ng-messages="appProcessSpecialised.SpecialisedSpecificInstruction.$error">
+                    <div ng-message="required">
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.SELECT_ONE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                    </div>
+                </div>
+
+                <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50">
+                    <md-input-container class="full-width margin-bottom-0" ng-if="vm.SpecialisedSpecificInstruction==='YES'">
+                        <!--<label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.SPECIFIC_INSTURCTION"></label>-->
+                        <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceSpecificInstruction" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceSpecificInstruction"
+                            ng-maxlength="250" required>
+                        <div ng-messages="appProcessSpecialised.PAOneOrMoreSpecialisedInsuranceSpecificInstruction.$error">
+                            <div ng-message="required">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                            </div>
+                            <div ng-message="maxlength">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                            </div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <!--<p ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.FEE_DEPENDS"></p>-->
+
+                <h3 class="font-weight-500 font-size-fixed-18" palette-background="swiss-life-grey:400" fg-only>
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.TITLE_REFERENCE_CURRENCY"></span>
+                </h3>
+
+                <!-- <p class="text-bold" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.REFERENCE_CURRENCY"></p> -->
+
+                <md-radio-group ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceCurrency" name="PAOneOrMoreSpecialisedInsuranceCurrency"
+                    required>
+                    <div layout="row" layout-wrap>
+                        <div flex-xs="100" flex-sm="50" flex-md="25" flex-lg="25" flex-xl="25">
+                            <md-radio-button value="EURO" class="md-primary margin-bottom-16" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_EUR">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_EUR"></span>
+                            </md-radio-button>
+                        </div>
+                        <div flex-xs="100" flex-sm="50" flex-md="25" flex-lg="25" flex-xl="25">
+                            <md-radio-button value="USD" class="md-primary margin-bottom-16" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_USD">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_USD"></span>
+                            </md-radio-button>
+                        </div>
+                        <div flex-xs="100" flex-sm="50" flex-md="25" flex-lg="25" flex-xl="25">
+                            <md-radio-button value="CHF" class="md-primary margin-bottom-16" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_CHF">
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_CHF"></span>
+                            </md-radio-button>
+                        </div>
+                        <div flex-xs="100" flex-sm="50" flex-md="25" flex-lg="25" flex-xl="25">
+                            <div layout="row">
+                                <md-radio-button value="OTHER" class="md-primary margin-bottom-16" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_OTHER">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_OTHER"></span>
+                                </md-radio-button>
+                                <div class="cur-pointer">
+                                    <md-icon md-font-icon="icon-info" ng-click="vm.showCommonModal('SUBJECT_MODAL')" palette-background="swiss-life-ochre:500"
+                                        fg-only class="line-height-fixed-20 font-size-fixed-24"></md-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-radio-group>
+                <div ng-messages="appProcessSpecialised.PAOneOrMoreSpecialisedInsuranceCurrency.$error">
+                    <div ng-message="required">
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.SELECT_ONE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                    </div>
+                </div>
+
+                <h3 class="font-weight-500 font-size-fixed-18">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.INVESTMENT_RULES"></span>
+                </h3>
+
+                <p class="font-size-fixed-18">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.MINIMUM_INVESTMENT"></span>
+                </p>
+                <p class="font-size-fixed-18">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PARAGRAPH_THE_INVESTMENT_1"></span>
+                    <i>
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PARAGRAPH_THE_INVESTMENT_ITALIC"></span>
+                    </i>
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PARAGRAPH_THE_INVESTMENT_3"></span>
+                    <a href="http://www.caa.lu" target="_blank">www.caa.lu</a>
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PARAGRAPH_THE_INVESTMENT_2"></span>
+                </p>
+
+
+                <!-- <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-bold white-space-normal" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.INVESTMENT">
+                                </th>
+                                <th class="text-bold white-space-normal" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.STRATEGY">
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CONSERVATIVE"></td>
+                                <td>
+                                    <div layout="row">
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LOW"></span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_BALANCED"></td>
+                                <td>
+                                    <div layout="row">
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MEDIUM"></span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_GROWTH"></td>
+                                <td>
+                                    <div layout="row">
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.HIGH"></span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_AGGRESSIVE"></td>
+                                <td>
+                                    <div layout="row">
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.VERY"></span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div layout="row">
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_DEFINED"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div layout="row">
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.DEFINED"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> -->
+
+
+
+
+
+
+                <md-radio-group ng-if="vm.market!=='United Kingdom'" ng-model="vm.formData.FASPhTable" name="PhTable" ng-required="true">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+
+
+                            <tbody>
+                                <tr>
+                                    <td class="width-200 display-block">
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.INVESTMENT"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.INVESTMENT_LOCAL"></span>
+                                    </td>
+
+                                    <td>
+                                            <md-radio-button value="CONSERVATIVE" class="md-primary margin-bottom-16 width-200" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CONSERVATIVE">
+                                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CONSERVATIVE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CONSERVATIVE_LOCAL"></span>
+                                            </md-radio-button>
+
+                                    </td>
+                                    <td>
+                                            <md-radio-button value="BALANCED" class="md-primary margin-bottom-16 width-200" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_BALANCED">
+                                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_BALANCED"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_BALANCED_LOCAL"></span>
+                                            </md-radio-button>
+
+                                    </td>
+                                    <td>
+                                            <md-radio-button value="GROWTH" class="md-primary margin-bottom-16 width-200" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_GROWTH">
+                                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_GROWTH"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_GROWTH_LOCAL"></span>
+                                            </md-radio-button>
+
+                                    </td>
+                                    <td>
+                                            <md-radio-button value="AGGRESSIVE" class="md-primary margin-bottom-16 width-200" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_AGGRESSIVE">
+                                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_AGGRESSIVE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_AGGRESSIVE_LOCAL"></span>
+                                            </md-radio-button>
+
+                                    </td>
+                                    <td>
+                                        <div layout="row">
+                                            <div><md-radio-button value="DEFINED" class="md-primary margin-bottom-16 width-200" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_DEFINED">
+                                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_DEFINED"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_DEFINED_LOCAL"></span>
+
+                                            </md-radio-button></div>
+                                            <div><md-icon md-font-icon=" icon-info" ng-click="vm.showInfo12Modal()" palette-background="swiss-life-ochre:500" fg-only class="line-height-fixed-20 font-size-fixed-24"></md-icon></div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.STRATEGY"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.STRATEGY_LOCAL"></span>
+                                    </td>
+
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LOW"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LOW_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MEDIUM"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MEDIUM_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.HIGH"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.HIGH_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.VERY"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.VERY_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.DEFINED"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.DEFINED_LOCAL"></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.TARGET_ALLOCATION"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.TARGET_ALLOCATION_LOCAL"></span>
+                                    </td>
+
+                                    <td>
+                                        <!-- <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LOW"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CONSERVATIVE_LOCAL"></span> -->
+                                    </td>
+                                    <td>
+                                        <!-- <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MEDIUM"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CONSERVATIVE_LOCAL"></span> -->
+                                    </td>
+                                    <td>
+                                        <!-- <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.HIGH"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CONSERVATIVE_LOCAL"></span> -->
+                                    </td>
+                                    <td>
+                                        <!-- <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.VERY"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CONSERVATIVE_LOCAL"></span> -->
+                                    </td>
+                                    <td>
+                                        <!-- <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_DEFINED"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CONSERVATIVE_LOCAL"></span> -->
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.BONDS_CASH"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.BONDS_CASH_LOCAL"></span>
+                                    </td>
+
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.SIXTY"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.SIXTY_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.THIRTY_FIVE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.THIRTY_FIVE_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.TWENTY"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.TWENTY_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.TEN"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.TEN_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.BLANK_LINE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.BLANK_LINE_LOCAL"></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.EQUITIES_ALT_FUNDS"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.EQUITIES_ALT_FUNDS_LOCAL"></span>
+                                    </td>
+
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.FORTY"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.FORTY_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.SIXTY_FIVE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.SIXTY_FIVE_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.EIGHTY"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.EIGHTY_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.NINETY"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.NINETY_LOCAL"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.BLANK_LINE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.BLANK_LINE_LOCAL"></span>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    </md-radio-group>
+
+
+                    <div ng-messages="appProcessSpecialised.PhTable.$error">
+                        <div ng-message="required">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.SELECT_ONE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <p class="font-size-fixed-18 margin-top-0 text-bold"  ng-if="vm.formData.FASPhTable != 'DEFINED'">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.IT_IS_MANDATORY"></span>
+                </p>
+
+                <h3 class="font-weight-500 font-size-fixed-18 margin-top-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.ASSET"></span>
+                </h3>
+
+                <!-- Shows only when none is selected -->
+                <div class="margin-bottom-12" ng-if="(!(vm.formData.IsFixedIncomeBondSpecialised || vm.formData.IsEquitiesEquitiesSpecialised || vm.formData.IsInvestmenetFundBondsSpecialised || vm.formData.IsInvestmenetFundEquitiesSpecialised || vm.formData.IsInvestmenetFundMoneyMarketSpecialised || vm.formData.IsAlternativeHedgeFundsSpecialised || vm.formData.IsAlternativeCommoditySpecialised || vm.formData.IsAlternativePrivateSpecialised || vm.formData.IsAlternativeRealEstateSpecialised || vm.formData.IsOtherAssetInfrastructureSpecialised) && (vm.formData.FASPhTable != 'DEFINED'))">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE_SECTION" theme-background="warn" fg-only class="font-size-fixed-12 mandatory-checkbox-group"></span>
+                </div>
+
+                <h4 class="text-bold font-size-fixed-18">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.FIXED"></span><span>
+                        <md-icon md-font-icon="icon-info" ng-click="vm.showCommonModal('MODAL_STRUCTURED_PRODUCT')" palette-background="swiss-life-ochre:500"
+                            fg-only class="line-height-fixed-20 font-size-fixed-24 cur-pointer"></md-icon>
+                    </span>
+                </h4>
+
+                <md-checkbox class="md-primary" ng-click="vm.checkboxMandatory()" ng-model="vm.formData.IsFixedIncomeBondSpecialised" aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_BONDS"></span>
+                </md-checkbox>
+
+                <!--<p class="font-size-fixed-18 margin-bottom-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_BONDS"></span>
+                </p>-->
+
+
+                <div class="margin-top-32" layout-gt-xs="row" ng-if="vm.formData.IsFixedIncomeBondSpecialised">
+                    <div flex>
+                        <md-input-container class="full-width margin-bottom-20 margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MINIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCBondMinPercentage" ng-model="vm.formData.PCBondMinPercentageSpecialised" min="0"
+                                max="{{vm.maxBond}}" ng-maxlength="15" required ng-change="vm.checkMinMax('Bond')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCBondMinPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MINIMUM_VALUE}} {{vm.maxBond}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="10" ng-class="{'margin-bottom-30': vm.$mdMedia('xs')}" class="text-center" layout="row" layout-align="center start">
+                        <p class="font-size-fixed-18 margin-0">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TO"></span>
+                        </p>
+                    </div>
+                    <div flex>
+                        <md-input-container class="full-width margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MAXIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCBondMaxPercentage" ng-model="vm.formData.PCBondMaxPercentageSpecialised" min="{{vm.minBond}}"
+                                max="100" ng-maxlength="15" required ng-change="vm.checkMinMax('Bond')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCBondMaxPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MAXIMUM_VALUE}} {{vm.minBond}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
+
+                <h4 class="text-bold font-size-fixed-18">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.EQUITIES"></span><span>
+                        <md-icon md-font-icon="icon-info" ng-click="vm.showCommonModal('MODAL_STRUCTURED_PRODUCT')" palette-background="swiss-life-ochre:500"
+                            fg-only class="line-height-fixed-20 font-size-fixed-24 cur-pointer"></md-icon>
+                    </span>
+                </h4>
+
+                <md-checkbox class="md-primary" ng-click="vm.checkboxMandatory()" ng-model="vm.formData.IsEquitiesEquitiesSpecialised" aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_EQUITIES"></span>
+                </md-checkbox>
+
+                <!--<p class="font-size-fixed-18 margin-bottom-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_EQUITIES"></span>
+                </p>-->
+
+                <div class="margin-top-32" layout-gt-xs="row" ng-if="vm.formData.IsEquitiesEquitiesSpecialised">
+                    <div flex>
+                        <md-input-container class="full-width margin-bottom-20 margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MINIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCEquitiesMinPercentage" ng-model="vm.formData.PCEquitiesMinPercentageSpecialised"
+                                min="0" max="{{vm.maxEquities}}" ng-maxlength="15" required ng-change="vm.checkMinMax('Equities')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCEquitiesMinPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MINIMUM_VALUE}} {{vm.maxEquities}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="10" ng-class="{'margin-bottom-30': vm.$mdMedia('xs')}" class="text-center" layout="row" layout-align="center start">
+                        <p class="font-size-fixed-18 margin-0">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TO"></span>
+                        </p>
+                    </div>
+                    <div flex>
+                        <md-input-container md-no-float class="full-width margin-top-0 margin-bottom-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MAXIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCEquitiesMaxPercentage" ng-model="vm.formData.PCEquitiesMaxPercentageSpecialised"
+                                min="{{vm.minEquities}}" max="100" ng-maxlength="15" required ng-change="vm.checkMinMax('Equities')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCEquitiesMaxPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MAXIMUM_VALUE}} {{vm.minEquities}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
+
+                <h4 class="text-bold font-size-fixed-18">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.INVESTMENT_FUNDS"></span>
+                </h4>
+
+                <md-checkbox class="md-primary" ng-click="vm.checkboxMandatory()" ng-model="vm.formData.IsInvestmenetFundBondsSpecialised"
+                    aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_BONDS_FUNDS"></span>
+                </md-checkbox>
+
+                <!--<p class="font-size-fixed-18 margin-bottom-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_BONDS_FUNDS"></span>
+                </p>-->
+
+                <div class="margin-top-32" layout-gt-xs="row" ng-if="vm.formData.IsInvestmenetFundBondsSpecialised">
+                    <div flex>
+                        <md-input-container class="full-width margin-bottom-20 margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MINIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCBondsFundMinPercentage" ng-model="vm.formData.PCBondsFundMinPercentageSpecialised"
+                                min="0" max="{{vm.maxBondsFund}}" ng-maxlength="15" required ng-change="vm.checkMinMax('BondsFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCBondsFundMinPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MINIMUM_VALUE}} {{vm.maxBondsFund}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="10" ng-class="{'margin-bottom-30': vm.$mdMedia('xs')}" class="text-center" layout="row" layout-align="center start">
+                        <p class="font-size-fixed-18 margin-0">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TO"></span>
+                        </p>
+                    </div>
+                    <div flex>
+                        <md-input-container class="full-width margin-top-0 margin-bottom-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MAXIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCBondsFundMaxPercentage" ng-model="vm.formData.PCBondsFundMaxPercentageSpecialised"
+                                min="{{vm.minBondsFund}}" max="100" ng-maxlength="15" required ng-change="vm.checkMinMax('BondsFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCBondsFundMaxPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MAXIMUM_VALUE}} {{vm.minBondsFund}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
+                <div flex>
+                    <md-checkbox class="md-primary" ng-click="vm.checkboxMandatory()" ng-model="vm.formData.IsInvestmenetFundEquitiesSpecialised"
+                        aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_EQUITY"></span>
+                    </md-checkbox>
+                </div>
+
+                <!--<p class="font-size-fixed-18 margin-bottom-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_EQUITY"></span>
+                </p>-->
+
+                <div class="margin-top-32" layout-gt-xs="row" ng-if="vm.formData.IsInvestmenetFundEquitiesSpecialised">
+                    <div flex>
+                        <md-input-container class="full-width margin-bottom-20 margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MINIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCEquityFundMinPercentage" ng-model="vm.formData.PCEquityFundMinPercentageSpecialised"
+                                min="0" max="{{vm.maxEquityFund}}" ng-maxlength="15" required ng-change="vm.checkMinMax('EquityFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCEquityFundMinPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MINIMUM_VALUE}} {{vm.maxEquityFund}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="10" ng-class="{'margin-bottom-30': vm.$mdMedia('xs')}" class="text-center" layout="row" layout-align="center start">
+                        <p class="font-size-fixed-18 margin-0">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TO"></span>
+                        </p>
+                    </div>
+                    <div flex>
+                        <md-input-container class="full-width margin-top-0 margin-bottom-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MAXIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCEquityFundMaxPercentage" ng-model="vm.formData.PCEquityFundMaxPercentageSpecialised"
+                                min="{{vm.minEquityFund}}" max="100" ng-maxlength="15" required ng-change="vm.checkMinMax('EquityFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCEquityFundMaxPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MAXIMUM_VALUE}} {{vm.minEquityFund}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
+                <div flex>
+                    <md-checkbox class="md-primary" ng-click="vm.checkboxMandatory()" ng-model="vm.formData.IsInvestmenetFundMoneyMarketSpecialised"
+                        aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_MONEY"></span>
+                    </md-checkbox>
+                </div>
+
+                <!--<p class="font-size-fixed-18 margin-bottom-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_MONEY"></span>
+                </p>-->
+
+                <div class="margin-top-32" layout-gt-xs="row" ng-if="vm.formData.IsInvestmenetFundMoneyMarketSpecialised">
+                    <div flex>
+                        <md-input-container class="full-width margin-bottom-20 margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MINIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCMoneyMarketFundMinPercentage" ng-model="vm.formData.PCMoneyMarketFundMinPercentageSpecialised"
+                                min="0" max="{{vm.maxMoneyMarketFund}}" ng-maxlength="15" required ng-change="vm.checkMinMax('MoneyMarketFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCMoneyMarketFundMinPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MINIMUM_VALUE}} {{vm.maxMoneyMarketFund}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="10" ng-class="{'margin-bottom-30': vm.$mdMedia('xs')}" class="text-center" layout="row" layout-align="center start">
+                        <p class="font-size-fixed-18 margin-0">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TO"></span>
+                        </p>
+                    </div>
+                    <div flex>
+                        <md-input-container class="full-width margin-top-0 margin-bottom-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MAXIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCMoneyMarketFundMaxPercentage" ng-model="vm.formData.PCMoneyMarketFundMaxPercentageSpecialised"
+                                min="{{vm.minMoneyMarketFund}}" max="100" ng-maxlength="15" required ng-change="vm.checkMinMax('MoneyMarketFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCMoneyMarketFundMaxPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MAXIMUM_VALUE}} {{vm.minMoneyMarketFund}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
+                <h4 class="text-bold font-size-fixed-18">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.ALTERNATIVE"></span>
+                </h4>
+
+                <div flex>
+                    <md-checkbox class="md-primary" ng-click="vm.checkboxMandatory()" ng-model="vm.formData.IsAlternativeHedgeFundsSpecialised"
+                        aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.HEDGE_FUND"></span>
+                    </md-checkbox>
+                    <span>
+                        <md-icon md-font-icon="icon-info" ng-click="vm.showCommonModal('MODAL_SIMPLE_HEDGE')" palette-background="swiss-life-ochre:500"
+                            fg-only class="line-height-fixed-20 font-size-fixed-24 cur-pointer"></md-icon>
+                    </span>
+                </div>
+
+                <!--<p class="font-size-fixed-18 margin-bottom-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.HEDGE_FUND"></span><span>
+                        <md-icon md-font-icon="icon-info" ng-click="vm.showCommonModal('MODAL_SIMPLE_HEDGE')" palette-background="swiss-life-ochre:500"
+                                 fg-only class="line-height-fixed-20 font-size-fixed-24 cur-pointer"></md-icon>
+                    </span>
+                </p>-->
+
+                <div class="margin-top-32" layout-gt-xs="row" ng-if="vm.formData.IsAlternativeHedgeFundsSpecialised">
+                    <div flex>
+                        <md-input-container class="full-width margin-bottom-20 margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MINIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCHedgeFundMinPercentage" ng-model="vm.formData.PCHedgeFundMinPercentageSpecialised"
+                                min="0" max="{{vm.maxHedgeFund}}" ng-maxlength="15" required ng-change="vm.checkMinMax('HedgeFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCHedgeFundMinPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MINIMUM_VALUE}} {{vm.maxHedgeFund}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="10" ng-class="{'margin-bottom-30': vm.$mdMedia('xs')}" class="text-center" layout="row" layout-align="center start">
+                        <p class="font-size-fixed-18 margin-0">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TO"></span>
+                        </p>
+                    </div>
+                    <div flex>
+                        <md-input-container class="full-width margin-top-0 margin-bottom-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MAXIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCHedgeFundMaxPercentage" ng-model="vm.formData.PCHedgeFundMaxPercentageSpecialised"
+                                min="{{vm.minHedgeFund}}" max="100" ng-maxlength="15" required ng-change="vm.checkMinMax('HedgeFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCHedgeFundMaxPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MAXIMUM_VALUE}} {{vm.minHedgeFund}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
+
+                <div flex>
+                    <md-checkbox class="md-primary" ng-click="vm.checkboxMandatory()" ng-model="vm.formData.IsAlternativeCommoditySpecialised"
+                        aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.COMMODITY_FUND"></span>
+                    </md-checkbox>
+                </div>
+
+                <!--<p class="font-size-fixed-18 margin-bottom-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.COMMODITY_FUND"></span>
+                </p>-->
+
+                <div class="margin-top-32" layout-gt-xs="row" ng-if="vm.formData.IsAlternativeCommoditySpecialised">
+                    <div flex>
+                        <md-input-container class="full-width margin-bottom-20 margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MINIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCCommodityFundMinPercentage" ng-model="vm.formData.PCCommodityFundMinPercentageSpecialised"
+                                min="0" max="{{vm.maxCommodityFund}}" ng-maxlength="15" required ng-change="vm.checkMinMax('CommodityFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCCommodityFundMinPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MINIMUM_VALUE}} {{vm.maxCommodityFund}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="10" ng-class="{'margin-bottom-30': vm.$mdMedia('xs')}" class="text-center" layout="row" layout-align="center start">
+                        <p class="font-size-fixed-18 margin-0">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TO"></span>
+                        </p>
+                    </div>
+                    <div flex>
+                        <md-input-container class="full-width margin-top-0 margin-bottom-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MAXIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCCommodityFundMaxPercentage" ng-model="vm.formData.PCCommodityFundMaxPercentageSpecialised"
+                                min="{{vm.minCommodityFund}}" max="100" ng-maxlength="15" required ng-change="vm.checkMinMax('CommodityFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCCommodityFundMaxPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MAXIMUM_VALUE}} {{vm.minCommodityFund}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
+
+
+                <div flex>
+                    <md-checkbox class="md-primary" ng-click="vm.checkboxMandatory()" ng-model="vm.formData.IsAlternativePrivateSpecialised"
+                        aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.PRIVATE_FUND"></span>
+                    </md-checkbox>
+                </div>
+
+                <!--<p class="font-size-fixed-18 margin-bottom-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.PRIVATE_FUND"></span>
+                </p>-->
+
+                <div class="margin-top-32" layout-gt-xs="row" ng-if="vm.formData.IsAlternativePrivateSpecialised">
+                    <div flex>
+                        <md-input-container class="full-width margin-bottom-20 margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MINIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCPrivateEquityFundMinPercentage" ng-model="vm.formData.PCPrivateEquityFundMinPercentageSpecialised"
+                                min="0" max="{{vm.maxPrivateEquityFund}}" ng-maxlength="15" required ng-change="vm.checkMinMax('PrivateEquityFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCPrivateEquityFundMinPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MINIMUM_VALUE}} {{vm.maxPrivateEquityFund}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="10" ng-class="{'margin-bottom-30': vm.$mdMedia('xs')}" class="text-center" layout="row" layout-align="center start">
+                        <p class="font-size-fixed-18 margin-0">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TO"></span>
+                        </p>
+                    </div>
+                    <div flex>
+                        <md-input-container class="full-width margin-top-0 margin-bottom-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MAXIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCPrivateEquityFundMaxPercentage" ng-model="vm.formData.PCPrivateEquityFundMaxPercentageSpecialised"
+                                min="{{vm.minPrivateEquityFund}}" max="100" ng-maxlength="15" required ng-change="vm.checkMinMax('PrivateEquityFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCPrivateEquityFundMaxPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MAXIMUM_VALUE}} {{vm.minPrivateEquityFund}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
+
+
+                <div flex>
+                    <md-checkbox class="md-primary" ng-click="vm.checkboxMandatory()" ng-model="vm.formData.IsAlternativeRealEstateSpecialised"
+                        aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.REAL_ESTATE"></span>
+                    </md-checkbox>
+                    <span>
+                        <md-icon md-font-icon="icon-info" ng-click="vm.showCommonModal('MODAL_REAL_ESTATE')" palette-background="swiss-life-ochre:500"
+                            fg-only class="line-height-fixed-20 font-size-fixed-24 cur-pointer"></md-icon>
+                    </span>
+                </div>
+
+                <!--<p class="font-size-fixed-18 margin-bottom-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.REAL_ESTATE"></span><span>
+                        <md-icon md-font-icon="icon-info" ng-click="vm.showCommonModal('MODAL_REAL_ESTATE')" palette-background="swiss-life-ochre:500"
+                                 fg-only class="line-height-fixed-20 font-size-fixed-24 cur-pointer"></md-icon>
+                    </span>
+                </p>-->
+
+                <div class="margin-top-32" layout-gt-xs="row" ng-if="vm.formData.IsAlternativeRealEstateSpecialised">
+                    <div flex>
+                        <md-input-container class="full-width margin-bottom-20 margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MINIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCRealStateFundMinPercentage" ng-model="vm.formData.PCRealStateFundMinPercentageSpecialised"
+                                min="0" max="{{vm.maxRealStateFund}}" ng-maxlength="15" required ng-change="vm.checkMinMax('RealStateFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCRealStateFundMinPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MINIMUM_VALUE}} {{vm.maxRealStateFund}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="10" ng-class="{'margin-bottom-30': vm.$mdMedia('xs')}" class="text-center" layout="row" layout-align="center start">
+                        <p class="font-size-fixed-18 margin-0">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TO"></span>
+                        </p>
+                    </div>
+                    <div flex>
+                        <md-input-container class="full-width margin-top-0 margin-bottom-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MAXIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCRealStateFundMaxPercentage" ng-model="vm.formData.PCRealStateFundMaxPercentageSpecialised"
+                                min="{{vm.minRealStateFund}}" max="100" ng-maxlength="15" required ng-change="vm.checkMinMax('RealStateFund')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCRealStateFundMaxPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MAXIMUM_VALUE}} {{vm.minRealStateFund}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
+
+                <!--Cash-->
+                <h4 class="text-bold font-size-fixed-18">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CASH"></span>
+                </h4>
+
+                <div flex>
+                    <md-checkbox class="md-primary" ng-click="vm.checkboxMandatory()" ng-model="vm.formData.IsOtherAssetInfrastructureSpecialised"
+                        aria-label="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CURRENT"></span>
+                    </md-checkbox>
+                </div>
+
+                <!--<p class="font-size-fixed-18 margin-bottom-32">
+                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_CURRENT"></span>
+                </p>-->
+
+                <div class="margin-top-32" layout-gt-xs="row" ng-if="vm.formData.IsOtherAssetInfrastructureSpecialised">
+                    <div flex>
+                        <md-input-container class="full-width margin-bottom-20 margin-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MINIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCCashMinPercentage" ng-model="vm.formData.PCCashMinPercentageSpecialised" min="0"
+                                max="{{vm.maxCash}}" ng-maxlength="15" required ng-change="vm.checkMinMax('Cash')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCCashMinPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MINIMUM_VALUE}} {{vm.maxCash}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="10" ng-class="{'margin-bottom-30': vm.$mdMedia('xs')}" class="text-center" layout="row" layout-align="center start">
+                        <p class="font-size-fixed-18 margin-0">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TO"></span>
+                        </p>
+                    </div>
+                    <div flex>
+                        <md-input-container class="full-width margin-top-0 margin-bottom-0">
+                            <label ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_MAXIMUM"></label>
+                            <input type="number" class="font-size-fixed-16" name="PCCashMaxPercentage" ng-model="vm.formData.PCCashMaxPercentageSpecialised" min="{{vm.minCash}}"
+                                max="100" ng-maxlength="15" required ng-change="vm.checkMinMax('Cash')">
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessSpecialised.PCCashMaxPercentage.$error">
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.MAXIMUM_VALUE}} {{vm.minCash}}</span>
+                                </div>
+                                <div ng-message="max">
+                                    <span theme-background="warn" fg-only class="font-size-fixed-12">{{vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION}}</span>
+                                </div>
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
+
+                <p class="font-size-fixed-18">
+                    <span class="text-bold" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.ADDITIONAL"></span><span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.PLEASE_INCLUDING"></span>
+                </p>
+
+                <!-- Include/ Exclude FAS -->
+
+
+
+                <div ng-repeat="data in vm.additionalInfos">
+                    <div ng-if="vm[data[5]]">
+                        <md-checkbox ng-change="vm.revertncludeExclude(data[0])" ng-model="vm.formData[data[0]]" name="{{data[0]}}" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_INCLUDE"
+                            class="md-warn">
+                            <span class="font-weight-500 font-size-fixed-18" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_INCLUDE"></span><span class="font-weight-500 font-size-fixed-18 slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_INCLUDE_LOCAL"></span>
+                        </md-checkbox>
+                        <md-checkbox ng-change="vm.revertncludeExclude(data[1])" ng-model="vm.formData[data[1]]" name="{{data[1]}}" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_EXCLUDE"
+                            class="md-warn">
+                            <span class="font-weight-500 font-size-fixed-18" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_EXCLUDE"></span><span class="font-weight-500 font-size-fixed-18 slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.CB_EXCLUDE_LOCAL"></span>
+                        </md-checkbox>
+                    </div>
+
+                    <div layout-gt-md="row" ng-if="(vm.formData[data[0]] || vm.formData[data[1]]) && vm[data[5]]">
+                        <md-input-container class="full-width margin-bottom-0 padding-right-10">
+                            <label>
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_ISIN"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_ISIN_LOCAL"></span>
+                            </label>
+                            <input type="text" class="font-size-fixed-16" name="{{data[2]}}" ng-model="vm.formData[data[2]]" required ng-maxlength="250">
+                            <div ng-messages="appProcessCharges[data[2]].$error">
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="full-width margin-bottom-0 padding-right-10">
+                            <label>
+                                <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_NAME"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_CHARGES.LABEL_NAME_LOCAL"></span>
+                            </label>
+                            <input type="text" class="font-size-fixed-16" name="{{data[3]}}" ng-model="vm.formData[data[3]]" required>
+                            <div ng-messages="appProcessCharges[data[3]].$error">
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container ng-if="vm.market!=='Italy'" class="full-width margin-bottom-0">
+                            <input type="number" class="font-size-fixed-16" name="{{data[4]}}" ng-model="vm.formData[data[4]]" min="0" max="100" ng-maxlength="15"
+                                required>
+                            <md-icon>&percnt;</md-icon>
+                            <div ng-messages="appProcessCharges[data[4]].$error">
+                                <div ng-message="maxlength">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.NUMBER_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="min">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="max">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.PERCENTAGE_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                                <div ng-message="required">
+                                    <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+
                 <div>
-                    <h3 class="font-weight-500 font-size-fixed-18" palette-background="swiss-life-grey:500" fg-only="" style="color: rgb(61, 61, 61);">
-                        <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.SUB_TITLE_PART_OF_THE_PREMIUM" class="ng-binding">Part de la prime à attribuer (% ou montant en devise de référence)</span><span class="slpc-workflow-dual-language ng-binding" ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.SUB_TITLE_PART_OF_THE_PREMIUM_LOCAL"></span>
-                    </h3>
-                    <div layout="row">
-                        <h4 class="font-size-fixed-18 text-bold">
-                            <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.FAS_FUND_AMOUNT"
-                                palette-background="swiss-life-grey:400" fg-only></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.FAS_FUND_AMOUNT_LOCAL"></span>
-                        </h4>
-                        <h4 class="font-size-fixed-18 padding-left-8 text-bold">
-                            {{vm.FASFundAmountValue}}
-                        </h4>
-                    </div>
+                    <md-button ng-show="!vm.IsFASFirstAdditionalInfoExpanded5" ng-click="vm.addMoreAdditionalInfo()" class="md-warn margin-right-0">
+                        <md-icon md-font-icon="icon-add" class="line-height-fixed-18 font-size-fixed-16"></md-icon> {{::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.ADD_MORE}}
+                    </md-button>
+                    <md-button ng-show="vm.IsFASFirstAdditionalInfoExpanded2" ng-click="vm.removeAdditionalInfo()" class="md-warn margin-left-0">
+                        <md-icon md-font-icon="icon-close" class="line-height-fixed-18 font-size-fixed-16"></md-icon> {{::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REMOVE}}{{::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.REMOVE_LOCAL}}
+                    </md-button>
+                </div>
 
-                    <div layout="row">
-                        <h4 class="font-size-fixed-18 text-bold">
-                            <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.FAS_FUND_PERCENT"
-                                palette-background="swiss-life-grey:400" fg-only></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.FAS_FUND_PERCENT_LOCAL"></span>
-                        </h4>
-                        <h4 class="font-size-fixed-18 padding-left-8 text-bold">
-                            {{vm.FASFundPercentValue}}
-                        </h4>
-                    </div>
-
-
-                    <h3 class="font-weight-500 font-size-fixed-18">
-                        <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.DESIGNATION_CUSTODIAN_BANK"></span>
-                    </h3>
-                    <p ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.CURRENT_RELATION"> </p>
-                    <h3 class="font-weight-500 font-size-fixed-18">
-                        <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.CUSTODIAN_BANK"></span>
+                <div ng-if="vm.ActivityIdNo == vm.numberOfFAS">
+                    <h3 class="font-weight-500 font-size-fixed-18" palette-background="swiss-life-grey:400" fg-only>
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.INVESTMENT_LIMITS"></span>
                     </h3>
 
-                    <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50">
-                        <md-input-container class="full-width margin-bottom-0">
-                            <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.COMPANY_NAME"></label>
-                            <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceCompanyName" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceCompanyName"
-                                ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceCompanyName.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                                <div ng-message="maxlength">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
-                        <md-input-container class="full-width margin-bottom-0">
-                            <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_STREET_NAME_AND_NUMBER"></label>
-                            <input type="text" class="font-size-fixed-16" name="companyName" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceStreet"
-                                ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceStreet.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                                <div ng-message="maxlength">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
-                        <md-input-container class="full-width margin-bottom-0">
-                            <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.CITY_POSTAL"></label>
-                            <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsurancePostcode" ng-model="vm.formData.PAOneOrMoreSpecialisedInsurancePostcode"
-                                ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsurancePostcode.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                                <div ng-message="maxlength">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
-                        <md-input-container class="full-width margin-bottom-20">
-                            <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_COUNTRY"></label>
-                            <md-select placeholder="{{::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_COUNTRY}}" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceCountry"
-                                layout="row" name="PAOneOrMoreSpecialisedInsuranceCountry" required>
-                                <md-option id="appProcessCountryOption" ng-repeat="country in vm.countriesOfResidence" ng-value="country">
-                                    {{ country == 'Other' ? vm.ohetrCountriesValue: country }}
-                                </md-option>
-                            </md-select>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceCountry.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
-                        <md-input-container class="full-width margin-bottom-20" ng-if="vm.formData.PAOneOrMoreSpecialisedInsuranceCountry==='Other'">
-                            <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_POLICYHODER_DETAILS.LABEL_COUNTRY_OF_RESIDENCE_OTHER"></label>
-                            <md-select placeholder="{{::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_POLICYHODER_DETAILS.LABEL_COUNTRY_OF_RESIDENCE_OTHER}}" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceOtherCountry"
-                                layout="row" name="PAOneOrMoreSpecialisedInsuranceOtherCountry" required>
-                                <md-option id="appProcessCountryOption" ng-repeat="country in vm.otherCountriesOfResidence" ng-value="country">
-                                    {{country}}
-                                </md-option>
-                            </md-select>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceOtherCountry.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only
-                                        class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
-                    </div>
+                    <p ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.SUBSCRIBER_INVEST"></p>
+                    <p class="text-bold" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.TITLE_OBLIGATION"></p>
 
-                    <h3 class="font-weight-500 font-size-fixed-18">
-                        <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.CONTACT_PERSON"></span>
-                    </h3>
-                    <div flex-xs="100" flex-sm="80" flex-md="50" flex-lg="50" flex-xl="50">
-                        <md-input-container class="full-width margin-bottom-0">
-                            <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_SURNAME_2"></label>
-                            <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceSurname" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceSurname"
-                                ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceSurname.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                                <div ng-message="maxlength">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
+                    <ul class="slpc-unorder-list">
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OBLIGATION_LIST.A"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OBLIGATION_LIST.B"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OBLIGATION_LIST.C"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OBLIGATION_LIST.D"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OBLIGATION_LIST.E"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OBLIGATION_LIST.F"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OBLIGATION_LIST.G"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OBLIGATION_LIST.H"></li>
+                    </ul>
 
-                        <md-input-container ng-if="!vm.formData.PAOneOrMoreSpecialisedInsuranceFirstnameNotApplicable" class="full-width margin-bottom-0">
-                            <label>
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_FIRST_NAME_2"></span><span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_OPTIONAL"></span>
-                            </label>
-                            <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceFirstname" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceFirstname"
-                                ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceFirstname.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                                <div ng-message="maxlength">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
+                    <p class="text-bold" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.TITLE_ACTION"></p>
+                    <ul class="slpc-unorder-list">
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.ACTION_LIST.A"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.ACTION_LIST.B"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.ACTION_LIST.C"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.ACTION_LIST.D"></li>
+                    </ul>
 
-                        <div flex ng-if="!vm.formData.PAOneOrMoreSpecialisedInsuranceFirstname">
-                            <md-checkbox class="md-primary margin-bottom-32" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceFirstnameNotApplicable"
-                                aria-label="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE">
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_POLICYHODER_DETAILS.NOT_APPLICABLE_LOCAL"></span>
-                            </md-checkbox>
-                        </div>
+                    <p class="text-bold" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.TITLE_OPCVM"></p>
+                    <ul class="slpc-unorder-list">
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OPCVM_LIST"></li>
+                    </ul>
 
+                    <p class="text-bold" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.TITLE_HEDGE"></p>
+                    <ul class="slpc-unorder-list">
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.HEDGE_LIST"></li>
+                    </ul>
 
-                        <md-input-container class="full-width margin-bottom-0" ng-if="!vm.formData.IsFasTelephoneAvailable">
-                            <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_TELEPHONE"></label>
-                            <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceTelephoneCode" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceTelephoneCode"
-                                ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceTelephoneCode.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                                <div ng-message="maxlength">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
+                    <p class="text-bold" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.TITLE_OTHERS"></p>
+                    <ul class="slpc-unorder-list">
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OTHER_LIST.A"></li>
+                        <li ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.OTHER_LIST.B"></li>
+                    </ul>
 
-
-                        <div flex ng-if="!vm.formData.PAOneOrMoreSpecialisedInsuranceTelephoneCode" class="padding-right-16 margin-bottom-10">
-                            <md-checkbox class="md-primary" ng-model="vm.formData.IsFasTelephoneAvailable" aria-label="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.TELEPHONE_NOT_APPLICABLE.MOBILE_NOT_AVAILABLE">
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TELEPHONE_NOT_APPLICABLE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TELEPHONE_NOT_APPLICABLE_LOCAL"></span>
-                            </md-checkbox>
-                        </div>
-
-                        <md-input-container ng-if="!vm.formData.PAOneOrMoreSpecialisedInsuranceMobileNotApplicable" class="full-width margin-bottom-0">
-                            <label>
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_MOBILE"></span><span ng-bind="vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_OPTIONAL"></span>
-                            </label>
-                            <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceMobile" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceMobile"
-                                ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceMobile.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                                <div ng-message="maxlength">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
-
-                        <div flex ng-if="!vm.formData.PAOneOrMoreSpecialisedInsuranceMobile">
-                            <md-checkbox class="md-primary margin-bottom-32" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceMobileNotApplicable"
-                                aria-label="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.MOBILE_NOT_AVAILABLE">
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.MOBILE_NOT_AVAILABLE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.MOBILE_NOT_AVAILABLE_LOCAL"></span>
-                            </md-checkbox>
-                        </div>
-
-
-                        <!--<md-input-container class="full-width margin-bottom-0">
-                            <label ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.LABEL_TELEPHONE"></label>
-                            <input type="text" class="font-size-fixed-16" name="companyName" ng-model="vm.formData.PAOneOrMoreSpecialisedInsurancetelephone"
-                                ng-maxlength="250">
-                        </md-input-container>-->
-                        <md-input-container ng-if="!vm.formData.PAOneOrMoreSpecialisedInsuranceEmailNotApplicable" class="full-width margin-bottom-0">
-                            <label>
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.LABEL_EMAIL"></span><span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_OPTIONAL"></span>
-                            </label>
-                            <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceEmail" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceEmail"
-                                ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceEmail.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                                <div ng-message="maxlength">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
-
-                        <div flex ng-if="!vm.formData.PAOneOrMoreSpecialisedInsuranceEmail">
-                            <md-checkbox class="md-primary margin-bottom-32" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceEmailNotApplicable"
-                                aria-label="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.EMAIL_NOT_AVAILABLE">
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.EMAIL_NOT_AVAILABLE"></span><span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.EMAIL_NOT_AVAILABLE_LOCAL"></span>
-                            </md-checkbox>
-                        </div>
-
-                        <md-input-container ng-if="!vm.formData.PAOneOrMoreSpecialisedInsuranceFaxNotApplicable" class="full-width margin-bottom-0">
-                            <label>
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.APP_PROCESS_ALLOCATION.LABEL_FAX"></span><span ng-bind="vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.LABEL_OPTIONAL"></span>
-                            </label>
-                            <input type="text" class="font-size-fixed-16" name="PAOneOrMoreSpecialisedInsuranceFax" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceFax"
-                                ng-maxlength="250" required>
-                            <div ng-messages="appProcessAllocationFas.PAOneOrMoreSpecialisedInsuranceFax.$error">
-                                <div ng-message="required">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.REQUIRED_MESSAGE" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                                <div ng-message="maxlength">
-                                    <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.TEXT_LENGTH_VALIDATION" theme-background="warn" fg-only class="font-size-fixed-12"></span>
-                                </div>
-                            </div>
-                        </md-input-container>
-
-                        <div flex ng-if="!vm.formData.PAOneOrMoreSpecialisedInsuranceFax">
-                            <md-checkbox class="md-primary margin-bottom-32" ng-model="vm.formData.PAOneOrMoreSpecialisedInsuranceFaxNotApplicable" aria-label="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.FAX_NOT_AVAILABLE">
-                                <span ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.FAX_NOT_AVAILABLE"></span>
-                                <!-- <span class="slpc-workflow-dual-language" ng-bind="::vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COMMON_LOCALIZATION_DATA.FAX_NOT_AVAILABLE"></span> -->
-                            </md-checkbox>
+                    <h4 class="font-size-fixed-18 margin-bottom-16 margin-top-20 text-bold">
+                        <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_ALLOCATION.INVESTMENT_ADVISOR"></span>
+                    </h4>
+                    <md-radio-group name="InvestorAdvisorChoice" ng-model="vm.formData.InvestorAdvisorChoice" layout-xs="column" layout="row"
+                        required>
+                        <md-radio-button value="YES" class="md-primary padding-right-35" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_LIFE_INSURED.RADIO_YES">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_YES"></span>
+                        </md-radio-button>
+                        <md-radio-button value="NO" class="md-primary" ng-click="vm.showInvestorInfo()" aria-label="vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.APP_PROCESS_LIFE_INSURED.RADIO_NO">
+                            <span ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.RADIO_NO"></span>
+                        </md-radio-button>
+                    </md-radio-group>
+                    <div ng-messages="appProcessSpecialised.InvestorAdvisorChoice.$error">
+                        <div ng-message="required">
+                            <span theme-background="warn" fg-only class="font-size-fixed-12" ng-bind="::vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COMMON_LOCALIZATION_DATA.SELECT_ONE"></span>
                         </div>
                     </div>
+                </div>
+
+
+                <div ng-if=" vm.ActivityId === 'AppProcessSpecialised4VOne' || vm.formData.AddAnotherDedicatedFund === 'NO'">
+
+
+
+
                 </div>
             </div>
         </div>
