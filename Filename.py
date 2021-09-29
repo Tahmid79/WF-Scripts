@@ -1,9 +1,9 @@
 import os
 
-folderDir = './FAS/Designation/Apps/'
+folderDir = './FAS/Charges/Apps/'
 folderStr = folderDir + 'switch-fr-fas-designation-1st'
 
-oldname = 'app-process-allocation-fas-vtwo'
+oldname = 'app-process-specialised-vtwo'
 newname = 'switch-fr-fas-designation-1st'
 
 controllerStr = folderStr + '/controller'
