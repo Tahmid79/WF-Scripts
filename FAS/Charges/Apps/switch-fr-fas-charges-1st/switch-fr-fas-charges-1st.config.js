@@ -1,7 +1,7 @@
 (function (angular) { 
     'use strict';
 
-    var module = angular.module('slpc.app-process-specialised-vtwo', ['pascalprecht.translate']);
+    var module = angular.module('slpc.switch-fr-fas-charges-1st', ['pascalprecht.translate']);
 
     function config() {}
 

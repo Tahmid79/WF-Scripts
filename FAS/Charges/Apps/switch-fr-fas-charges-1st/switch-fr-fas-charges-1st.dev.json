@@ -1,12 +1,12 @@
 {
   "js": [
-    "app-process-specialised-vtwo.config.js",
-    "controller/app-process-specialised-vtwo.controller.js",
-    "controller/app-process-specialised-vtwo.common.modal.controller.js",
-    "controller/app-process-specialised-vtwo.additional-notes.modal.controller.js",
-    "controller/app-process-specialised-vtwo.investor.modal.controller.js",
-    "controller/app-process-specialised-vtwo.info12.modal.controller.js",
-    "controller/app-process-specialised-vtwo.info.modal.controller.js"
+    "switch-fr-fas-charges-1st.config.js",
+    "controller/switch-fr-fas-charges-1st.controller.js",
+    "controller/switch-fr-fas-charges-1st.common.modal.controller.js",
+    "controller/switch-fr-fas-charges-1st.additional-notes.modal.controller.js",
+    "controller/switch-fr-fas-charges-1st.investor.modal.controller.js",
+    "controller/switch-fr-fas-charges-1st.info12.modal.controller.js",
+    "controller/switch-fr-fas-charges-1st.info.modal.controller.js"
   ],
     "css": [
     ],

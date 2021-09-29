@@ -191,9 +191,9 @@
 
         var showInfo12Modal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-specialised-vtwo/view/app-process-specialised-vtwo.info12.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-fas-charges-1st/view/switch-fr-fas-charges-1st.info12.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessSpecialisedInfo12ModalVtwoController",
+                controller: "slpcSwitchFrFasCharges1stInfo12ModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -245,8 +245,8 @@
                     vm.SpecialisedSpecificInstruction = 'NO';
                 }
             } else {
-                $scope.appProcessSpecialised.$submitted = true;
-                if (!$scope.appProcessSpecialised.$invalid && vm.checkboxMandatory()) {
+                $scope.switchFrFasCharges1st.$submitted = true;
+                if (!$scope.switchFrFasCharges1st.$invalid && vm.checkboxMandatory()) {
                     if (vm.SpecialisedSpecificInstruction === 'YES') {
                         vm.formData.SpecialisedSpecificInstruction = true;
                     }
@@ -272,9 +272,9 @@
 
         var showCommonModal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-specialised-vtwo/view/app-process-specialised-vtwo.common.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-fas-charges-1st/view/switch-fr-fas-charges-1st.common.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessSpecialisedCommonModalVtwoController",
+                controller: "slpcSwitchFrFasCharges1stCommonModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -288,8 +288,8 @@
         function showAdditionalNotes() {
             return $q(function (resolve, reject) {
                 $mdDialog.show({
-                    templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-specialised-vtwo/view/app-process-specialised-vtwo.additional-notes.modal.view.html",
-                    controller: "slpcAppProcessSpecialisedAdditionalNotesModalVtwoController",
+                    templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-fas-charges-1st/view/switch-fr-fas-charges-1st.additional-notes.modal.view.html",
+                    controller: "slpcSwitchFrFasCharges1stAdditionalNotesModalController",
                     controllerAs: "vm",
                     clickOutsideToClose: false,
                     escapeToClose: false,
@@ -308,8 +308,8 @@
         function showInvestorInfo() {
             return $q(function (resolve, reject) {
                 $mdDialog.show({
-                    templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-specialised-vtwo/view/app-process-specialised-vtwo.investor.modal.view.html",
-                    controller: "slpcAppProcessSpecialisedInvestorModalVtwoController",
+                    templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-fas-charges-1st/view/switch-fr-fas-charges-1st.investor.modal.view.html",
+                    controller: "slpcSwitchFrFasCharges1stInvestorModalController",
                     controllerAs: "vm",
                     clickOutsideToClose: false,
                     escapeToClose: false,
@@ -326,9 +326,9 @@
 
         var showInfoModal = function ($event) {
             $mdDialog.show({
-                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/app-process-specialised-vtwo/view/app-process-specialised-vtwo.info.modal.view.html",
+                templateUrl: vm.viewHelper.getTenantPath() + "app/workflows/switch-fr-fas-charges-1st/view/switch-fr-fas-charges-1st.info.modal.view.html",
                 targetEvent: $event,
-                controller: "slpcAppProcessSpecialisedInfoModalVtwoController",
+                controller: "slpcSwitchFrFasCharges1stInfoModalController",
                 controllerAs: "vm",
                 clickOutsideToClose: true,
                 escapeToClose: true,
@@ -352,7 +352,7 @@
             });
             getData.commonLanguage().then(function (responseLanguage) {
                 vm.localizationObj = responseLanguage.data;
-                vm.ohetrCountriesValue = vm.localizationObj.APP_PROCESS_SPECIALISED_VTWO.COUNTRY_LIST.OTHER;
+                vm.ohetrCountriesValue = vm.localizationObj.SWITCH_FR_FAS_DESIGNATION_1ST.COUNTRY_LIST.OTHER;
             });
 
             //For Get Entity Data
@@ -498,8 +498,8 @@
             getCountryList();
             getNationalities();
             getOtherCountryNationalityList();
-            workflowService.eventRegister(WorkflowConfig.eventForDataTransition, getCommonData, 'app-process-specialised-vtwo');
-            workflowService.eventRegister(WorkflowConfig.registerWorkflowExecuteCommand, executeWorkflowForm, 'app-process-specialised-vtwo');
+            workflowService.eventRegister(WorkflowConfig.eventForDataTransition, getCommonData, 'switch-fr-fas-charges-1st');
+            workflowService.eventRegister(WorkflowConfig.registerWorkflowExecuteCommand, executeWorkflowForm, 'switch-fr-fas-charges-1st');
         };
 
         vm.showCommonModal = showCommonModal;
@@ -510,5 +510,5 @@
     }
 
     constructor.$inject = ["$q", "$scope", "$http", "$mdMedia", "shellInfrastructure", "workflowService", "WorkflowConfig", "$state", "policyformService", "$location", "SLPCConfig", "$mdDialog", "slpcSlpcConfigUtilService", "slpcConfigWorkflowService"];
-    angular.module("slpc.app-process-specialised-vtwo").controller('slpcAppProcessSpecialisedVtwoController', constructor);
+    angular.module("slpc.switch-fr-fas-charges-1st").controller('slpcSwitchFrFasCharges1stController', constructor);
 })(window.angular, window.appSuite);
